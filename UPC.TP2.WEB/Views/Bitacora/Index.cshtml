@@ -1,0 +1,156 @@
+﻿@using UPC.TP2.WEB.Utils
+@model UPC.TP2.WEB.ViewModels.BitacoraViewModel
+
+@{
+    ViewBag.Title = "Planes de salud - Mantenimiento - Bitácora de incidencias";
+}
+
+<h2>Planes de salud - Mantenimiento - Bitácora de incidencias</h2>
+<hr/>
+<h3>@ViewBag.Message</h3>
+<hr />
+<form action="" method="post" id="form_bitacora_index" name="form_bitacora_index">
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-horizontal">
+            <label class="control-label">PLAN DE SALUD</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select class="select control-group" name="bitacora_action_select_plan" id="bitacora_action_select_plan">
+                <option value="default">-- Seleccione --</option>
+                <option value="-1">Todo</option>
+                @foreach (var plan in Model.PLANES_DE_SALUD)
+                {
+                    if (ViewData["id_plan_salud"] != null && ViewData["id_plan_salud"].ToString() == plan.id_plan_salud.ToString())
+                    {
+                        <option selected value="@plan.id_plan_salud">@plan.nombre_plan</option>
+                    }
+                    else
+                    {
+                        <option value="@plan.id_plan_salud">@plan.nombre_plan</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <p>
+        <!-- Boton agregar inceidencia -->
+        <a href="#bitacora_create_modal" role="button" class="btn" data-toggle="modal" id="bitacora_create_button">Agregar incidencia</a>
+    </p>
+    <table id="table_bitacoras" class="display nowrap dataTable dtr-inline collapsed ">
+        <thead>
+            <tr>
+                <th>
+
+                </th>
+                <th>
+                    FECHA DE REGISTRO
+                </th>
+                <th>
+                    TIPO
+                </th>
+                <th>
+                    DESCRIPCI&Oacute;N
+                </th>
+                <th>
+                    PLAN
+                </th>
+                <th>
+                    ESTADO
+                </th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.BITACORAS)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("Ver detalle", "Edit", new { id = item.id_bitacora })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha_registro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipo_incidencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.T_PLAN_DE_SALUD.nombre_plan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <!-- CREATE -->
+    <div id="bitacora_create_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Crear incidencia</h3>
+        </div>
+        <div class="modal-body">
+            <p></p>
+            <!-- content -->
+            <div class="form-horizontal" id="bitacora_create_form_div">
+
+                <div class="control-group">
+                    <label class="control-label" for="inputEmail">Tipo de incidencia</label>
+                    <div class="controls">
+                        <select id="bitacora_select_tipo" name="bitacora_tipo">
+                            @foreach (var i in Util.BitacoraTipos())
+                            {
+                                <option value="@i.Value">@i.Value</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">Incidencia</label>
+                    <div class="controls">
+                        <input type="text" id="bitacoraIncidencia" placeholder="Ingrese texto" name="bitacora_incidencia">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">Seguimiento</label>
+                    <div class="controls">
+                        <input type="text" id="bitacoraSeguimiento" placeholder="Ingrese texto" name="bitacora_seguimiento">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+            <button class="btn btn-primary" id="bitacora_button_create_submit">Guardar</button>
+        </div>
+    </div>
+    <!-- DETAILS 
+    <div id="bitacora_details_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Crear incidencia</h3>
+        </div>
+        <div class="modal-body">
+            <span> FECHA:  </span>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Seguimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+            <button class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+    -->
+</form>

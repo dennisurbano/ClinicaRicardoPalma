@@ -1,0 +1,61 @@
+﻿@model UPC.TP2.WEB.Models.T_BITACORA_INCIDENCIA
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>T_BITACORA_INCIDENCIA</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_bitacora)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_bitacora)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipo_incidencia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipo_incidencia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.fecha_registro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fecha_registro)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.T_PLAN_DE_SALUD.nombre_plan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.T_PLAN_DE_SALUD.nombre_plan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.T_EMPLEADO.nomEmpleado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.T_EMPLEADO.nomEmpleado)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

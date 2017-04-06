@@ -1,0 +1,144 @@
+﻿@using UPC.TP2.WEB.Utils
+@model UPC.TP2.WEB.ViewModels.EstrategiaComercialViewModel
+
+@{
+    ViewBag.Title = "Estrategias comerciales - Mantenimiento";
+}
+
+<h2>Estrategias comerciales - Mantenimiento</h2>
+<hr />
+<h3>@ViewBag.Message</h3>
+<hr />
+<form action="" method="post" id="form_estrategia_comercial_index" name="form_estrategia_comercial_index">
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-horizontal">
+            <label class="control-label">PLAN DE SALUD</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select class="select control-group" name="estrategia_comercial_action_select_plan" id="estrategia_comercial_action_select_plan">
+                <option value="default">-- Seleccione --</option>
+                <option value="-1">Todo</option>
+                @foreach (var plan in Model.PLANES_DE_SALUD)
+                {
+                    if (ViewData["id_plan_salud"] != null && ViewData["id_plan_salud"].ToString() == plan.id_plan_salud.ToString())
+                    {
+                        <option selected value="@plan.id_plan_salud">@plan.nombre_plan</option>
+                    }
+                    else
+                    {
+                        <option value="@plan.id_plan_salud">@plan.nombre_plan</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <p>
+        <!-- Boton agregar inceidencia -->
+        <a href="#estrategia_comercial_create_modal" role="button" class="btn" data-toggle="modal" id="estrategia_comercial_create_button">Agregar incidencia</a>
+    </p>
+    <table id="table_estrategias_comerciales" class="display nowrap dataTable dtr-inline collapsed ">
+        <thead>
+            <tr>
+                <th>
+
+                </th>
+                <th>
+                    ESTRATEGIA
+                </th>
+                <th>
+                    OBJETIVO
+                </th>
+                <th>
+                    FECHA CREACI&Oacute;N
+                </th>
+                <th>
+                    FECHA FIN
+                </th>
+                <th>
+                    PPTO
+                </th>
+                <th>
+                    REAL
+                </th>
+                <th>
+                    DESVIACI&Oacute;N
+                </th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model.ESTRATEGIAS_COMERCIALES)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("Ver detalle", "Edit", new { id = item.id_estrategia_comercial })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.objetivo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha_registro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha_fin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.presupuesto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.real)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.desviacion)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <!-- CREATE -->
+    <div id="estrategia_comercial_create_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">Nueva Estrategia comercial</h3>
+        </div>
+        <div class="modal-body">
+            <p></p>
+            <!-- content -->
+            <div class="form-horizontal" id="estrategia_comercial_create_form_div">
+
+                <div class="control-group">
+                    <label class="control-label">Nombre</label>
+                    <div class="controls">
+                        <input type="text" id="estrategiaComercialNombre" placeholder="Ingrese texto" name="estrategia_comercial_nombre">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Objetivo</label>
+                    <div class="controls">
+                        <input type="text" id="estrategiaComercialObjetivo" placeholder="Ingrese texto" name="estrategia_comercial_objetivo">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Fecha de registro</label>
+                    <div class="controls">
+                        <input type="text" value="@Util.getToday()" readonly="readonly">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Presupuesto</label>
+                    <div class="controls">
+                        <input type="number" id="estrategiaComercialPresupuesto" placeholder="Ingrese PPTO" name="estrategia_comercial_presupuesto">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+            <button class="btn btn-primary" id="estrategia_comercial_button_create_submit">Guardar</button>
+        </div>
+    </div>
+
+</form>

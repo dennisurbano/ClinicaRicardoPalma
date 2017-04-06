@@ -1,0 +1,84 @@
+﻿@model UPC.TP2.WEB.Models.T_ESTRATEGIA_COMERCIAL
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>T_ESTRATEGIA_COMERCIAL</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_estrategia_comercial)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_estrategia_comercial)
+            @Html.ValidationMessageFor(model => model.id_estrategia_comercial)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nombre)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nombre)
+            @Html.ValidationMessageFor(model => model.nombre)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.descripcion)
+            @Html.ValidationMessageFor(model => model.descripcion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.objetivo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.objetivo)
+            @Html.ValidationMessageFor(model => model.objetivo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha_registro)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fecha_registro)
+            @Html.ValidationMessageFor(model => model.fecha_registro)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.presupuesto)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.presupuesto)
+            @Html.ValidationMessageFor(model => model.presupuesto)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_plan_salud, "T_PLAN_DE_SALUD")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("id_plan_salud", String.Empty)
+            @Html.ValidationMessageFor(model => model.id_plan_salud)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,100 @@
+﻿@using UPC.TP2.WEB.Utils
+@model UPC.TP2.WEB.ViewModels.PlanSaludViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>LISTADO DE PLANES DE SALUD</h2>
+<hr />
+<p>@ViewBag.Message</p>
+<hr />
+<form action="/PlanSalud/IndexSave" method="post" id="form_plan_salud_index" name="form_plan_salud_index">
+
+    <!-- BEGIN: #COMBO DE PLANES# -->
+    <div class="row">
+        <div class="form-horizontal">
+            <label class="control-label">PLANES DE SALUD</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select class="select control-group" name="plan_salud_action_select_plan" id="plan_salud_action_select_plan">
+                <option value="default">-- Seleccione --</option>
+                
+                @foreach (var plan in Model.PLANES_DE_SALUD)
+                {
+                    if (ViewData["id_plan_salud"] != null && ViewData["id_plan_salud"].ToString() == plan.id_plan_salud.ToString())
+                    {
+                        <option selected value="@plan.id_plan_salud">@plan.nombre_plan</option>
+                    }
+                    else
+                    {
+                        <option value="@plan.id_plan_salud">@plan.nombre_plan</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <!-- END: #COMBO DE PLANES# -->
+
+    <!-- BEGIN: #FORMULARIO PARA EDICION# -->
+
+    <input type="hidden" name="plan_salud_id" value="@Model.PLAN_DE_SALUD.id_plan_salud"/>
+
+    <div class="row">
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Nombre</label>
+                <div class="controls"><input name="plan_salud_nombre" value="@Model.PLAN_DE_SALUD.nombre_plan" placeholder="Ingrese nombre del plan" /></div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Descripci&oacute;n</label>
+                <div class="controls"><input name="plan_salud_descripcion" value="@Model.PLAN_DE_SALUD.descripcion" placeholder="Ingrese descripci&oacute;n" /></div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Objetivo</label>
+                <div class="controls"><input name="plan_salud_objetivo" value="@Model.PLAN_DE_SALUD.objetivo" placeholder="Ingrese nombre del plan" /></div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="control-group">
+                <label class="control-label">Estado</label>
+                <div class="controls">
+                    <select name="plan_salud_estado">
+                        <option value="deault">-- Seleccione --</option>
+                        @foreach (var es in Util.PlanSaludEstado())
+                        {
+                            <option value="@es.Key" @(Model.PLAN_DE_SALUD.estado == es.Key.ToString() ? "selected": String.Empty) >@es.Value</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Fecha inicio</label>
+                <div class="controls">
+                    <div class="input-append date" id="dp3" data-date="" data-date-format="dd/mm/yyyy">
+                        <input class="span2" size="16" type="text" value="@Util.DateTimeToShort(Model.PLAN_DE_SALUD.fecha_inicio)" readonly="readonly">
+                        <span class="add-on"><i class="icon-th"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Fecha fin</label>
+                <div class="controls">
+                    <div class="input-append date" id="dp3" data-date="" data-date-format="dd/mm/yyyy">
+                        <input class="span2" size="16" type="text" value="@Util.DateTimeToShort(Model.PLAN_DE_SALUD.fecha_fin)" id="plan_salud_fecha_fin" name="plan_salud_fecha_fin">
+                        <span class="add-on"><i class="icon-th"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END: #FORMULARIO PARA EDICION# -->
+
+    <!-- BEGIN: #ACTION BUTTONS# -->
+    <p>
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn" })
+
+        <input class="btn" type="submit" value="Modificar" />
+    </p>
+    <!-- END: #ACTION NUTTONS# -->
+
+</form>

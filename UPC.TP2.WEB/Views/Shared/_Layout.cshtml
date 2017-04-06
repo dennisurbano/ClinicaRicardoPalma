@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;IE=9;IE=8;IE=7" />
+    <title>Sistema Integrado</title>
+    <link href="~/Images/crp.png" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    @Styles.Render("~/Style/bootstrap/css/bootstrap.min.css")
+    @Styles.Render("~/Style/bootstrap/css/bootstrap-responsive.min.css")
+    @Styles.Render("~/Style/bootstrap/css/datepicker.css")
+    @Styles.Render("~/Style/css/cgr.css")
+    @Styles.Render("~/lib/jBreadcrumbs/css/BreadCrumb.css")
+    @Styles.Render("~/lib/qtip2/jquery.qtip.min.css")
+    @Styles.Render("~/lib/sticky/sticky.css")
+    @Styles.Render("~/Style/css/style.css")
+    @Styles.Render("http://fonts.googleapis.com/css?family=PT+Sans")
+    @Styles.Render("~/Style/css/jquery-ui-1.8.21.custom.css")
+    @Styles.Render("~/Style/css/ui.jqgrid.css")
+    @Styles.Render("~/Style/css/jqGrid.bootstrap.css")
+    @Styles.Render("~/Style/css/tooltip.css")
+    @Styles.Render("~/Style/css/jquery.dataTables.min.css")
+
+</head>
+<body>
+     <div id="logocontainer" class="clearfix">
+        <!-- logo -->
+        <div id="logowrapper">
+            <div id="logo-interior">
+            </div>
+            <div id="logo-titulo">
+                <p>Sistema Integrado - Cl&iacute;nica Ricardo Palma</p>
+            </div>
+        </div>
+    </div> 
+    <div id="maincontainer" class="clearfix">
+        <!-- header -->
+        <header>
+
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid" style="color: white;">
+                        <ul class="nav user_menu pull-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dennis Urbano
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="btn-danger" style="background-image: -webkit-gradient(linear,0 0,0 100%,from(#799c25),to(#95C12E));"><a href='#'><i class="icon-remove icon-white"></i><span class='txtblanco'>Cerrar Sesión</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><b>Rol - Auxiliar Mantenimiento </b></li>
+                        </ul>
+                        <a data-target=".nav-collapse" data-toggle="collapse" class="btn_menu">
+                            <span class="icon-align-justify icon-white"></span>
+                        </a>
+                        <nav>
+                            <div class="nav-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="dropdown"><a class="dropdown" href="/Home"><i class="icon-home icon-white"></i>Inicio</a></li>
+                                    <li class="dropdown">
+                                        <a data-toggle="dropdown" class="dropdown-toggle" href="Bandeja/Consulta">Mantenimiento<b class="caret"></b></a><ul class="dropdown-menu">
+                                            <li><a href="@Url.Action("Index", "PlanMantenimiento", new { area = "Mantenimiento" })">Plan de Mantenimiento</a></li>
+                                            <li><a href="@Url.Action("PendienteMantenimiento", "PlanMantenimiento", new {area = "Mantenimiento"})">Equipos Pendiente de Mantenimiento</a></li>
+                                            <li><a href="#">Solicitud Mantenimiento Correctivo</a></li>
+                                            <li><a href="#">Equipos Medicos</a></li>
+                                            <li><a href="#">Personal Mantenimiento</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a data-toggle="dropdown" class="dropdown-toggle" href="Bandeja/Consulta">Emergencia<b class="caret"></b></a><ul class="dropdown-menu">
+                                            <li><a href="#">Plan de Mantenimiento</a></li>
+                                            <li><a href="#">Equipos Pendiente de Mantenimiento</a></li>
+                                            <li><a href="#">Equipos Medicos</a></li>
+                                            <li><a href="#">Personal Mantenimiento</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a data-toggle="dropdown" class="dropdown-toggle" href="Bandeja/Consulta">UCI<b class="caret"></b></a><ul class="dropdown-menu">
+                                            <li><a href="#">Plan de Mantenimiento</a></li>
+                                            <li><a href="#">Equipos Pendiente de Mantenimiento</a></li>
+                                            <li><a href="#">Equipos Medicos</a></li>
+                                            <li><a href="#">Personal Mantenimiento</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Planes de Salud<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#"/>Mantenimientos
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="@Url.Action("Index","PlanSalud", new { area = "" })">Planes de Salud</a></li>
+                                                    <li><a href="@Url.Action("Index","Bitacora", new { area = "" })">Bitácora Incidencias</a></li>
+                                                    <li><a href="@Url.Action("Index","EstrategiaComercial", new { area = "" })"><i class=""></i>Estrategia comercial</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#" />Informes
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="@Url.Action("Index","GenerarServiciosPlan", new { area = "" })" class="dropdown-toggle" data-toggle="dropdown">Generar Servicios Salud</a></li>
+                                                    <li><a href="#">Generar Estrategia Comercial</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    
+                                    </ul>
+                                </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <!-- main content -->
+        <div id="contentwrapper">
+            <div class="main_content">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <div id="footercontainer" class="clearfix">
+        <!-- footer -->
+        <div id="footerwrapper">
+            <div class="footer_content">
+                &copy; @DateTime.Now.Year. Sistema Integrado - Cl&iacute;nica Ricardo Palma
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Script/core/jquery-1.7.2.min.js"></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Script/jquery.debouncedresize.min.js"></script>
+
+    <script src="~/Script/jquery.actual.min.js"></script>
+
+    <script src="~/Script/jquery.cookie.min.js"></script>
+
+    <script src="~/Style/bootstrap/js/bootstrap.js"></script>
+
+    <script src="~/Style/bootstrap/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/Style/bootstrap/js/bootstrap-typeahead.js"></script>
+
+    <script src="~/lib/qtip2/jquery.qtip.min.js"></script>
+
+    <script src="~/Script/ios-orientationchange-fix.js"></script>
+
+    <script src="~/lib/antiscroll/antiscroll.js"></script>
+    <script src="~/lib/antiscroll/jquery-mousewheel.js"></script>
+
+    <script src="~/Script/cgr_common.js"></script>
+
+    <script src="~/lib/jBreadcrumbs/js/jquery.jBreadCrumb.1.1.min.js"></script>
+    <script src="~/lib/sticky/sticky.min.js"></script>
+    <script src="~/lib/colorbox/jquery.colorbox.min.js"></script>
+
+    <script src="~/Script/grid/grid.base.js"></script>
+    <script src="~/Script/grid/grid.locale-es.js"></script>
+    <script src="~/Script/grid/jquery.jqGrid.min.js"></script>
+    <script src="~/Script/grid/jquery.jqGrid.fluid.js"></script>
+    <script src="~/Script/jquery.dataTables.min.js"></script>
+
+    <script src="~/Script/json/json2.js"></script>
+
+    <script src="~/Script/utils/ProyectoCGR.js"></script>
+    <script src="~/Script/utils/ComunesFunciones.js"></script>
+
+    <script src="~/Script/utils/jquery.maskedinput-1.2.2.min.js"></script>
+
+    <script src="~/Script/jquery.blockUI.js"></script>
+
+    @RenderSection("Scripts", required:false)
+    @RenderSection("Javascript", required:false)
+</body>
+</html>

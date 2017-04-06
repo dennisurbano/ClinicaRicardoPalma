@@ -1,0 +1,64 @@
+﻿@model UPC.TP2.WEB.Models.T_ESTRATEGIA_COMERCIAL
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>T_ESTRATEGIA_COMERCIAL</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_estrategia_comercial)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_estrategia_comercial)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nombre)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nombre)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.objetivo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.objetivo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.fecha_registro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fecha_registro)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.presupuesto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.presupuesto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.T_PLAN_DE_SALUD.nombre_plan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.T_PLAN_DE_SALUD.nombre_plan)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

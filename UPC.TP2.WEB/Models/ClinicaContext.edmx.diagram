@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f03d7334c4e94915baa4fb3cd5523519" Name="Diagrama1" ZoomLevel="79">
+        <EntityTypeShape EntityType="BDCLINICAModel.T_BASE_FINANCIERA" Width="1.5" PointX="9" PointY="22" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_BASE_LEGAL" Width="1.5" PointX="9" PointY="6.125" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_BIEN" Width="1.5" PointX="1.5" PointY="49.625" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_BITACORA_INCIDENCIA" Width="1.5" PointX="8.25" PointY="13.75" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_COMPROBANTE" Width="1.5" PointX="8.25" PointY="1.25" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_CONFIGURACION" Width="1.5" PointX="3" PointY="12.25" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_EMPLEADO" Width="1.5" PointX="1.5" PointY="24.375" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_EMPRESA" Width="1.5" PointX="6" PointY="28.625" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_EQUIPO_MEDICO" Width="1.5" PointX="10.5" PointY="40.25" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_EQUIPO_USO" Width="1.5" PointX="12.75" PointY="41.25" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_ESPECIALIDAD_MEDICA" Width="1.5" PointX="1.5" PointY="35.5" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_ESPECIALIDAD_SERVICIO" Width="1.5" PointX="1.5" PointY="39.25" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_ESTRATEGIA_COMERCIAL" Width="1.5" PointX="3.75" PointY="7.5" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_INMUEBLE" Width="1.5" PointX="1.5" PointY="46.375" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_INVESTIGACION_COMERCIAL" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_MANTENIMIENTO_EQUIPO" Width="1.5" PointX="11.25" PointY="30.75" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_MODELO" Width="1.5" PointX="6" PointY="39.25" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_MUEBLE" Width="1.5" PointX="8.25" PointY="38.375" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PACIENTE" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PERSONA" Width="1.5" PointX="3.75" PointY="30.875" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PLAN_BASE_FINANCIERA" Width="1.5" PointX="11.25" PointY="14" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PLAN_BASE_LEGAL" Width="1.5" PointX="11.25" PointY="10" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PLAN_DE_SALUD" Width="1.5" PointX="6" PointY="13.125" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PLAN_ESPECIALIDADxSERVICIO" Width="1.5" PointX="0.75" PointY="2.875" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PLAN_ESTRATEGIA_COMERCIAL" Width="1.5" PointX="8.25" PointY="18" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PLAN_MANTENIMIENTO" Width="1.5" PointX="6" PointY="34.5" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PLAN_PACIENTE" Width="1.5" PointX="8.25" PointY="10" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PROGRAMACION_MEDICA" Width="1.5" PointX="1.5" PointY="29.75" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PROYECTO_PLANSALUD" Width="1.5" PointX="3" PointY="20.75" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_RESERVA_SERVICIO_SALUD" Width="1.5" PointX="11.25" PointY="21.875" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_SEGUIMIENTO" Width="1.5" PointX="10.5" PointY="18" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_SERVICIO_SALUD" Width="1.5" PointX="1.5" PointY="43.5" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_SOLICITUD_MANTENIMIENTO" Width="1.5" PointX="9" PointY="29" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_TECNICO_MANTENIMIENTO" Width="1.5" PointX="3.75" PointY="34.125" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_TIPO_PERSONA" Width="1.5" PointX="2.75" PointY="2.875" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_BASE_FINANCIERA" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_PLAN_BASE_LEGAL" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_MUEBLE__codBie__571DF1D5" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_INMUEBLE_T_BIEN" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_BITACOR__idemp__4D94879B" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_BITACORA_INCIDENCIA_PLAN_DE_SALUD" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_SEGUIMIENTO_BITACORA_INCIDENCIA" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_COMPROB__id_pa__49C3F6B7" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_CONFIGU__id_in__4AB81AF0" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_EMPLEAD__codPe__1273C1CD" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_SOLICIT__idEmp__300424B4" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_TECNICO__idEmp__15502E78" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_EMPLEADO_T_ESPECIALIDAD_MEDICA" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_PROGRAMACION_MEDICA_T_EMPLEADO" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_EMPRESA__codPe__4D94879B" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_MANTENI__codEm__534D60F1" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_MUEBLE__codEmp__5812160E" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_EQUIPO___codIn__2C3393D0" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_EQUIPO___codMu__4F7CD00D" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_EQUIPO___idEqu__4CA06362" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_EQUIPO___idEsp__5070F446" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_MANTENI__idEqu__5535A963" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_SOLICIT__idEqu__693CA210" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_SERVICIO_ESPECIALIDAD" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_PLAN_ESTRATEGIA_COMERCIAL" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_PROGRAM__codIn__6754599E" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_PLAN_DE_SALUD1" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_PROYECT__id_in__656C112C" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_MANTENI__codPl__5441852A" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_MANTENI__idSol__5629CD9C" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_MUEBLE__codMod__59063A47" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_PACIENT__codPe__59FA5E80" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_RESERVA__id_pa__5DCAEF64" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_PLAN_PACIENTE_T_PACIENTE" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_PLAN_DE_SALUD" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_PLAN" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_PLAN_COMERCIAL" />
+        <AssociationConnector Association="BDCLINICAModel.FK_T_PLAN_PACIENTE_T_PLAN_DE_SALUD" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_PLAN_MA__idTec__5EBF139D" />
+        <AssociationConnector Association="BDCLINICAModel.FK__T_RESERVA__id_se__5EBF139D" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="BDCLINICAModel.FK__T_SOLICIT__idTec__6A30C649" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PERSONA_PLANSALUD" Width="1.5" PointX="3.75" PointY="24.875" />
+        <AssociationConnector Association="BDCLINICAModel.T_PERSONAT_PERSONA_PLANSALUD" />
+        <AssociationConnector Association="BDCLINICAModel.T_PERSONA_PLANSALUDT_PLAN_DE_SALUD" />
+        <AssociationConnector Association="BDCLINICAModel.T_PROGRAMACION_MEDICAT_PERSONA" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_PLAN_SERVICIO" Width="1.5" PointX="3.75" PointY="16.375" />
+        <AssociationConnector Association="BDCLINICAModel.T_PLAN_SERVICIOT_PLAN_DE_SALUD" />
+        <AssociationConnector Association="BDCLINICAModel.T_ESPECIALIDAD_SERVICIOT_ESPECIALIDAD_MEDICA" />
+        <AssociationConnector Association="BDCLINICAModel.T_PLAN_SERVICIOT_ESPECIALIDAD_SERVICIO" />
+        <AssociationConnector Association="BDCLINICAModel.T_PROGRAMACION_MEDICAT_ESPECIALIDAD_SERVICIO" />
+        <EntityTypeShape EntityType="BDCLINICAModel.T_ESTRATEGIA_COMERCIAL_DETALLE" Width="1.5" PointX="1.5" PointY="7.125" />
+        <AssociationConnector Association="BDCLINICAModel.T_ESTRATEGIA_COMERCIALT_PLAN_DE_SALUD" />
+        <AssociationConnector Association="BDCLINICAModel.T_ESTRATEGIA_COMERCIAL_DETALLET_ESTRATEGIA_COMERCIAL" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

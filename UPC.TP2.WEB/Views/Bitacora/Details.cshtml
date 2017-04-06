@@ -1,0 +1,57 @@
+﻿@model UPC.TP2.WEB.Models.T_BITACORA_INCIDENCIA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>T_BITACORA_INCIDENCIA</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_bitacora)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_bitacora)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipo_incidencia)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipo_incidencia)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.fecha_registro)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fecha_registro)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.descripcion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.descripcion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.T_PLAN_DE_SALUD.nombre_plan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.T_PLAN_DE_SALUD.nombre_plan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.T_EMPLEADO.nomEmpleado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.T_EMPLEADO.nomEmpleado)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

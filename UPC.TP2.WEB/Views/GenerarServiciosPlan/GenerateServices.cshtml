@@ -1,0 +1,120 @@
+﻿@using Newtonsoft.Json.Linq
+@model UPC.TP2.WEB.ViewModels.GenerateServiceModel
+
+@{
+    ViewBag.Title = "GenerateServices";
+}
+
+<script type="text/javascript">
+</script>
+
+<h2>Generar Servicios</h2>
+<br />
+<h3>@ViewBag.Message</h3>
+
+@{Html.BeginForm("GenerarAction", "GenerarServiciosPlan", FormMethod.Post, new { @class = "some_class", @id = "form_generar_accion" });}
+
+<input type="hidden" id="fecha_inicio" name="fecha_inicio" value="@ViewBag.FechaInicio" />
+<input type="hidden" id="fecha_fin" name="fecha_fin" value="@ViewBag.FechaFin" />
+<input type="hidden" id="accion" name="accion" value="X"/>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="span6">
+            <div class="page-header" style="margin: 0px 0;">
+                <h1><small>Gr&aacute;fico</small></h1>
+            </div>
+            <!--CHART-->
+        </div>
+        <div class="span6">
+            <div class="page-header" style="margin: 0px 0;">
+                <h1><small>Gr&aacute;fico</small></h1>
+            </div>
+            <!--CHART-->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span6">
+            <div class="page-header" style="margin: 0px 0;">
+                <h1><small>Retirar servicio</small></h1>
+            </div>
+            <table id="table_retirar" class="display nowrap dataTable dtr-inline collapsed">
+                <thead>
+                    <tr>
+                        <th>Seleccionar</th>
+                        <th>Plan salud</th>
+                        <th>Especialidad</th>
+                        <th>Servicio</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{  }
+                    @foreach (JObject item in Model.JSON_LIST_RETIRO_SERVICIO)
+                    {
+                        var keys = item["id_plan_salud"] + "_" + item["id_especialidad"] + "_" + item["id_servicio"];
+                        <tr style="background-color: @item["color"]">
+                            <td><input type="checkbox" name="checkbox_retirar_@keys"/></td>
+                            <td>@item["nombre_plan_salud"]</td>
+                            <td>@item["nombre_especialidad"]</td>
+                            <td>@item["nombre_servicio"]</td>
+                            <td>@item["cantidad"]</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4"><input id="submit_retirar" type="button" value="Retirar servicio" /></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="span6">
+            <div class="page-header" style="margin: 0px 0;">
+                <h1><small>Asignar servicio</small></h1>
+            </div>
+            <table id="table_asignar" class="display nowrap dataTable dtr-inline collapsed">
+                <thead>
+                    <tr>
+                        <th>Selecione</th>
+                        <th>Especialidad</th>
+                        <th>Servicio</th>
+                        <th>Cantidad</th>
+                        <th>Plan de salud</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{  }
+                    @foreach (JObject item in Model.JSON_LIST_ASIGNA_PLAN)
+                    {
+                        var keys = item["id_especialidad"] + "_" + item["id_servicio"];
+                        <tr style="background-color: @item["color"]">
+                            <td><input type="checkbox" name="checkbox_asignar_@keys"/></td>                           
+                            <td>@item["nombre_especialidad"]</td>
+                            <td>@item["nombre_servicio"]</td>
+                            <td>@item["cantidad"]</td>
+                            <td>
+                                <select id="select_plan_salud_@keys" name="select_plan_salud_@keys">
+                                    @foreach (var p in Model.LIST_PLAN_DE_SALUD)
+                                    {
+                                        <option value="@p.id_plan_salud">@p.nombre_plan</option>
+                                    }
+                                </select>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4"><input id="submit_asignar" type="button" value="Asignar servicio" /></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@{Html.EndForm();}
+

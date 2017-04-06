@@ -1,0 +1,2301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E31A8F20-3AC7-4D7E-B2B9-E806D67FD069}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UPC.TP2.WEB</RootNamespace>
+    <AssemblyName>UPC.TP2.WEB</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <IncludeIisSettings>false</IncludeIisSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetOpenAuth.AspNet">
+      <HintPath>C:\Users\Sistema\Documents\Visual Studio 2012\Projects\MvcApplication1\packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.4.0.0\lib\net40\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Mantenimiento\Controllers\PlanMantenimientoController.cs" />
+    <Compile Include="Areas\Mantenimiento\MantenimientoAreaRegistration.cs" />
+    <Compile Include="Areas\Mantenimiento\Models\PlanMantenimiento.cs" />
+    <Compile Include="Controllers\BitacoraController.cs" />
+    <Compile Include="Controllers\EstrategiaComercialController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlanSaludController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\GenerarServiciosPlanController.cs" />
+    <Compile Include="Models\ClinicaContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClinicaContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClinicaContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\PlanSaludViewModel.cs" />
+    <Content Include="App_Data\03_04_2017_%282%29_data.sql" />
+    <Content Include="App_Data\03_04_2017_%282%29_schema.sql" />
+    <Content Include="App_Data\03_04_2017_database.sql" />
+    <Content Include="App_Data\04_04_2017_data.sql" />
+    <Content Include="App_Data\04_04_2017_schema.sql" />
+    <Content Include="App_Data\05_04_2017_data.sql" />
+    <Content Include="App_Data\05_04_2017_schema.sql" />
+    <Content Include="App_Data\06_04_2017_data.sql" />
+    <Content Include="App_Data\06_04_2017_schema.sql" />
+    <Content Include="Models\ClinicaContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClinicaContext.edmx</DependentUpon>
+    </Content>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_BASE_FINANCIERA.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_BASE_LEGAL.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_BIEN.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_BITACORA_INCIDENCIA.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_COMPROBANTE.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_CONFIGURACION.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_EMPLEADO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_EMPRESA.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_EQUIPO_MEDICO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_EQUIPO_USO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_ESPECIALIDAD_MEDICA.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_ESPECIALIDAD_SERVICIO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_ESTRATEGIA_COMERCIAL.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_ESTRATEGIA_COMERCIAL_DETALLE.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_INMUEBLE.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_INVESTIGACION_COMERCIAL.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_MANTENIMIENTO_EQUIPO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_MODELO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_MUEBLE.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PACIENTE.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PERSONA.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PERSONA_PLANSALUD.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PLAN_BASE_FINANCIERA.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PLAN_BASE_LEGAL.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PLAN_DE_SALUD.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PLAN_ESPECIALIDADxSERVICIO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PLAN_ESTRATEGIA_COMERCIAL.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PLAN_MANTENIMIENTO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PLAN_PACIENTE.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PLAN_SERVICIO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PROGRAMACION_MEDICA.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_PROYECTO_PLANSALUD.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_RESERVA_SERVICIO_SALUD.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_SEGUIMIENTO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_SERVICIO_SALUD.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_SOLICITUD_MANTENIMIENTO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_TECNICO_MANTENIMIENTO.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_TIPO_PERSONA.cs">
+      <DependentUpon>ClinicaContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Util.cs" />
+    <Compile Include="ViewModels\BitacoraViewModel.cs" />
+    <Compile Include="ViewModels\EstrategiaComercialViewModel.cs" />
+    <Compile Include="ViewModels\GenerateServiceModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\helvetica-neue.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\CLINICA.jpg" />
+    <Content Include="Images\crp.png" />
+    <Content Include="lib\chosen\LICENSE.md" />
+    <Content Include="lib\chosen\README.md" />
+    <Content Include="lib\chosen\VERSION" />
+    <Content Include="lib\colorbox\._README.md" />
+    <Content Include="lib\colorbox\README.md" />
+    <Content Include="lib\datatables\._server_side.php" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\license\._Syntax Highlighter" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\license\Syntax Highlighter" />
+    <Content Include="lib\datatables\extras\AutoFill\media\js\._AutoFill.min.js.gz" />
+    <Content Include="lib\datatables\extras\AutoFill\media\js\AutoFill.min.js.gz" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\license\._Syntax Highlighter" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\license\Syntax Highlighter" />
+    <Content Include="lib\datatables\extras\ColReorder\media\js\._ColReorder.min.js.gz" />
+    <Content Include="lib\datatables\extras\ColReorder\media\js\ColReorder.min.js.gz" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\license\._Syntax Highlighter" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\license\Syntax Highlighter" />
+    <Content Include="lib\datatables\extras\ColVis\media\js\._ColVis.min.js.gz" />
+    <Content Include="lib\datatables\extras\ColVis\media\js\ColVis.min.js.gz" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\license\._Syntax Highlighter" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\license\Syntax Highlighter" />
+    <Content Include="lib\datatables\extras\FixedColumns\media\js\._FixedColumns.min.js.gz" />
+    <Content Include="lib\datatables\extras\FixedColumns\media\js\FixedColumns.min.js.gz" />
+    <Content Include="lib\datatables\extras\FixedHeader\js\._FixedHeader.min.js.gz" />
+    <Content Include="lib\datatables\extras\FixedHeader\js\FixedHeader.min.js.gz" />
+    <Content Include="lib\datatables\extras\KeyTable\js\._KeyTable.min.js.gz" />
+    <Content Include="lib\datatables\extras\KeyTable\js\KeyTable.min.js.gz" />
+    <Content Include="lib\datatables\extras\Scroller\media\data\._server_processing.php" />
+    <Content Include="lib\datatables\extras\Scroller\media\data\server_processing.php" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\license\._Syntax Highlighter" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\license\Syntax Highlighter" />
+    <Content Include="lib\datatables\extras\Scroller\media\js\._Scroller.min.js.gz" />
+    <Content Include="lib\datatables\extras\Scroller\media\js\Scroller.min.js.gz" />
+    <Content Include="lib\datatables\extras\TableTools\media\as3\._ZeroClipboard.as" />
+    <Content Include="lib\datatables\extras\TableTools\media\as3\._ZeroClipboardPdf.as" />
+    <Content Include="lib\datatables\extras\TableTools\media\as3\lib\._AlivePDF.swc" />
+    <Content Include="lib\datatables\extras\TableTools\media\as3\lib\AlivePDF.swc" />
+    <Content Include="lib\datatables\extras\TableTools\media\as3\ZeroClipboard.as" />
+    <Content Include="lib\datatables\extras\TableTools\media\as3\ZeroClipboardPdf.as" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\psd\._collection.psd" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\psd\._copy document.psd" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\psd\._file_types.psd" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\psd\._printer.psd" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\psd\collection.psd" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\psd\copy document.psd" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\psd\file_types.psd" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\psd\printer.psd" />
+    <Content Include="lib\datatables\extras\TableTools\media\js\._TableTools.min.js.gz" />
+    <Content Include="lib\datatables\extras\TableTools\media\js\TableTools.min.js.gz" />
+    <Content Include="lib\datatables\images\._Sorting icons.psd" />
+    <Content Include="lib\datatables\images\Sorting icons.psd" />
+    <Content Include="lib\datatables\server_side.php" />
+    <Content Include="lib\datepicker\LICENSE" />
+    <Content Include="lib\flot\._Makefile" />
+    <Content Include="lib\flot\examples\._data-eu-gdp-growth-1.json" />
+    <Content Include="lib\flot\examples\._data-eu-gdp-growth-2.json" />
+    <Content Include="lib\flot\examples\._data-eu-gdp-growth-3.json" />
+    <Content Include="lib\flot\examples\._data-eu-gdp-growth-4.json" />
+    <Content Include="lib\flot\examples\._data-eu-gdp-growth-5.json" />
+    <Content Include="lib\flot\examples\._data-eu-gdp-growth.json" />
+    <Content Include="lib\flot\examples\._data-japan-gdp-growth.json" />
+    <Content Include="lib\flot\examples\._data-usa-gdp-growth.json" />
+    <Content Include="lib\flot\examples\data-eu-gdp-growth-1.json" />
+    <Content Include="lib\flot\examples\data-eu-gdp-growth-2.json" />
+    <Content Include="lib\flot\examples\data-eu-gdp-growth-3.json" />
+    <Content Include="lib\flot\examples\data-eu-gdp-growth-4.json" />
+    <Content Include="lib\flot\examples\data-eu-gdp-growth-5.json" />
+    <Content Include="lib\flot\examples\data-eu-gdp-growth.json" />
+    <Content Include="lib\flot\examples\data-japan-gdp-growth.json" />
+    <Content Include="lib\flot\examples\data-usa-gdp-growth.json" />
+    <Content Include="lib\flot\Makefile" />
+    <Content Include="lib\moment_js\LICENSE" />
+    <Content Include="lib\plupload\._readme.md" />
+    <Content Include="lib\plupload\js\._jquery.plupload.queue" />
+    <Content Include="lib\plupload\js\._jquery.ui.plupload" />
+    <Content Include="lib\plupload\readme.md" />
+    <Content Include="lib\stepy\._changelog.markdown" />
+    <Content Include="lib\stepy\._README.markdown" />
+    <Content Include="lib\stepy\changelog.markdown" />
+    <Content Include="lib\stepy\README.markdown" />
+    <Content Include="lib\uniform\README.textile" />
+    <Content Include="Areas\Mantenimiento\Views\Web.config" />
+    <Content Include="Areas\Mantenimiento\Views\PlanMantenimiento\Index.cshtml" />
+    <Content Include="fonts\helveticaneue-light-webfont.eot" />
+    <Content Include="fonts\helveticaneue-light-webfont.ttf" />
+    <Content Include="fonts\helveticaneue-light-webfont.woff" />
+    <Content Include="Areas\Mantenimiento\Views\PlanMantenimiento\PendienteMantenimiento.cshtml" />
+    <EntityDeploy Include="Models\ClinicaContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ClinicaContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ClinicaContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClinicaContext.edmx</DependentUpon>
+      <LastGenOutput>ClinicaContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ClinicaContext.edmx.diagram">
+      <DependentUpon>ClinicaContext.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ClinicaContext.edmx.sql" />
+    <Content Include="Models\ClinicaContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClinicaContext.edmx</DependentUpon>
+      <LastGenOutput>ClinicaContext.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\comun\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="Images\comun\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="Images\comun\ui-bg_flat_0_333333_40x100.png" />
+    <Content Include="Images\comun\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="Images\comun\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Images\comun\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="Images\comun\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
+    <Content Include="Images\comun\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
+    <Content Include="Images\comun\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="Images\comun\ui-icons_004276_256x240.png" />
+    <Content Include="Images\comun\ui-icons_cc0000_256x240.png" />
+    <Content Include="Images\comun\ui-icons_ffffff_256x240.png" />
+    <Content Include="Images\icons\01-refresh%402x.png" />
+    <Content Include="Images\icons\01-refresh.png" />
+    <Content Include="Images\icons\02-redo%402x.png" />
+    <Content Include="Images\icons\02-redo.png" />
+    <Content Include="Images\icons\03-loopback%402x.png" />
+    <Content Include="Images\icons\03-loopback.png" />
+    <Content Include="Images\icons\04-squiggle%402x.png" />
+    <Content Include="Images\icons\04-squiggle.png" />
+    <Content Include="Images\icons\05-shuffle%402x.png" />
+    <Content Include="Images\icons\05-shuffle.png" />
+    <Content Include="Images\icons\06-magnify%402x.png" />
+    <Content Include="Images\icons\06-magnify.png" />
+    <Content Include="Images\icons\06-magnify1.png" />
+    <Content Include="Images\icons\07-map-marker%402x.png" />
+    <Content Include="Images\icons\07-map-marker.png" />
+    <Content Include="Images\icons\08-chat%402x.png" />
+    <Content Include="Images\icons\08-chat.png" />
+    <Content Include="Images\icons\09-chat-2%402x.png" />
+    <Content Include="Images\icons\09-chat-2.png" />
+    <Content Include="Images\icons\10-medical%402x.png" />
+    <Content Include="Images\icons\10-medical.png" />
+    <Content Include="Images\icons\11-clock%402x.png" />
+    <Content Include="Images\icons\11-clock.png" />
+    <Content Include="Images\icons\12-eye%402x.png" />
+    <Content Include="Images\icons\12-eye.png" />
+    <Content Include="Images\icons\13-ico1_i.png" />
+    <Content Include="Images\img-loader.gif" />
+    <Content Include="lib\antiscroll\antiscroll.css" />
+    <Content Include="lib\antiscroll\antiscroll.js" />
+    <Content Include="lib\antiscroll\antiscroll.min.js" />
+    <Content Include="lib\antiscroll\index.html" />
+    <Content Include="lib\antiscroll\jquery-mousewheel.js" />
+    <Content Include="lib\chosen\chosen-sprite.png" />
+    <Content Include="lib\chosen\chosen.css" />
+    <Content Include="lib\chosen\chosen.jquery.js" />
+    <Content Include="lib\chosen\chosen.jquery.min.js" />
+    <Content Include="lib\CLEditor\images\._buttons.gif" />
+    <Content Include="lib\CLEditor\images\._toolbar.gif" />
+    <Content Include="lib\CLEditor\images\buttons.gif" />
+    <Content Include="lib\CLEditor\images\icons\._1.gif" />
+    <Content Include="lib\CLEditor\images\icons\._10.gif" />
+    <Content Include="lib\CLEditor\images\icons\._11.gif" />
+    <Content Include="lib\CLEditor\images\icons\._12.gif" />
+    <Content Include="lib\CLEditor\images\icons\._2.gif" />
+    <Content Include="lib\CLEditor\images\icons\._3.gif" />
+    <Content Include="lib\CLEditor\images\icons\._4.gif" />
+    <Content Include="lib\CLEditor\images\icons\._5.gif" />
+    <Content Include="lib\CLEditor\images\icons\._6.gif" />
+    <Content Include="lib\CLEditor\images\icons\._7.gif" />
+    <Content Include="lib\CLEditor\images\icons\._8.gif" />
+    <Content Include="lib\CLEditor\images\icons\._9.gif" />
+    <Content Include="lib\CLEditor\images\icons\._icons.gif" />
+    <Content Include="lib\CLEditor\images\icons\1.gif" />
+    <Content Include="lib\CLEditor\images\icons\10.gif" />
+    <Content Include="lib\CLEditor\images\icons\11.gif" />
+    <Content Include="lib\CLEditor\images\icons\12.gif" />
+    <Content Include="lib\CLEditor\images\icons\2.gif" />
+    <Content Include="lib\CLEditor\images\icons\3.gif" />
+    <Content Include="lib\CLEditor\images\icons\4.gif" />
+    <Content Include="lib\CLEditor\images\icons\5.gif" />
+    <Content Include="lib\CLEditor\images\icons\6.gif" />
+    <Content Include="lib\CLEditor\images\icons\7.gif" />
+    <Content Include="lib\CLEditor\images\icons\8.gif" />
+    <Content Include="lib\CLEditor\images\icons\9.gif" />
+    <Content Include="lib\CLEditor\images\icons\icons.gif" />
+    <Content Include="lib\CLEditor\images\toolbar.gif" />
+    <Content Include="lib\CLEditor\jquery.cleditor.bbcode.js" />
+    <Content Include="lib\CLEditor\jquery.cleditor.bbcode.min.js" />
+    <Content Include="lib\CLEditor\jquery.cleditor.css" />
+    <Content Include="lib\CLEditor\jquery.cleditor.icon.js" />
+    <Content Include="lib\CLEditor\jquery.cleditor.icon.min.js" />
+    <Content Include="lib\CLEditor\jquery.cleditor.js" />
+    <Content Include="lib\CLEditor\jquery.cleditor.min.js" />
+    <Content Include="lib\colorbox\._colorbox.css" />
+    <Content Include="lib\colorbox\._jquery.colorbox.js" />
+    <Content Include="lib\colorbox\._jquery.colorbox.min.js" />
+    <Content Include="lib\colorbox\colorbox.css" />
+    <Content Include="lib\colorbox\images\._controls.png" />
+    <Content Include="lib\colorbox\images\._loading.gif" />
+    <Content Include="lib\colorbox\images\controls.png" />
+    <Content Include="lib\colorbox\images\loading.gif" />
+    <Content Include="lib\colorbox\jquery.colorbox.js" />
+    <Content Include="lib\colorbox\jquery.colorbox.min.js" />
+    <Content Include="lib\colorpicker\bootstrap-colorpicker.js" />
+    <Content Include="lib\colorpicker\css\._colorpicker.css" />
+    <Content Include="lib\colorpicker\css\colorpicker.css" />
+    <Content Include="lib\colorpicker\img\._alpha.png" />
+    <Content Include="lib\colorpicker\img\._hue.png" />
+    <Content Include="lib\colorpicker\img\._saturation.png" />
+    <Content Include="lib\colorpicker\img\alpha.png" />
+    <Content Include="lib\colorpicker\img\hue.png" />
+    <Content Include="lib\colorpicker\img\saturation.png" />
+    <Content Include="lib\datatables\._jquery.dataTables.js" />
+    <Content Include="lib\datatables\._jquery.dataTables.min.js" />
+    <Content Include="lib\datatables\._jquery.dataTables.sorting.js" />
+    <Content Include="lib\datatables\._license-bsd.txt" />
+    <Content Include="lib\datatables\._license-gpl2.txt" />
+    <Content Include="lib\datatables\._Readme.txt" />
+    <Content Include="lib\datatables\css\._demo_page.css" />
+    <Content Include="lib\datatables\css\._demo_table.css" />
+    <Content Include="lib\datatables\css\._demo_table_jui.css" />
+    <Content Include="lib\datatables\css\._jquery.dataTables.css" />
+    <Content Include="lib\datatables\css\._jquery.dataTables_themeroller.css" />
+    <Content Include="lib\datatables\css\demo_page.css" />
+    <Content Include="lib\datatables\css\demo_table.css" />
+    <Content Include="lib\datatables\css\demo_table_jui.css" />
+    <Content Include="lib\datatables\css\jquery.dataTables.css" />
+    <Content Include="lib\datatables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="lib\datatables\extras\AutoFill\media\css\._AutoFill.css" />
+    <Content Include="lib\datatables\extras\AutoFill\media\css\AutoFill.css" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\css\._doc.css" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\css\._shCore.css" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\css\._shThemeDataTables.css" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\css\doc.css" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\css\shCore.css" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\images\._arrow.jpg" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\images\._extended.png" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\images\arrow.jpg" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\images\extended.png" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\js\._doc.js" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\js\._jquery.js" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\js\._shBrushJScript.js" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\js\._shCore.js" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\js\doc.js" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\js\jquery.js" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="lib\datatables\extras\AutoFill\media\docs\media\js\shCore.js" />
+    <Content Include="lib\datatables\extras\AutoFill\media\images\._filler.png" />
+    <Content Include="lib\datatables\extras\AutoFill\media\images\filler.png" />
+    <Content Include="lib\datatables\extras\AutoFill\media\js\._AutoFill.js" />
+    <Content Include="lib\datatables\extras\AutoFill\media\js\._AutoFill.min.js" />
+    <Content Include="lib\datatables\extras\AutoFill\media\js\AutoFill.js" />
+    <Content Include="lib\datatables\extras\AutoFill\media\js\AutoFill.min.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\css\._ColReorder.css" />
+    <Content Include="lib\datatables\extras\ColReorder\media\css\ColReorder.css" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\css\._doc.css" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\css\._shCore.css" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\css\._shThemeDataTables.css" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\css\doc.css" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\css\shCore.css" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\images\._arrow.jpg" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\images\._extended.png" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\images\arrow.jpg" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\images\extended.png" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\js\._doc.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\js\._jquery.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\js\._shBrushJScript.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\js\._shCore.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\js\doc.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\js\jquery.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\docs\media\js\shCore.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\images\._insert.png" />
+    <Content Include="lib\datatables\extras\ColReorder\media\images\insert.png" />
+    <Content Include="lib\datatables\extras\ColReorder\media\js\._ColReorder.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\js\._ColReorder.min.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\js\ColReorder.js" />
+    <Content Include="lib\datatables\extras\ColReorder\media\js\ColReorder.min.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\css\._ColVis.css" />
+    <Content Include="lib\datatables\extras\ColVis\media\css\._ColVisAlt.css" />
+    <Content Include="lib\datatables\extras\ColVis\media\css\ColVis.css" />
+    <Content Include="lib\datatables\extras\ColVis\media\css\ColVisAlt.css" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\css\._doc.css" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\css\._shCore.css" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\css\._shThemeDataTables.css" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\css\doc.css" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\css\shCore.css" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\images\._arrow.jpg" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\images\._extended.png" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\images\arrow.jpg" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\images\extended.png" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\js\._doc.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\js\._jquery.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\js\._shBrushJScript.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\js\._shCore.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\js\doc.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\js\jquery.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\docs\media\js\shCore.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\images\._button.png" />
+    <Content Include="lib\datatables\extras\ColVis\media\images\button.png" />
+    <Content Include="lib\datatables\extras\ColVis\media\js\._ColVis.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\js\._ColVis.min.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\js\ColVis.js" />
+    <Content Include="lib\datatables\extras\ColVis\media\js\ColVis.min.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._070023b890.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._526f872207.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._73098af57c.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._889588ec06.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._91bce7c4ad.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._a6bd52f587.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._d3890ba7c4.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._e20106c59a.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._FixedColumns.defaults.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._FixedColumns.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._global.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\._index.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\070023b890.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\526f872207.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\73098af57c.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\889588ec06.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\91bce7c4ad.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\a6bd52f587.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\d3890ba7c4.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\e20106c59a.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\FixedColumns.defaults.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\FixedColumns.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\global.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\index.html" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\css\._doc.css" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\css\._shCore.css" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\css\._shThemeDataTables.css" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\css\doc.css" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\css\shCore.css" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\css\shThemeDataTables.css" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\images\._arrow.jpg" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\images\._extended.png" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\images\arrow.jpg" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\images\extended.png" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\js\._doc.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\js\._jquery.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\js\._shBrushJScript.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\js\._shCore.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\js\doc.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\js\jquery.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\js\shBrushJScript.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\docs\media\js\shCore.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\media\js\._FixedColumns.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\media\js\._FixedColumns.min.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\media\js\FixedColumns.js" />
+    <Content Include="lib\datatables\extras\FixedColumns\media\js\FixedColumns.min.js" />
+    <Content Include="lib\datatables\extras\FixedHeader\._html_table.html" />
+    <Content Include="lib\datatables\extras\FixedHeader\._index.html" />
+    <Content Include="lib\datatables\extras\FixedHeader\._top_bottom_left_right.html" />
+    <Content Include="lib\datatables\extras\FixedHeader\._top_left.html" />
+    <Content Include="lib\datatables\extras\FixedHeader\._two_tables.html" />
+    <Content Include="lib\datatables\extras\FixedHeader\._zIndexes.html" />
+    <Content Include="lib\datatables\extras\FixedHeader\html_table.html" />
+    <Content Include="lib\datatables\extras\FixedHeader\index.html" />
+    <Content Include="lib\datatables\extras\FixedHeader\js\._FixedHeader.js" />
+    <Content Include="lib\datatables\extras\FixedHeader\js\._FixedHeader.min.js" />
+    <Content Include="lib\datatables\extras\FixedHeader\js\FixedHeader.js" />
+    <Content Include="lib\datatables\extras\FixedHeader\js\FixedHeader.min.js" />
+    <Content Include="lib\datatables\extras\FixedHeader\top_bottom_left_right.html" />
+    <Content Include="lib\datatables\extras\FixedHeader\top_left.html" />
+    <Content Include="lib\datatables\extras\FixedHeader\two_tables.html" />
+    <Content Include="lib\datatables\extras\FixedHeader\zIndexes.html" />
+    <Content Include="lib\datatables\extras\KeyTable\._datatable.html" />
+    <Content Include="lib\datatables\extras\KeyTable\._datatable_scrolling.html" />
+    <Content Include="lib\datatables\extras\KeyTable\._editing.html" />
+    <Content Include="lib\datatables\extras\KeyTable\._form.html" />
+    <Content Include="lib\datatables\extras\KeyTable\._index.html" />
+    <Content Include="lib\datatables\extras\KeyTable\datatable.html" />
+    <Content Include="lib\datatables\extras\KeyTable\datatable_scrolling.html" />
+    <Content Include="lib\datatables\extras\KeyTable\editing.html" />
+    <Content Include="lib\datatables\extras\KeyTable\form.html" />
+    <Content Include="lib\datatables\extras\KeyTable\index.html" />
+    <Content Include="lib\datatables\extras\KeyTable\js\._KeyTable.js" />
+    <Content Include="lib\datatables\extras\KeyTable\js\._KeyTable.min.js" />
+    <Content Include="lib\datatables\extras\KeyTable\js\KeyTable.js" />
+    <Content Include="lib\datatables\extras\KeyTable\js\KeyTable.min.js" />
+    <Content Include="lib\datatables\extras\Scroller\._api_scrolling.html" />
+    <Content Include="lib\datatables\extras\Scroller\._index.html" />
+    <Content Include="lib\datatables\extras\Scroller\._large_js_source.html" />
+    <Content Include="lib\datatables\extras\Scroller\._server-side_processing.html" />
+    <Content Include="lib\datatables\extras\Scroller\._state_saving.html" />
+    <Content Include="lib\datatables\extras\Scroller\api_scrolling.html" />
+    <Content Include="lib\datatables\extras\Scroller\index.html" />
+    <Content Include="lib\datatables\extras\Scroller\large_js_source.html" />
+    <Content Include="lib\datatables\extras\Scroller\media\data\._2500.txt" />
+    <Content Include="lib\datatables\extras\Scroller\media\data\2500.txt" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\._140369713c.html" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\._28e3b9ac00.html" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\._fd374c06d9.html" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\._global.html" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\140369713c.html" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\28e3b9ac00.html" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\fd374c06d9.html" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\global.html" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\css\._doc.css" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\css\._shCore.css" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\css\._shThemeDataTables.css" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\css\doc.css" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\css\shCore.css" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\css\shThemeDataTables.css" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\images\._arrow.jpg" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\images\._extended.png" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\images\arrow.jpg" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\images\extended.png" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\js\._doc.js" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\js\._jquery.js" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\js\._shBrushJScript.js" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\js\._shCore.js" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\js\doc.js" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\js\jquery.js" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\js\shBrushJScript.js" />
+    <Content Include="lib\datatables\extras\Scroller\media\docs\media\js\shCore.js" />
+    <Content Include="lib\datatables\extras\Scroller\media\js\._Scroller.js" />
+    <Content Include="lib\datatables\extras\Scroller\media\js\._Scroller.min.js" />
+    <Content Include="lib\datatables\extras\Scroller\media\js\Scroller.js" />
+    <Content Include="lib\datatables\extras\Scroller\media\js\Scroller.min.js" />
+    <Content Include="lib\datatables\extras\Scroller\server-side_processing.html" />
+    <Content Include="lib\datatables\extras\Scroller\state_saving.html" />
+    <Content Include="lib\datatables\extras\TableTools\._alter_buttons.html" />
+    <Content Include="lib\datatables\extras\TableTools\._alt_init.html" />
+    <Content Include="lib\datatables\extras\TableTools\._button_text.html" />
+    <Content Include="lib\datatables\extras\TableTools\._collection.html" />
+    <Content Include="lib\datatables\extras\TableTools\._defaults.html" />
+    <Content Include="lib\datatables\extras\TableTools\._index.html" />
+    <Content Include="lib\datatables\extras\TableTools\._multiple_tables.html" />
+    <Content Include="lib\datatables\extras\TableTools\._multi_instance.html" />
+    <Content Include="lib\datatables\extras\TableTools\._pdf_message.html" />
+    <Content Include="lib\datatables\extras\TableTools\._plug-in.html" />
+    <Content Include="lib\datatables\extras\TableTools\._select_multi.html" />
+    <Content Include="lib\datatables\extras\TableTools\._select_single.html" />
+    <Content Include="lib\datatables\extras\TableTools\._swf_path.html" />
+    <Content Include="lib\datatables\extras\TableTools\._tabs.html" />
+    <Content Include="lib\datatables\extras\TableTools\._theme.html" />
+    <Content Include="lib\datatables\extras\TableTools\alter_buttons.html" />
+    <Content Include="lib\datatables\extras\TableTools\alt_init.html" />
+    <Content Include="lib\datatables\extras\TableTools\button_text.html" />
+    <Content Include="lib\datatables\extras\TableTools\collection.html" />
+    <Content Include="lib\datatables\extras\TableTools\defaults.html" />
+    <Content Include="lib\datatables\extras\TableTools\index.html" />
+    <Content Include="lib\datatables\extras\TableTools\media\css\._TableTools.css" />
+    <Content Include="lib\datatables\extras\TableTools\media\css\._TableTools_JUI.css" />
+    <Content Include="lib\datatables\extras\TableTools\media\css\TableTools.css" />
+    <Content Include="lib\datatables\extras\TableTools\media\css\TableTools_JUI.css" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._background.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._collection.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._collection_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._copy.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._copy_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._csv.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._csv_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._pdf.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._pdf_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._print.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._print_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._xls.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\._xls_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\background.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\collection.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\collection_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\copy.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\copy_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\csv.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\csv_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\pdf.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\pdf_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\print.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\print_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\xls.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\images\xls_hover.png" />
+    <Content Include="lib\datatables\extras\TableTools\media\js\._TableTools.js" />
+    <Content Include="lib\datatables\extras\TableTools\media\js\._TableTools.min.js" />
+    <Content Include="lib\datatables\extras\TableTools\media\js\._ZeroClipboard.js" />
+    <Content Include="lib\datatables\extras\TableTools\media\js\TableTools.js" />
+    <Content Include="lib\datatables\extras\TableTools\media\js\TableTools.min.js" />
+    <Content Include="lib\datatables\extras\TableTools\media\js\ZeroClipboard.js" />
+    <Content Include="lib\datatables\extras\TableTools\media\swf\._copy_csv_xls.swf" />
+    <Content Include="lib\datatables\extras\TableTools\media\swf\._copy_csv_xls_pdf.swf" />
+    <Content Include="lib\datatables\extras\TableTools\media\swf\copy_csv_xls.swf" />
+    <Content Include="lib\datatables\extras\TableTools\media\swf\copy_csv_xls_pdf.swf" />
+    <Content Include="lib\datatables\extras\TableTools\multiple_tables.html" />
+    <Content Include="lib\datatables\extras\TableTools\multi_instance.html" />
+    <Content Include="lib\datatables\extras\TableTools\pdf_message.html" />
+    <Content Include="lib\datatables\extras\TableTools\plug-in.html" />
+    <Content Include="lib\datatables\extras\TableTools\select_multi.html" />
+    <Content Include="lib\datatables\extras\TableTools\select_single.html" />
+    <Content Include="lib\datatables\extras\TableTools\swf_path.html" />
+    <Content Include="lib\datatables\extras\TableTools\tabs.html" />
+    <Content Include="lib\datatables\extras\TableTools\theme.html" />
+    <Content Include="lib\datatables\images\._back_disabled.png" />
+    <Content Include="lib\datatables\images\._back_enabled.png" />
+    <Content Include="lib\datatables\images\._back_enabled_hover.png" />
+    <Content Include="lib\datatables\images\._favicon.ico" />
+    <Content Include="lib\datatables\images\._forward_disabled.png" />
+    <Content Include="lib\datatables\images\._forward_enabled.png" />
+    <Content Include="lib\datatables\images\._forward_enabled_hover.png" />
+    <Content Include="lib\datatables\images\._sort_asc.png" />
+    <Content Include="lib\datatables\images\._sort_asc_disabled.png" />
+    <Content Include="lib\datatables\images\._sort_both.png" />
+    <Content Include="lib\datatables\images\._sort_desc.png" />
+    <Content Include="lib\datatables\images\._sort_desc_disabled.png" />
+    <Content Include="lib\datatables\images\back_disabled.png" />
+    <Content Include="lib\datatables\images\back_enabled.png" />
+    <Content Include="lib\datatables\images\back_enabled_hover.png" />
+    <Content Include="lib\datatables\images\favicon.ico" />
+    <Content Include="lib\datatables\images\forward_disabled.png" />
+    <Content Include="lib\datatables\images\forward_enabled.png" />
+    <Content Include="lib\datatables\images\forward_enabled_hover.png" />
+    <Content Include="lib\datatables\images\sort_asc.png" />
+    <Content Include="lib\datatables\images\sort_asc_disabled.png" />
+    <Content Include="lib\datatables\images\sort_both.png" />
+    <Content Include="lib\datatables\images\sort_desc.png" />
+    <Content Include="lib\datatables\images\sort_desc_disabled.png" />
+    <Content Include="lib\datatables\jquery.dataTables.js" />
+    <Content Include="lib\datatables\jquery.dataTables.min.js" />
+    <Content Include="lib\datatables\jquery.dataTables.sorting.js" />
+    <Content Include="lib\datatables\license-bsd.txt" />
+    <Content Include="lib\datatables\license-gpl2.txt" />
+    <Content Include="lib\datatables\Readme.txt" />
+    <Content Include="lib\datepicker\bootstrap-datepicker.js" />
+    <Content Include="lib\datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="lib\datepicker\bootstrap-timepicker.js" />
+    <Content Include="lib\datepicker\bootstrap-timepicker.min.js" />
+    <Content Include="lib\datepicker\datepicker.css" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.br.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.da.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.de.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.es.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.fi.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.fr.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.is.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.it.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.lv.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.nb.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.nl.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.pl.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.ru.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.th.js" />
+    <Content Include="lib\datepicker\locales\bootstrap-datepicker.tr.js" />
+    <Content Include="lib\floating_header\._jquery.list.js" />
+    <Content Include="lib\floating_header\._jquery.list.min.js" />
+    <Content Include="lib\floating_header\._LICENSE.txt" />
+    <Content Include="lib\floating_header\docs\._changelog.html" />
+    <Content Include="lib\floating_header\docs\._index.html" />
+    <Content Include="lib\floating_header\docs\changelog.html" />
+    <Content Include="lib\floating_header\docs\index.html" />
+    <Content Include="lib\floating_header\examples\._demo-australia.html" />
+    <Content Include="lib\floating_header\examples\._demo-basic.html" />
+    <Content Include="lib\floating_header\examples\._demo-headerchange.html" />
+    <Content Include="lib\floating_header\examples\._demo-scrollto.html" />
+    <Content Include="lib\floating_header\examples\demo-australia.html" />
+    <Content Include="lib\floating_header\examples\demo-basic.html" />
+    <Content Include="lib\floating_header\examples\demo-headerchange.html" />
+    <Content Include="lib\floating_header\examples\demo-scrollto.html" />
+    <Content Include="lib\floating_header\jquery.list.js" />
+    <Content Include="lib\floating_header\jquery.list.min.js" />
+    <Content Include="lib\flot\._API.txt" />
+    <Content Include="lib\flot\._excanvas.js" />
+    <Content Include="lib\flot\._excanvas.min.js" />
+    <Content Include="lib\flot\._FAQ.txt" />
+    <Content Include="lib\flot\._jquery.colorhelpers.js" />
+    <Content Include="lib\flot\._jquery.colorhelpers.min.js" />
+    <Content Include="lib\flot\._jquery.flot.crosshair.js" />
+    <Content Include="lib\flot\._jquery.flot.crosshair.min.js" />
+    <Content Include="lib\flot\._jquery.flot.curvedLines.min.js" />
+    <Content Include="lib\flot\._jquery.flot.fillbetween.js" />
+    <Content Include="lib\flot\._jquery.flot.fillbetween.min.js" />
+    <Content Include="lib\flot\._jquery.flot.image.js" />
+    <Content Include="lib\flot\._jquery.flot.image.min.js" />
+    <Content Include="lib\flot\._jquery.flot.js" />
+    <Content Include="lib\flot\._jquery.flot.min.js" />
+    <Content Include="lib\flot\._jquery.flot.multihighlight.min.js" />
+    <Content Include="lib\flot\._jquery.flot.navigate.js" />
+    <Content Include="lib\flot\._jquery.flot.navigate.min.js" />
+    <Content Include="lib\flot\._jquery.flot.orderBars.min.js" />
+    <Content Include="lib\flot\._jquery.flot.pie.js" />
+    <Content Include="lib\flot\._jquery.flot.pie.min.js" />
+    <Content Include="lib\flot\._jquery.flot.pyramid.min.js" />
+    <Content Include="lib\flot\._jquery.flot.resize.js" />
+    <Content Include="lib\flot\._jquery.flot.resize.min.js" />
+    <Content Include="lib\flot\._jquery.flot.selection.js" />
+    <Content Include="lib\flot\._jquery.flot.selection.min.js" />
+    <Content Include="lib\flot\._jquery.flot.stack.js" />
+    <Content Include="lib\flot\._jquery.flot.stack.min.js" />
+    <Content Include="lib\flot\._jquery.flot.symbol.js" />
+    <Content Include="lib\flot\._jquery.flot.symbol.min.js" />
+    <Content Include="lib\flot\._jquery.flot.threshold.js" />
+    <Content Include="lib\flot\._jquery.flot.threshold.min.js" />
+    <Content Include="lib\flot\._LICENSE.txt" />
+    <Content Include="lib\flot\._NEWS.txt" />
+    <Content Include="lib\flot\._PLUGINS.txt" />
+    <Content Include="lib\flot\._README.txt" />
+    <Content Include="lib\flot\API.txt" />
+    <Content Include="lib\flot\examples\._ajax.html" />
+    <Content Include="lib\flot\examples\._annotating.html" />
+    <Content Include="lib\flot\examples\._arrow-down.gif" />
+    <Content Include="lib\flot\examples\._arrow-left.gif" />
+    <Content Include="lib\flot\examples\._arrow-right.gif" />
+    <Content Include="lib\flot\examples\._arrow-up.gif" />
+    <Content Include="lib\flot\examples\._basic.html" />
+    <Content Include="lib\flot\examples\._graph-types.html" />
+    <Content Include="lib\flot\examples\._hs-2004-27-a-large_web.jpg" />
+    <Content Include="lib\flot\examples\._image.html" />
+    <Content Include="lib\flot\examples\._index.html" />
+    <Content Include="lib\flot\examples\._interacting-axes.html" />
+    <Content Include="lib\flot\examples\._interacting.html" />
+    <Content Include="lib\flot\examples\._layout.css" />
+    <Content Include="lib\flot\examples\._multiple-axes.html" />
+    <Content Include="lib\flot\examples\._navigate.html" />
+    <Content Include="lib\flot\examples\._percentiles.html" />
+    <Content Include="lib\flot\examples\._pie.html" />
+    <Content Include="lib\flot\examples\._realtime.html" />
+    <Content Include="lib\flot\examples\._resize.html" />
+    <Content Include="lib\flot\examples\._selection.html" />
+    <Content Include="lib\flot\examples\._setting-options.html" />
+    <Content Include="lib\flot\examples\._stacking.html" />
+    <Content Include="lib\flot\examples\._symbols.html" />
+    <Content Include="lib\flot\examples\._thresholding.html" />
+    <Content Include="lib\flot\examples\._time.html" />
+    <Content Include="lib\flot\examples\._tracking.html" />
+    <Content Include="lib\flot\examples\._turning-series.html" />
+    <Content Include="lib\flot\examples\._visitors.html" />
+    <Content Include="lib\flot\examples\._zooming.html" />
+    <Content Include="lib\flot\examples\ajax.html" />
+    <Content Include="lib\flot\examples\annotating.html" />
+    <Content Include="lib\flot\examples\arrow-down.gif" />
+    <Content Include="lib\flot\examples\arrow-left.gif" />
+    <Content Include="lib\flot\examples\arrow-right.gif" />
+    <Content Include="lib\flot\examples\arrow-up.gif" />
+    <Content Include="lib\flot\examples\basic.html" />
+    <Content Include="lib\flot\examples\graph-types.html" />
+    <Content Include="lib\flot\examples\hs-2004-27-a-large_web.jpg" />
+    <Content Include="lib\flot\examples\image.html" />
+    <Content Include="lib\flot\examples\index.html" />
+    <Content Include="lib\flot\examples\interacting-axes.html" />
+    <Content Include="lib\flot\examples\interacting.html" />
+    <Content Include="lib\flot\examples\layout.css" />
+    <Content Include="lib\flot\examples\multiple-axes.html" />
+    <Content Include="lib\flot\examples\navigate.html" />
+    <Content Include="lib\flot\examples\percentiles.html" />
+    <Content Include="lib\flot\examples\pie.html" />
+    <Content Include="lib\flot\examples\realtime.html" />
+    <Content Include="lib\flot\examples\resize.html" />
+    <Content Include="lib\flot\examples\selection.html" />
+    <Content Include="lib\flot\examples\setting-options.html" />
+    <Content Include="lib\flot\examples\stacking.html" />
+    <Content Include="lib\flot\examples\symbols.html" />
+    <Content Include="lib\flot\examples\thresholding.html" />
+    <Content Include="lib\flot\examples\time.html" />
+    <Content Include="lib\flot\examples\tracking.html" />
+    <Content Include="lib\flot\examples\turning-series.html" />
+    <Content Include="lib\flot\examples\visitors.html" />
+    <Content Include="lib\flot\examples\zooming.html" />
+    <Content Include="lib\flot\excanvas.js" />
+    <Content Include="lib\flot\excanvas.min.js" />
+    <Content Include="lib\flot\FAQ.txt" />
+    <Content Include="lib\flot\jquery.colorhelpers.js" />
+    <Content Include="lib\flot\jquery.colorhelpers.min.js" />
+    <Content Include="lib\flot\jquery.flot.crosshair.js" />
+    <Content Include="lib\flot\jquery.flot.crosshair.min.js" />
+    <Content Include="lib\flot\jquery.flot.curvedLines.min.js" />
+    <Content Include="lib\flot\jquery.flot.fillbetween.js" />
+    <Content Include="lib\flot\jquery.flot.fillbetween.min.js" />
+    <Content Include="lib\flot\jquery.flot.image.js" />
+    <Content Include="lib\flot\jquery.flot.image.min.js" />
+    <Content Include="lib\flot\jquery.flot.js" />
+    <Content Include="lib\flot\jquery.flot.min.js" />
+    <Content Include="lib\flot\jquery.flot.multihighlight.min.js" />
+    <Content Include="lib\flot\jquery.flot.navigate.js" />
+    <Content Include="lib\flot\jquery.flot.navigate.min.js" />
+    <Content Include="lib\flot\jquery.flot.orderBars.min.js" />
+    <Content Include="lib\flot\jquery.flot.pie.js" />
+    <Content Include="lib\flot\jquery.flot.pie.min.js" />
+    <Content Include="lib\flot\jquery.flot.pyramid.min.js" />
+    <Content Include="lib\flot\jquery.flot.resize.js" />
+    <Content Include="lib\flot\jquery.flot.resize.min.js" />
+    <Content Include="lib\flot\jquery.flot.selection.js" />
+    <Content Include="lib\flot\jquery.flot.selection.min.js" />
+    <Content Include="lib\flot\jquery.flot.stack.js" />
+    <Content Include="lib\flot\jquery.flot.stack.min.js" />
+    <Content Include="lib\flot\jquery.flot.symbol.js" />
+    <Content Include="lib\flot\jquery.flot.symbol.min.js" />
+    <Content Include="lib\flot\jquery.flot.threshold.js" />
+    <Content Include="lib\flot\jquery.flot.threshold.min.js" />
+    <Content Include="lib\flot\LICENSE.txt" />
+    <Content Include="lib\flot\NEWS.txt" />
+    <Content Include="lib\flot\PLUGINS.txt" />
+    <Content Include="lib\flot\README.txt" />
+    <Content Include="lib\fullcalendar\._fullcalendar.css" />
+    <Content Include="lib\fullcalendar\._fullcalendar.js" />
+    <Content Include="lib\fullcalendar\._fullcalendar.min.js" />
+    <Content Include="lib\fullcalendar\._fullcalendar.print.css" />
+    <Content Include="lib\fullcalendar\._fullcalendar_gebo.css" />
+    <Content Include="lib\fullcalendar\._gcal.js" />
+    <Content Include="lib\fullcalendar\._GPL-LICENSE.txt" />
+    <Content Include="lib\fullcalendar\._MIT-LICENSE.txt" />
+    <Content Include="lib\fullcalendar\fullcalendar.css" />
+    <Content Include="lib\fullcalendar\fullcalendar.js" />
+    <Content Include="lib\fullcalendar\fullcalendar.min.js" />
+    <Content Include="lib\fullcalendar\fullcalendar.print.css" />
+    <Content Include="lib\fullcalendar\fullcalendar_gebo.css" />
+    <Content Include="lib\fullcalendar\gcal.js" />
+    <Content Include="lib\fullcalendar\GPL-LICENSE.txt" />
+    <Content Include="lib\fullcalendar\MIT-LICENSE.txt" />
+    <Content Include="lib\google-code-prettify\._lang-apollo.js" />
+    <Content Include="lib\google-code-prettify\._lang-clj.js" />
+    <Content Include="lib\google-code-prettify\._lang-css.js" />
+    <Content Include="lib\google-code-prettify\._lang-go.js" />
+    <Content Include="lib\google-code-prettify\._lang-hs.js" />
+    <Content Include="lib\google-code-prettify\._lang-lisp.js" />
+    <Content Include="lib\google-code-prettify\._lang-lua.js" />
+    <Content Include="lib\google-code-prettify\._lang-ml.js" />
+    <Content Include="lib\google-code-prettify\._lang-n.js" />
+    <Content Include="lib\google-code-prettify\._lang-proto.js" />
+    <Content Include="lib\google-code-prettify\._lang-scala.js" />
+    <Content Include="lib\google-code-prettify\._lang-sql.js" />
+    <Content Include="lib\google-code-prettify\._lang-tex.js" />
+    <Content Include="lib\google-code-prettify\._lang-vb.js" />
+    <Content Include="lib\google-code-prettify\._lang-vhdl.js" />
+    <Content Include="lib\google-code-prettify\._lang-wiki.js" />
+    <Content Include="lib\google-code-prettify\._lang-xq.js" />
+    <Content Include="lib\google-code-prettify\._lang-yaml.js" />
+    <Content Include="lib\google-code-prettify\._prettify.css" />
+    <Content Include="lib\google-code-prettify\._prettify.min.js" />
+    <Content Include="lib\google-code-prettify\lang-apollo.js" />
+    <Content Include="lib\google-code-prettify\lang-clj.js" />
+    <Content Include="lib\google-code-prettify\lang-css.js" />
+    <Content Include="lib\google-code-prettify\lang-go.js" />
+    <Content Include="lib\google-code-prettify\lang-hs.js" />
+    <Content Include="lib\google-code-prettify\lang-lisp.js" />
+    <Content Include="lib\google-code-prettify\lang-lua.js" />
+    <Content Include="lib\google-code-prettify\lang-ml.js" />
+    <Content Include="lib\google-code-prettify\lang-n.js" />
+    <Content Include="lib\google-code-prettify\lang-proto.js" />
+    <Content Include="lib\google-code-prettify\lang-scala.js" />
+    <Content Include="lib\google-code-prettify\lang-sql.js" />
+    <Content Include="lib\google-code-prettify\lang-tex.js" />
+    <Content Include="lib\google-code-prettify\lang-vb.js" />
+    <Content Include="lib\google-code-prettify\lang-vhdl.js" />
+    <Content Include="lib\google-code-prettify\lang-wiki.js" />
+    <Content Include="lib\google-code-prettify\lang-xq.js" />
+    <Content Include="lib\google-code-prettify\lang-yaml.js" />
+    <Content Include="lib\google-code-prettify\prettify.css" />
+    <Content Include="lib\google-code-prettify\prettify.min.js" />
+    <Content Include="lib\jBreadcrumbs\css\._Base.css" />
+    <Content Include="lib\jBreadcrumbs\css\._BreadCrumb.css" />
+    <Content Include="lib\jBreadcrumbs\css\Base.css" />
+    <Content Include="lib\jBreadcrumbs\css\BreadCrumb.css" />
+    <Content Include="lib\jBreadcrumbs\Images\._Chevron.gif" />
+    <Content Include="lib\jBreadcrumbs\Images\._Chevron.png" />
+    <Content Include="lib\jBreadcrumbs\Images\._ChevronOverlay.png" />
+    <Content Include="lib\jBreadcrumbs\Images\._IconHome.gif" />
+    <Content Include="lib\jBreadcrumbs\Images\Chevron.gif" />
+    <Content Include="lib\jBreadcrumbs\Images\Chevron.png" />
+    <Content Include="lib\jBreadcrumbs\Images\ChevronOverlay.png" />
+    <Content Include="lib\jBreadcrumbs\Images\IconHome.gif" />
+    <Content Include="lib\jBreadcrumbs\jBreadCrumb.html" />
+    <Content Include="lib\jBreadcrumbs\js\jquery.jBreadCrumb.1.1.js" />
+    <Content Include="lib\jBreadcrumbs\js\jquery.jBreadCrumb.1.1.min.js" />
+    <Content Include="lib\jquery-ui\css\Aristo\._Aristo.css" />
+    <Content Include="lib\jquery-ui\css\Aristo\Aristo.css" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\._bg_fallback.png" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\._icon_sprite.png" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\._progress_bar.gif" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\._slider_handles.png" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\._ui-icons_222222_256x240.png" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\._ui-icons_454545_256x240.png" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\bg_fallback.png" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\icon_sprite.png" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\progress_bar.gif" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\slider_handles.png" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\ui-icons_222222_256x240.png" />
+    <Content Include="lib\jquery-ui\css\Aristo\images\ui-icons_454545_256x240.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\._jquery-ui-1.8.20.custom.css" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-icons_222222_256x240.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-icons_2e83ff_256x240.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-icons_454545_256x240.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-icons_888888_256x240.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\._ui-icons_cd0a0a_256x240.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="lib\jquery-ui\css\smoothness\jquery-ui-1.8.20.custom.css" />
+    <Content Include="lib\jquery-ui\jquery-ui-1.8.20.custom.min.js" />
+    <Content Include="lib\list_js\list.js" />
+    <Content Include="lib\list_js\list.min.js" />
+    <Content Include="lib\list_js\plugins\fuzzy\._list.fuzzySearch.js" />
+    <Content Include="lib\list_js\plugins\fuzzy\._list.fuzzySearch.min.js" />
+    <Content Include="lib\list_js\plugins\fuzzy\list.fuzzySearch.js" />
+    <Content Include="lib\list_js\plugins\fuzzy\list.fuzzySearch.min.js" />
+    <Content Include="lib\list_js\plugins\paging\._list.paging.js" />
+    <Content Include="lib\list_js\plugins\paging\._list.paging.min.js" />
+    <Content Include="lib\list_js\plugins\paging\list.paging.js" />
+    <Content Include="lib\list_js\plugins\paging\list.paging.min.js" />
+    <Content Include="lib\moment_js\lang\ca.js" />
+    <Content Include="lib\moment_js\lang\da.js" />
+    <Content Include="lib\moment_js\lang\de.js" />
+    <Content Include="lib\moment_js\lang\en-gb.js" />
+    <Content Include="lib\moment_js\lang\es.js" />
+    <Content Include="lib\moment_js\lang\eu.js" />
+    <Content Include="lib\moment_js\lang\fi.js" />
+    <Content Include="lib\moment_js\lang\fr.js" />
+    <Content Include="lib\moment_js\lang\gl.js" />
+    <Content Include="lib\moment_js\lang\is.js" />
+    <Content Include="lib\moment_js\lang\it.js" />
+    <Content Include="lib\moment_js\lang\jp.js" />
+    <Content Include="lib\moment_js\lang\kr.js" />
+    <Content Include="lib\moment_js\lang\nb.js" />
+    <Content Include="lib\moment_js\lang\nl.js" />
+    <Content Include="lib\moment_js\lang\pl.js" />
+    <Content Include="lib\moment_js\lang\pt.js" />
+    <Content Include="lib\moment_js\lang\ru.js" />
+    <Content Include="lib\moment_js\lang\sv.js" />
+    <Content Include="lib\moment_js\lang\tr.js" />
+    <Content Include="lib\moment_js\lang\zh-cn.js" />
+    <Content Include="lib\moment_js\lang\zh-tw.js" />
+    <Content Include="lib\moment_js\moment.js" />
+    <Content Include="lib\moment_js\moment.min.js" />
+    <Content Include="lib\multiselect\css\._application.css" />
+    <Content Include="lib\multiselect\css\._multi-select.css" />
+    <Content Include="lib\multiselect\css\application.css" />
+    <Content Include="lib\multiselect\css\multi-select.css" />
+    <Content Include="lib\multiselect\demos.html" />
+    <Content Include="lib\multiselect\documentation.html" />
+    <Content Include="lib\multiselect\img\._arrow.png" />
+    <Content Include="lib\multiselect\img\._check.png" />
+    <Content Include="lib\multiselect\img\._delete.png" />
+    <Content Include="lib\multiselect\img\._download.png" />
+    <Content Include="lib\multiselect\img\._minus.png" />
+    <Content Include="lib\multiselect\img\._plus.png" />
+    <Content Include="lib\multiselect\img\arrow.png" />
+    <Content Include="lib\multiselect\img\check.png" />
+    <Content Include="lib\multiselect\img\delete.png" />
+    <Content Include="lib\multiselect\img\download.png" />
+    <Content Include="lib\multiselect\img\minus.png" />
+    <Content Include="lib\multiselect\img\plus.png" />
+    <Content Include="lib\multiselect\index.html" />
+    <Content Include="lib\multiselect\js\._application.js" />
+    <Content Include="lib\multiselect\js\._jquery.multi-select.js" />
+    <Content Include="lib\multiselect\js\._jquery.multi-select.min.js" />
+    <Content Include="lib\multiselect\js\._jquery.quicksearch.js" />
+    <Content Include="lib\multiselect\js\application.js" />
+    <Content Include="lib\multiselect\js\jquery.multi-select.js" />
+    <Content Include="lib\multiselect\js\jquery.multi-select.min.js" />
+    <Content Include="lib\multiselect\js\jquery.quicksearch.js" />
+    <Content Include="lib\plupload\._changelog.txt" />
+    <Content Include="lib\plupload\._license.txt" />
+    <Content Include="lib\plupload\changelog.txt" />
+    <Content Include="lib\plupload\docs\api\._class_plupload.File.html" />
+    <Content Include="lib\plupload\docs\api\._class_plupload.html" />
+    <Content Include="lib\plupload\docs\api\._class_plupload.QueueProgress.html" />
+    <Content Include="lib\plupload\docs\api\._class_plupload.Runtime.html" />
+    <Content Include="lib\plupload\docs\api\._class_plupload.runtimes.BrowserPlus.html" />
+    <Content Include="lib\plupload\docs\api\._class_plupload.runtimes.Flash.html" />
+    <Content Include="lib\plupload\docs\api\._class_plupload.runtimes.Gears.html" />
+    <Content Include="lib\plupload\docs\api\._class_plupload.runtimes.Html4.html" />
+    <Content Include="lib\plupload\docs\api\._class_plupload.runtimes.Html5.html" />
+    <Content Include="lib\plupload\docs\api\._class_plupload.runtimes.Silverlight.html" />
+    <Content Include="lib\plupload\docs\api\._class_plupload.Uploader.html" />
+    <Content Include="lib\plupload\docs\api\._index.html" />
+    <Content Include="lib\plupload\docs\api\._model.xml" />
+    <Content Include="lib\plupload\docs\api\._plupload.vsdoc.js" />
+    <Content Include="lib\plupload\docs\api\class_plupload.File.html" />
+    <Content Include="lib\plupload\docs\api\class_plupload.html" />
+    <Content Include="lib\plupload\docs\api\class_plupload.QueueProgress.html" />
+    <Content Include="lib\plupload\docs\api\class_plupload.Runtime.html" />
+    <Content Include="lib\plupload\docs\api\class_plupload.runtimes.BrowserPlus.html" />
+    <Content Include="lib\plupload\docs\api\class_plupload.runtimes.Flash.html" />
+    <Content Include="lib\plupload\docs\api\class_plupload.runtimes.Gears.html" />
+    <Content Include="lib\plupload\docs\api\class_plupload.runtimes.Html4.html" />
+    <Content Include="lib\plupload\docs\api\class_plupload.runtimes.Html5.html" />
+    <Content Include="lib\plupload\docs\api\class_plupload.runtimes.Silverlight.html" />
+    <Content Include="lib\plupload\docs\api\class_plupload.Uploader.html" />
+    <Content Include="lib\plupload\docs\api\css\._general.css" />
+    <Content Include="lib\plupload\docs\api\css\._grids.css" />
+    <Content Include="lib\plupload\docs\api\css\._jquery.treeview.css" />
+    <Content Include="lib\plupload\docs\api\css\._reset.css" />
+    <Content Include="lib\plupload\docs\api\css\._shCore.css" />
+    <Content Include="lib\plupload\docs\api\css\._shThemeMoxieDoc.css" />
+    <Content Include="lib\plupload\docs\api\css\general.css" />
+    <Content Include="lib\plupload\docs\api\css\grids.css" />
+    <Content Include="lib\plupload\docs\api\css\jquery.treeview.css" />
+    <Content Include="lib\plupload\docs\api\css\reset.css" />
+    <Content Include="lib\plupload\docs\api\css\shCore.css" />
+    <Content Include="lib\plupload\docs\api\css\shThemeMoxieDoc.css" />
+    <Content Include="lib\plupload\docs\api\img\._class.gif" />
+    <Content Include="lib\plupload\docs\api\img\._event.gif" />
+    <Content Include="lib\plupload\docs\api\img\._help.png" />
+    <Content Include="lib\plupload\docs\api\img\._inherit-arrow.gif" />
+    <Content Include="lib\plupload\docs\api\img\._inherited.gif" />
+    <Content Include="lib\plupload\docs\api\img\._loader.gif" />
+    <Content Include="lib\plupload\docs\api\img\._magnifier.png" />
+    <Content Include="lib\plupload\docs\api\img\._method.gif" />
+    <Content Include="lib\plupload\docs\api\img\._namespace.gif" />
+    <Content Include="lib\plupload\docs\api\img\._page_white_code.png" />
+    <Content Include="lib\plupload\docs\api\img\._page_white_copy.png" />
+    <Content Include="lib\plupload\docs\api\img\._printer.png" />
+    <Content Include="lib\plupload\docs\api\img\._property.gif" />
+    <Content Include="lib\plupload\docs\api\img\._root.gif" />
+    <Content Include="lib\plupload\docs\api\img\._static.gif" />
+    <Content Include="lib\plupload\docs\api\img\._treeview-famfamfam.gif" />
+    <Content Include="lib\plupload\docs\api\img\._wrapping.png" />
+    <Content Include="lib\plupload\docs\api\img\class.gif" />
+    <Content Include="lib\plupload\docs\api\img\event.gif" />
+    <Content Include="lib\plupload\docs\api\img\help.png" />
+    <Content Include="lib\plupload\docs\api\img\inherit-arrow.gif" />
+    <Content Include="lib\plupload\docs\api\img\inherited.gif" />
+    <Content Include="lib\plupload\docs\api\img\loader.gif" />
+    <Content Include="lib\plupload\docs\api\img\magnifier.png" />
+    <Content Include="lib\plupload\docs\api\img\method.gif" />
+    <Content Include="lib\plupload\docs\api\img\namespace.gif" />
+    <Content Include="lib\plupload\docs\api\img\page_white_code.png" />
+    <Content Include="lib\plupload\docs\api\img\page_white_copy.png" />
+    <Content Include="lib\plupload\docs\api\img\printer.png" />
+    <Content Include="lib\plupload\docs\api\img\property.gif" />
+    <Content Include="lib\plupload\docs\api\img\root.gif" />
+    <Content Include="lib\plupload\docs\api\img\static.gif" />
+    <Content Include="lib\plupload\docs\api\img\treeview-famfamfam.gif" />
+    <Content Include="lib\plupload\docs\api\img\wrapping.png" />
+    <Content Include="lib\plupload\docs\api\index.html" />
+    <Content Include="lib\plupload\docs\api\js\._clipboard.swf" />
+    <Content Include="lib\plupload\docs\api\js\._general.js" />
+    <Content Include="lib\plupload\docs\api\js\._jquery.treeview.min.js" />
+    <Content Include="lib\plupload\docs\api\js\._shBrushJScript.js" />
+    <Content Include="lib\plupload\docs\api\js\._shCore.js" />
+    <Content Include="lib\plupload\docs\api\js\clipboard.swf" />
+    <Content Include="lib\plupload\docs\api\js\general.js" />
+    <Content Include="lib\plupload\docs\api\js\jquery.treeview.min.js" />
+    <Content Include="lib\plupload\docs\api\js\shBrushJScript.js" />
+    <Content Include="lib\plupload\docs\api\js\shCore.js" />
+    <Content Include="lib\plupload\docs\api\model.xml" />
+    <Content Include="lib\plupload\docs\api\plupload.vsdoc.js" />
+    <Content Include="lib\plupload\js\._plupload.browserplus.js" />
+    <Content Include="lib\plupload\js\._plupload.flash.js" />
+    <Content Include="lib\plupload\js\._plupload.flash.swf" />
+    <Content Include="lib\plupload\js\._plupload.full.js" />
+    <Content Include="lib\plupload\js\._plupload.gears.js" />
+    <Content Include="lib\plupload\js\._plupload.html4.js" />
+    <Content Include="lib\plupload\js\._plupload.html5.js" />
+    <Content Include="lib\plupload\js\._plupload.js" />
+    <Content Include="lib\plupload\js\._plupload.silverlight.js" />
+    <Content Include="lib\plupload\js\._plupload.silverlight.xap" />
+    <Content Include="lib\plupload\js\i18n\._cs.js" />
+    <Content Include="lib\plupload\js\i18n\._da.js" />
+    <Content Include="lib\plupload\js\i18n\._de.js" />
+    <Content Include="lib\plupload\js\i18n\._el.js" />
+    <Content Include="lib\plupload\js\i18n\._es.js" />
+    <Content Include="lib\plupload\js\i18n\._et.js" />
+    <Content Include="lib\plupload\js\i18n\._fa.js" />
+    <Content Include="lib\plupload\js\i18n\._fi.js" />
+    <Content Include="lib\plupload\js\i18n\._fr-ca.js" />
+    <Content Include="lib\plupload\js\i18n\._fr.js" />
+    <Content Include="lib\plupload\js\i18n\._hr.js" />
+    <Content Include="lib\plupload\js\i18n\._hu.js" />
+    <Content Include="lib\plupload\js\i18n\._it.js" />
+    <Content Include="lib\plupload\js\i18n\._ja.js" />
+    <Content Include="lib\plupload\js\i18n\._ko.js" />
+    <Content Include="lib\plupload\js\i18n\._lv.js" />
+    <Content Include="lib\plupload\js\i18n\._nl.js" />
+    <Content Include="lib\plupload\js\i18n\._pl.js" />
+    <Content Include="lib\plupload\js\i18n\._pt-br.js" />
+    <Content Include="lib\plupload\js\i18n\._ro.js" />
+    <Content Include="lib\plupload\js\i18n\._ru.js" />
+    <Content Include="lib\plupload\js\i18n\._sr.js" />
+    <Content Include="lib\plupload\js\i18n\._sv.js" />
+    <Content Include="lib\plupload\js\i18n\cs.js" />
+    <Content Include="lib\plupload\js\i18n\da.js" />
+    <Content Include="lib\plupload\js\i18n\de.js" />
+    <Content Include="lib\plupload\js\i18n\el.js" />
+    <Content Include="lib\plupload\js\i18n\es.js" />
+    <Content Include="lib\plupload\js\i18n\et.js" />
+    <Content Include="lib\plupload\js\i18n\fa.js" />
+    <Content Include="lib\plupload\js\i18n\fi.js" />
+    <Content Include="lib\plupload\js\i18n\fr-ca.js" />
+    <Content Include="lib\plupload\js\i18n\fr.js" />
+    <Content Include="lib\plupload\js\i18n\hr.js" />
+    <Content Include="lib\plupload\js\i18n\hu.js" />
+    <Content Include="lib\plupload\js\i18n\it.js" />
+    <Content Include="lib\plupload\js\i18n\ja.js" />
+    <Content Include="lib\plupload\js\i18n\ko.js" />
+    <Content Include="lib\plupload\js\i18n\lv.js" />
+    <Content Include="lib\plupload\js\i18n\nl.js" />
+    <Content Include="lib\plupload\js\i18n\pl.js" />
+    <Content Include="lib\plupload\js\i18n\pt-br.js" />
+    <Content Include="lib\plupload\js\i18n\ro.js" />
+    <Content Include="lib\plupload\js\i18n\ru.js" />
+    <Content Include="lib\plupload\js\i18n\sr.js" />
+    <Content Include="lib\plupload\js\i18n\sv.js" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\._jquery.plupload.queue.full.js" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\._jquery.plupload.queue.js" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\css\._jquery.plupload.queue.css" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\css\._plupload-gebo.css" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\css\jquery.plupload.queue.css" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\css\plupload-cgr.css" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\._backgrounds.gif" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\._buttons-disabled.png" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\._buttons.png" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\._delete.gif" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\._done.gif" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\._error.gif" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\._throbber.gif" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\._transp50.png" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\backgrounds.gif" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\buttons-disabled.png" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\buttons.png" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\delete.gif" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\done.gif" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\error.gif" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\throbber.gif" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\img\transp50.png" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\jquery.plupload.queue.full.js" />
+    <Content Include="lib\plupload\js\jquery.plupload.queue\jquery.plupload.queue.js" />
+    <Content Include="lib\plupload\js\jquery.ui.plupload\._jquery.ui.plupload.js" />
+    <Content Include="lib\plupload\js\jquery.ui.plupload\css\._jquery.ui.plupload.css" />
+    <Content Include="lib\plupload\js\jquery.ui.plupload\css\jquery.ui.plupload.css" />
+    <Content Include="lib\plupload\js\jquery.ui.plupload\img\._plupload-bw.png" />
+    <Content Include="lib\plupload\js\jquery.ui.plupload\img\._plupload.png" />
+    <Content Include="lib\plupload\js\jquery.ui.plupload\img\plupload-bw.png" />
+    <Content Include="lib\plupload\js\jquery.ui.plupload\img\plupload.png" />
+    <Content Include="lib\plupload\js\jquery.ui.plupload\jquery.ui.plupload.js" />
+    <Content Include="lib\plupload\js\plupload.browserplus.js" />
+    <Content Include="lib\plupload\js\plupload.flash.js" />
+    <Content Include="lib\plupload\js\plupload.flash.swf" />
+    <Content Include="lib\plupload\js\plupload.full.js" />
+    <Content Include="lib\plupload\js\plupload.gears.js" />
+    <Content Include="lib\plupload\js\plupload.html4.js" />
+    <Content Include="lib\plupload\js\plupload.html5.js" />
+    <Content Include="lib\plupload\js\plupload.js" />
+    <Content Include="lib\plupload\js\plupload.silverlight.js" />
+    <Content Include="lib\plupload\js\plupload.silverlight.xap" />
+    <Content Include="lib\plupload\license.txt" />
+    <Content Include="lib\qtip2\._jquery.qtip.css" />
+    <Content Include="lib\qtip2\._jquery.qtip.js" />
+    <Content Include="lib\qtip2\._jquery.qtip.min.css" />
+    <Content Include="lib\qtip2\._jquery.qtip.min.js" />
+    <Content Include="lib\qtip2\jquery.qtip.css" />
+    <Content Include="lib\qtip2\jquery.qtip.js" />
+    <Content Include="lib\qtip2\jquery.qtip.min.css" />
+    <Content Include="lib\qtip2\jquery.qtip.min.js" />
+    <Content Include="lib\smoke\._smoke.css" />
+    <Content Include="lib\smoke\._smoke.js" />
+    <Content Include="lib\smoke\._smoke.min.js" />
+    <Content Include="lib\smoke\smoke.css" />
+    <Content Include="lib\smoke\smoke.js" />
+    <Content Include="lib\smoke\smoke.min.js" />
+    <Content Include="lib\smoke\themes\._100s.css" />
+    <Content Include="lib\smoke\themes\._dark.css" />
+    <Content Include="lib\smoke\themes\._default.css" />
+    <Content Include="lib\smoke\themes\._gebo.css" />
+    <Content Include="lib\smoke\themes\._tiger.css" />
+    <Content Include="lib\smoke\themes\100s.css" />
+    <Content Include="lib\smoke\themes\cgr.css" />
+    <Content Include="lib\smoke\themes\dark.css" />
+    <Content Include="lib\smoke\themes\default.css" />
+    <Content Include="lib\smoke\themes\tiger.css" />
+    <Content Include="lib\stepy\._index.html" />
+    <Content Include="lib\stepy\css\._jquery.stepy.css" />
+    <Content Include="lib\stepy\css\jquery.stepy.css" />
+    <Content Include="lib\stepy\img\._alert.png" />
+    <Content Include="lib\stepy\img\._error.png" />
+    <Content Include="lib\stepy\img\._nav_dot.gif" />
+    <Content Include="lib\stepy\img\alert.png" />
+    <Content Include="lib\stepy\img\error.png" />
+    <Content Include="lib\stepy\img\nav_dot.gif" />
+    <Content Include="lib\stepy\index.html" />
+    <Content Include="lib\stepy\js\._jquery.stepy.js" />
+    <Content Include="lib\stepy\js\._jquery.stepy.min.js" />
+    <Content Include="lib\stepy\js\jquery.stepy.js" />
+    <Content Include="lib\stepy\js\jquery.stepy.min.js" />
+    <Content Include="lib\sticky\._sticky.css" />
+    <Content Include="lib\sticky\._sticky.js" />
+    <Content Include="lib\sticky\._sticky.min.js" />
+    <Content Include="lib\sticky\sticky.css" />
+    <Content Include="lib\sticky\sticky.js" />
+    <Content Include="lib\sticky\sticky.min.js" />
+    <Content Include="lib\tag_handler\._jquery.taghandler.js" />
+    <Content Include="lib\tag_handler\._jquery.taghandler.min.js" />
+    <Content Include="lib\tag_handler\._license.txt" />
+    <Content Include="lib\tag_handler\css\._jquery.taghandler.css" />
+    <Content Include="lib\tag_handler\css\jquery.taghandler.css" />
+    <Content Include="lib\tag_handler\images\._loader.gif" />
+    <Content Include="lib\tag_handler\images\._tag_remove.cur" />
+    <Content Include="lib\tag_handler\images\._tag_remove.png" />
+    <Content Include="lib\tag_handler\images\._tag_update.png" />
+    <Content Include="lib\tag_handler\images\loader.gif" />
+    <Content Include="lib\tag_handler\images\tag_remove.cur" />
+    <Content Include="lib\tag_handler\images\tag_remove.png" />
+    <Content Include="lib\tag_handler\images\tag_update.png" />
+    <Content Include="lib\tag_handler\jquery.taghandler.js" />
+    <Content Include="lib\tag_handler\jquery.taghandler.min.js" />
+    <Content Include="lib\tag_handler\license.txt" />
+    <Content Include="lib\tiny_mce\jquery.tinymce.js" />
+    <Content Include="lib\tiny_mce\langs\._en.js" />
+    <Content Include="lib\tiny_mce\langs\en.js" />
+    <Content Include="lib\tiny_mce\license.txt" />
+    <Content Include="lib\tiny_mce\plugins\advhr\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\advhr\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\advhr\._rule.htm" />
+    <Content Include="lib\tiny_mce\plugins\advhr\css\._advhr.css" />
+    <Content Include="lib\tiny_mce\plugins\advhr\css\advhr.css" />
+    <Content Include="lib\tiny_mce\plugins\advhr\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\advhr\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\advhr\js\._rule.js" />
+    <Content Include="lib\tiny_mce\plugins\advhr\js\rule.js" />
+    <Content Include="lib\tiny_mce\plugins\advhr\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\advhr\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\advhr\rule.htm" />
+    <Content Include="lib\tiny_mce\plugins\advimage\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\advimage\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\advimage\._image.htm" />
+    <Content Include="lib\tiny_mce\plugins\advimage\css\._advimage.css" />
+    <Content Include="lib\tiny_mce\plugins\advimage\css\advimage.css" />
+    <Content Include="lib\tiny_mce\plugins\advimage\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\advimage\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\advimage\image.htm" />
+    <Content Include="lib\tiny_mce\plugins\advimage\img\._sample.gif" />
+    <Content Include="lib\tiny_mce\plugins\advimage\img\sample.gif" />
+    <Content Include="lib\tiny_mce\plugins\advimage\js\._image.js" />
+    <Content Include="lib\tiny_mce\plugins\advimage\js\image.js" />
+    <Content Include="lib\tiny_mce\plugins\advimage\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\advimage\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\advlink\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\advlink\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\advlink\._link.htm" />
+    <Content Include="lib\tiny_mce\plugins\advlink\css\._advlink.css" />
+    <Content Include="lib\tiny_mce\plugins\advlink\css\advlink.css" />
+    <Content Include="lib\tiny_mce\plugins\advlink\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\advlink\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\advlink\js\._advlink.js" />
+    <Content Include="lib\tiny_mce\plugins\advlink\js\advlink.js" />
+    <Content Include="lib\tiny_mce\plugins\advlink\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\advlink\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\advlink\link.htm" />
+    <Content Include="lib\tiny_mce\plugins\advlist\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\advlist\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\advlist\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\advlist\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\autolink\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\autolink\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\autolink\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\autolink\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\autoresize\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\autoresize\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\autoresize\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\autoresize\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\autosave\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\autosave\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\autosave\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\autosave\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\autosave\langs\._en.js" />
+    <Content Include="lib\tiny_mce\plugins\autosave\langs\en.js" />
+    <Content Include="lib\tiny_mce\plugins\bbcode\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\bbcode\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\bbcode\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\bbcode\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\contextmenu\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\contextmenu\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\contextmenu\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\contextmenu\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\directionality\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\directionality\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\directionality\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\directionality\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\emotions\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\emotions\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\emotions\._emotions.htm" />
+    <Content Include="lib\tiny_mce\plugins\emotions\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\emotions\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\emotions\emotions.htm" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-cool.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-cry.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-embarassed.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-foot-in-mouth.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-frown.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-innocent.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-kiss.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-laughing.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-money-mouth.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-sealed.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-smile.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-surprised.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-tongue-out.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-undecided.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-wink.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\._smiley-yell.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-cool.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-cry.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-embarassed.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-foot-in-mouth.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-frown.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-innocent.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-kiss.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-laughing.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-money-mouth.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-sealed.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-smile.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-surprised.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-tongue-out.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-undecided.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-wink.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\img\smiley-yell.gif" />
+    <Content Include="lib\tiny_mce\plugins\emotions\js\._emotions.js" />
+    <Content Include="lib\tiny_mce\plugins\emotions\js\emotions.js" />
+    <Content Include="lib\tiny_mce\plugins\emotions\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\emotions\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\example\._dialog.htm" />
+    <Content Include="lib\tiny_mce\plugins\example\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\example\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\example\dialog.htm" />
+    <Content Include="lib\tiny_mce\plugins\example\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\example\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\example\img\._example.gif" />
+    <Content Include="lib\tiny_mce\plugins\example\img\example.gif" />
+    <Content Include="lib\tiny_mce\plugins\example\js\._dialog.js" />
+    <Content Include="lib\tiny_mce\plugins\example\js\dialog.js" />
+    <Content Include="lib\tiny_mce\plugins\example\langs\._en.js" />
+    <Content Include="lib\tiny_mce\plugins\example\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\example\langs\en.js" />
+    <Content Include="lib\tiny_mce\plugins\example\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\example_dependency\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\example_dependency\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\example_dependency\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\example_dependency\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\._fullpage.htm" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\css\._fullpage.css" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\css\fullpage.css" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\fullpage.htm" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\js\._fullpage.js" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\js\fullpage.js" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\fullpage\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\fullscreen\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\fullscreen\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\fullscreen\._fullscreen.htm" />
+    <Content Include="lib\tiny_mce\plugins\fullscreen\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\fullscreen\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\fullscreen\fullscreen.htm" />
+    <Content Include="lib\tiny_mce\plugins\iespell\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\iespell\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\iespell\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\iespell\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\._template.htm" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\._window.css" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\._alert.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\._button.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\._buttons.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\._confirm.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\._corners.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\._horizontal.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\._vertical.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\alert.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\button.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\buttons.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\confirm.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\corners.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\horizontal.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\vertical.gif" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\skins\clearlooks2\window.css" />
+    <Content Include="lib\tiny_mce\plugins\inlinepopups\template.htm" />
+    <Content Include="lib\tiny_mce\plugins\insertdatetime\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\insertdatetime\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\insertdatetime\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\insertdatetime\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\layer\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\layer\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\layer\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\layer\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\legacyoutput\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\legacyoutput\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\legacyoutput\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\legacyoutput\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\lists\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\lists\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\lists\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\lists\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\media\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\media\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\media\._media.htm" />
+    <Content Include="lib\tiny_mce\plugins\media\._moxieplayer.swf" />
+    <Content Include="lib\tiny_mce\plugins\media\css\._media.css" />
+    <Content Include="lib\tiny_mce\plugins\media\css\media.css" />
+    <Content Include="lib\tiny_mce\plugins\media\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\media\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\media\js\._embed.js" />
+    <Content Include="lib\tiny_mce\plugins\media\js\._media.js" />
+    <Content Include="lib\tiny_mce\plugins\media\js\embed.js" />
+    <Content Include="lib\tiny_mce\plugins\media\js\media.js" />
+    <Content Include="lib\tiny_mce\plugins\media\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\media\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\media\media.htm" />
+    <Content Include="lib\tiny_mce\plugins\media\moxieplayer.swf" />
+    <Content Include="lib\tiny_mce\plugins\nonbreaking\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\nonbreaking\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\nonbreaking\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\nonbreaking\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\noneditable\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\noneditable\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\noneditable\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\noneditable\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\pagebreak\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\pagebreak\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\pagebreak\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\pagebreak\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\paste\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\paste\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\paste\._pastetext.htm" />
+    <Content Include="lib\tiny_mce\plugins\paste\._pasteword.htm" />
+    <Content Include="lib\tiny_mce\plugins\paste\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\paste\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\paste\js\._pastetext.js" />
+    <Content Include="lib\tiny_mce\plugins\paste\js\._pasteword.js" />
+    <Content Include="lib\tiny_mce\plugins\paste\js\pastetext.js" />
+    <Content Include="lib\tiny_mce\plugins\paste\js\pasteword.js" />
+    <Content Include="lib\tiny_mce\plugins\paste\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\paste\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\paste\pastetext.htm" />
+    <Content Include="lib\tiny_mce\plugins\paste\pasteword.htm" />
+    <Content Include="lib\tiny_mce\plugins\preview\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\preview\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\preview\._example.html" />
+    <Content Include="lib\tiny_mce\plugins\preview\._preview.html" />
+    <Content Include="lib\tiny_mce\plugins\preview\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\preview\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\preview\example.html" />
+    <Content Include="lib\tiny_mce\plugins\preview\jscripts\._embed.js" />
+    <Content Include="lib\tiny_mce\plugins\preview\jscripts\embed.js" />
+    <Content Include="lib\tiny_mce\plugins\preview\preview.html" />
+    <Content Include="lib\tiny_mce\plugins\print\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\print\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\print\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\print\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\save\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\save\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\save\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\save\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\._searchreplace.htm" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\css\._searchreplace.css" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\css\searchreplace.css" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\js\._searchreplace.js" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\js\searchreplace.js" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\searchreplace\searchreplace.htm" />
+    <Content Include="lib\tiny_mce\plugins\spellchecker\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\spellchecker\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\spellchecker\css\._content.css" />
+    <Content Include="lib\tiny_mce\plugins\spellchecker\css\content.css" />
+    <Content Include="lib\tiny_mce\plugins\spellchecker\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\spellchecker\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\spellchecker\img\._wline.gif" />
+    <Content Include="lib\tiny_mce\plugins\spellchecker\img\wline.gif" />
+    <Content Include="lib\tiny_mce\plugins\style\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\style\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\style\._props.htm" />
+    <Content Include="lib\tiny_mce\plugins\style\._readme.txt" />
+    <Content Include="lib\tiny_mce\plugins\style\css\._props.css" />
+    <Content Include="lib\tiny_mce\plugins\style\css\props.css" />
+    <Content Include="lib\tiny_mce\plugins\style\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\style\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\style\js\._props.js" />
+    <Content Include="lib\tiny_mce\plugins\style\js\props.js" />
+    <Content Include="lib\tiny_mce\plugins\style\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\style\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\style\props.htm" />
+    <Content Include="lib\tiny_mce\plugins\style\readme.txt" />
+    <Content Include="lib\tiny_mce\plugins\tabfocus\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\tabfocus\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\tabfocus\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\tabfocus\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\table\._cell.htm" />
+    <Content Include="lib\tiny_mce\plugins\table\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\table\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\table\._merge_cells.htm" />
+    <Content Include="lib\tiny_mce\plugins\table\._row.htm" />
+    <Content Include="lib\tiny_mce\plugins\table\._table.htm" />
+    <Content Include="lib\tiny_mce\plugins\table\cell.htm" />
+    <Content Include="lib\tiny_mce\plugins\table\css\._cell.css" />
+    <Content Include="lib\tiny_mce\plugins\table\css\._row.css" />
+    <Content Include="lib\tiny_mce\plugins\table\css\._table.css" />
+    <Content Include="lib\tiny_mce\plugins\table\css\cell.css" />
+    <Content Include="lib\tiny_mce\plugins\table\css\row.css" />
+    <Content Include="lib\tiny_mce\plugins\table\css\table.css" />
+    <Content Include="lib\tiny_mce\plugins\table\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\table\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\table\js\._cell.js" />
+    <Content Include="lib\tiny_mce\plugins\table\js\._merge_cells.js" />
+    <Content Include="lib\tiny_mce\plugins\table\js\._row.js" />
+    <Content Include="lib\tiny_mce\plugins\table\js\._table.js" />
+    <Content Include="lib\tiny_mce\plugins\table\js\cell.js" />
+    <Content Include="lib\tiny_mce\plugins\table\js\merge_cells.js" />
+    <Content Include="lib\tiny_mce\plugins\table\js\row.js" />
+    <Content Include="lib\tiny_mce\plugins\table\js\table.js" />
+    <Content Include="lib\tiny_mce\plugins\table\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\table\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\table\merge_cells.htm" />
+    <Content Include="lib\tiny_mce\plugins\table\row.htm" />
+    <Content Include="lib\tiny_mce\plugins\table\table.htm" />
+    <Content Include="lib\tiny_mce\plugins\template\._blank.htm" />
+    <Content Include="lib\tiny_mce\plugins\template\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\template\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\template\._template.htm" />
+    <Content Include="lib\tiny_mce\plugins\template\blank.htm" />
+    <Content Include="lib\tiny_mce\plugins\template\css\._template.css" />
+    <Content Include="lib\tiny_mce\plugins\template\css\template.css" />
+    <Content Include="lib\tiny_mce\plugins\template\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\template\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\template\js\._template.js" />
+    <Content Include="lib\tiny_mce\plugins\template\js\template.js" />
+    <Content Include="lib\tiny_mce\plugins\template\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\template\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\template\template.htm" />
+    <Content Include="lib\tiny_mce\plugins\visualblocks\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\visualblocks\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\visualblocks\css\._visualblocks.css" />
+    <Content Include="lib\tiny_mce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="lib\tiny_mce\plugins\visualblocks\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\visualblocks\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\visualchars\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\visualchars\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\visualchars\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\visualchars\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\wordcount\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\wordcount\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\wordcount\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\wordcount\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\._abbr.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\._acronym.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\._attributes.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\._cite.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\._del.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\._editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\._editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\._ins.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\abbr.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\acronym.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\attributes.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\cite.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\css\._attributes.css" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\css\._popup.css" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\css\attributes.css" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\css\popup.css" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\del.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\editor_plugin.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\editor_plugin_src.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\ins.htm" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\._abbr.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\._acronym.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\._attributes.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\._cite.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\._del.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\._element_common.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\._ins.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\abbr.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\acronym.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\attributes.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\cite.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\del.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\element_common.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\js\ins.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\plugins\xhtmlxtras\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\._about.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\._anchor.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\._charmap.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\._color_picker.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\._editor_template.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\._editor_template_src.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\._image.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\._link.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\._shortcuts.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\._source_editor.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\about.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\anchor.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\charmap.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\color_picker.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\editor_template.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\editor_template_src.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\image.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\._colorpicker.jpg" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\._flash.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\._icons.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\._iframe.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\._pagebreak.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\._quicktime.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\._realmedia.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\._shockwave.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\._trans.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\._video.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\._windowsmedia.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\colorpicker.jpg" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\flash.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\icons.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\iframe.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\pagebreak.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\quicktime.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\realmedia.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\shockwave.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\trans.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\video.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\img\windowsmedia.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\._about.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\._anchor.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\._charmap.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\._color_picker.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\._image.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\._link.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\._source_editor.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\about.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\anchor.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\charmap.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\color_picker.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\image.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\link.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\js\source_editor.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\langs\._en.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\langs\._en_dlg.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\langs\en.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\langs\en_dlg.js" />
+    <Content Include="lib\tiny_mce\themes\advanced\link.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\shortcuts.htm" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\._content.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\._dialog.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\._ui.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\content.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\dialog.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\._buttons.png" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\._items.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\._menu_arrow.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\._menu_check.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\._progress.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\._tabs.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\buttons.png" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\items.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\menu_arrow.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\menu_check.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\progress.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\img\tabs.gif" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\default\ui.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\highcontrast\._content.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\highcontrast\._dialog.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\highcontrast\._ui.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\highcontrast\content.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\highcontrast\dialog.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\highcontrast\ui.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\._content.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\._dialog.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\._ui.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\._ui_black.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\._ui_silver.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\content.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\dialog.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\img\._button_bg.png" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\img\._button_bg_black.png" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\img\._button_bg_silver.png" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\img\button_bg.png" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_black.png" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\img\button_bg_silver.png" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\ui.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\ui_black.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\skins\o2k7\ui_silver.css" />
+    <Content Include="lib\tiny_mce\themes\advanced\source_editor.htm" />
+    <Content Include="lib\tiny_mce\themes\simple\editor_template.js" />
+    <Content Include="lib\tiny_mce\themes\simple\editor_template_src.js" />
+    <Content Include="lib\tiny_mce\themes\simple\img\._icons.gif" />
+    <Content Include="lib\tiny_mce\themes\simple\img\icons.gif" />
+    <Content Include="lib\tiny_mce\themes\simple\langs\._en.js" />
+    <Content Include="lib\tiny_mce\themes\simple\langs\en.js" />
+    <Content Include="lib\tiny_mce\themes\simple\skins\default\._content.css" />
+    <Content Include="lib\tiny_mce\themes\simple\skins\default\._ui.css" />
+    <Content Include="lib\tiny_mce\themes\simple\skins\default\content.css" />
+    <Content Include="lib\tiny_mce\themes\simple\skins\default\ui.css" />
+    <Content Include="lib\tiny_mce\themes\simple\skins\o2k7\._content.css" />
+    <Content Include="lib\tiny_mce\themes\simple\skins\o2k7\._ui.css" />
+    <Content Include="lib\tiny_mce\themes\simple\skins\o2k7\content.css" />
+    <Content Include="lib\tiny_mce\themes\simple\skins\o2k7\img\._button_bg.png" />
+    <Content Include="lib\tiny_mce\themes\simple\skins\o2k7\img\button_bg.png" />
+    <Content Include="lib\tiny_mce\themes\simple\skins\o2k7\ui.css" />
+    <Content Include="lib\tiny_mce\tiny_mce.js" />
+    <Content Include="lib\tiny_mce\tiny_mce_popup.js" />
+    <Content Include="lib\tiny_mce\tiny_mce_src.js" />
+    <Content Include="lib\tiny_mce\utils\editable_selects.js" />
+    <Content Include="lib\tiny_mce\utils\form_utils.js" />
+    <Content Include="lib\tiny_mce\utils\mctabs.js" />
+    <Content Include="lib\tiny_mce\utils\validate.js" />
+    <Content Include="lib\uniform\Aristo\._uniform.aristo.css" />
+    <Content Include="lib\uniform\Aristo\images\._sprite-aristo.png" />
+    <Content Include="lib\uniform\Aristo\images\sprite-aristo.png" />
+    <Content Include="lib\uniform\Aristo\uniform.aristo.css" />
+    <Content Include="lib\uniform\css\._uniform.default.css" />
+    <Content Include="lib\uniform\css\uniform.default.css" />
+    <Content Include="lib\uniform\images\._bg-input-focus.png" />
+    <Content Include="lib\uniform\images\._bg-input.png" />
+    <Content Include="lib\uniform\images\._sprite.png" />
+    <Content Include="lib\uniform\images\bg-input-focus.png" />
+    <Content Include="lib\uniform\images\bg-input.png" />
+    <Content Include="lib\uniform\images\sprite.png" />
+    <Content Include="lib\uniform\jquery.uniform.js" />
+    <Content Include="lib\uniform\jquery.uniform.min.js" />
+    <Content Include="lib\validation\additional-methods.js" />
+    <Content Include="lib\validation\changelog.txt" />
+    <Content Include="lib\validation\grunt.js" />
+    <Content Include="lib\validation\jquery.validate.js" />
+    <Content Include="lib\validation\jquery.validate.min.js" />
+    <Content Include="lib\validation\localization\messages_ar.js" />
+    <Content Include="lib\validation\localization\messages_bg.js" />
+    <Content Include="lib\validation\localization\messages_ca.js" />
+    <Content Include="lib\validation\localization\messages_cn.js" />
+    <Content Include="lib\validation\localization\messages_cs.js" />
+    <Content Include="lib\validation\localization\messages_da.js" />
+    <Content Include="lib\validation\localization\messages_de.js" />
+    <Content Include="lib\validation\localization\messages_ee.js" />
+    <Content Include="lib\validation\localization\messages_el.js" />
+    <Content Include="lib\validation\localization\messages_es.js" />
+    <Content Include="lib\validation\localization\messages_eu.js" />
+    <Content Include="lib\validation\localization\messages_fa.js" />
+    <Content Include="lib\validation\localization\messages_fi.js" />
+    <Content Include="lib\validation\localization\messages_fr.js" />
+    <Content Include="lib\validation\localization\messages_ge.js" />
+    <Content Include="lib\validation\localization\messages_he.js" />
+    <Content Include="lib\validation\localization\messages_hu.js" />
+    <Content Include="lib\validation\localization\messages_it.js" />
+    <Content Include="lib\validation\localization\messages_ja.js" />
+    <Content Include="lib\validation\localization\messages_kk.js" />
+    <Content Include="lib\validation\localization\messages_lt.js" />
+    <Content Include="lib\validation\localization\messages_lv.js" />
+    <Content Include="lib\validation\localization\messages_nl.js" />
+    <Content Include="lib\validation\localization\messages_no.js" />
+    <Content Include="lib\validation\localization\messages_pl.js" />
+    <Content Include="lib\validation\localization\messages_ptbr.js" />
+    <Content Include="lib\validation\localization\messages_ptpt.js" />
+    <Content Include="lib\validation\localization\messages_ro.js" />
+    <Content Include="lib\validation\localization\messages_ru.js" />
+    <Content Include="lib\validation\localization\messages_si.js" />
+    <Content Include="lib\validation\localization\messages_sk.js" />
+    <Content Include="lib\validation\localization\messages_sl.js" />
+    <Content Include="lib\validation\localization\messages_sr.js" />
+    <Content Include="lib\validation\localization\messages_sv.js" />
+    <Content Include="lib\validation\localization\messages_th.js" />
+    <Content Include="lib\validation\localization\messages_tr.js" />
+    <Content Include="lib\validation\localization\messages_tw.js" />
+    <Content Include="lib\validation\localization\messages_ua.js" />
+    <Content Include="lib\validation\localization\messages_vi.js" />
+    <Content Include="lib\validation\localization\methods_de.js" />
+    <Content Include="lib\validation\localization\methods_nl.js" />
+    <Content Include="lib\validation\localization\methods_pt.js" />
+    <Content Include="lib\validation\version.txt" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.ui.datepicker.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Script\cgr_calendar.js" />
+    <Content Include="Script\cgr_common.js" />
+    <Content Include="Script\core\jquery-1.7.2.min.js" />
+    <Content Include="Script\core\jquery-ui-1.8.21.custom.min.js" />
+    <Content Include="Script\forms\jquery.autosize.js" />
+    <Content Include="Script\forms\jquery.autosize.min.js" />
+    <Content Include="Script\forms\jquery.counter.min.js" />
+    <Content Include="Script\forms\jquery.inputmask.min.js" />
+    <Content Include="Script\forms\jquery.progressbar.anim.js" />
+    <Content Include="Script\forms\jquery.spinners.min.js" />
+    <Content Include="Script\forms\jquery.ui.touch-punch.min.js" />
+    <Content Include="Script\grid\grid.base.js" />
+    <Content Include="Script\grid\grid.locale-es.js" />
+    <Content Include="Script\grid\grid.locale-es_old.js" />
+    <Content Include="Script\grid\jquery.jqGrid.fluid.js" />
+    <Content Include="Script\grid\jquery.jqGrid.min.js" />
+    <Content Include="Script\grid\jquery.jqGrid.min_old.js" />
+    <Content Include="Script\ie\html5.js" />
+    <Content Include="Script\ie\respond.min.js" />
+    <Content Include="Script\ios-orientationchange-fix.js" />
+    <Content Include="Script\jquery.actual.min.js" />
+    <Content Include="Script\jquery.blockUI.js" />
+    <Content Include="Script\jquery.cookie.min.js" />
+    <Content Include="Script\jquery.dataTables.min.js" />
+    <Content Include="Script\jquery.debouncedresize.min.js" />
+    <Content Include="Script\jquery.min.js" />
+    <Content Include="Script\jquery.min__.js" />
+    <Content Include="Script\jquery.peity.min.js" />
+    <Content Include="Script\jquery.unobtrusive-ajax.js" />
+    <Content Include="Script\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Script\jquery.validate-vsdoc.js" />
+    <Content Include="Script\jquery.validate.js" />
+    <Content Include="Script\jquery.validate.min.js" />
+    <Content Include="Script\jquery.validate.unobtrusive.js" />
+    <Content Include="Script\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Script\jquery.wookmark.js" />
+    <Content Include="Script\json\json2.js" />
+    <Content Include="Script\knockout-2.2.0.debug.js" />
+    <Content Include="Script\knockout-2.2.0.js" />
+    <Content Include="Script\modernizr-2.6.2.js" />
+    <Content Include="Script\selectNav.js" />
+    <Content Include="Script\utils\bootstrap-fileupload.js" />
+    <Content Include="Script\utils\BuscaPersonaCGR.js" />
+    <Content Include="Script\utils\BusquedaCGR.js" />
+    <Content Include="Script\utils\ComunesCGR.js" />
+    <Content Include="Script\utils\ComunesFunciones.js" />
+    <Content Include="Script\utils\jquery.download.js" />
+    <Content Include="Script\utils\jquery.maskedinput-1.2.2.min.js" />
+    <Content Include="Script\utils\ProyectoCGR.js" />
+    <Content Include="Style\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Style\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="Style\bootstrap\css\bootstrap.css" />
+    <Content Include="Style\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Style\bootstrap\css\bootstrap.min_OLD.css" />
+    <Content Include="Style\bootstrap\css\datepicker.css" />
+    <Content Include="Style\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="Style\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="Style\bootstrap\js\bootstrap-datepicker.min.js" />
+    <Content Include="Style\bootstrap\js\bootstrap-typeahead-old.js" />
+    <Content Include="Style\bootstrap\js\bootstrap-typeahead.js" />
+    <Content Include="Style\bootstrap\js\bootstrap.js" />
+    <Content Include="Style\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Style\css\blitzer\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="Style\css\blitzer\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="Style\css\blitzer\images\ui-bg_flat_0_333333_40x100.png" />
+    <Content Include="Style\css\blitzer\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="Style\css\blitzer\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Style\css\blitzer\images\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="Style\css\blitzer\images\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
+    <Content Include="Style\css\blitzer\images\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
+    <Content Include="Style\css\blitzer\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="Style\css\blitzer\images\ui-icons_004276_256x240.png" />
+    <Content Include="Style\css\blitzer\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Style\css\blitzer\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Style\css\blitzer\jquery-ui-1.8.21.custom.css" />
+    <Content Include="Style\css\cgr.css" />
+    <Content Include="Style\css\fonts_googleapis.css" />
+    <Content Include="Style\css\ie.css" />
+    <Content Include="Style\css\images\ajax-loader.gif" />
+    <Content Include="Style\css\images\img-logo-home_.png" />
+    <Content Include="Style\css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Style\css\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="Style\css\images\ui-bg_flat_55_994d53_40x100.png" />
+    <Content Include="Style\css\images\ui-bg_flat_55_fafafa_40x100.png" />
+    <Content Include="Style\css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Style\css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Style\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Style\css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Style\css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Style\css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Style\css\images\ui-bg_gloss-wave_30_3d3644_500x100.png" />
+    <Content Include="Style\css\images\ui-bg_highlight-soft_100_dcd9de_1x100.png" />
+    <Content Include="Style\css\images\ui-bg_highlight-soft_100_eae6ea_1x100.png" />
+    <Content Include="Style\css\images\ui-bg_highlight-soft_25_30273a_1x100.png" />
+    <Content Include="Style\css\images\ui-bg_highlight-soft_45_5f5964_1x100.png" />
+    <Content Include="Style\css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Style\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Style\css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Style\css\images\ui-icons_454545_256x240.png" />
+    <Content Include="Style\css\images\ui-icons_734d99_256x240.png" />
+    <Content Include="Style\css\images\ui-icons_888888_256x240.png" />
+    <Content Include="Style\css\images\ui-icons_8d78a5_256x240.png" />
+    <Content Include="Style\css\images\ui-icons_a8a3ae_256x240.png" />
+    <Content Include="Style\css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Style\css\images\ui-icons_ebccce_256x240.png" />
+    <Content Include="Style\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Style\css\jqGrid.bootstrap.css" />
+    <Content Include="Style\css\jquery-ui-1.8.21.custom.css" />
+    <Content Include="Style\css\jquery.dataTables.min.css" />
+    <Content Include="Style\css\style.css" />
+    <Content Include="Style\css\switcher_styles.css" />
+    <Content Include="Style\css\tabs.css" />
+    <Content Include="Style\css\tooltip.css" />
+    <Content Include="Style\css\ui.jqgrid.css" />
+    <Content Include="Style\css\ui.jqgrid_old.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Style\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\GenerarServiciosPlan\Index.cshtml" />
+    <Content Include="Views\PlanSalud\Index.cshtml" />
+    <Content Include="Views\PlanSalud\Details.cshtml" />
+    <Content Include="Views\PlanSalud\Edit.cshtml" />
+    <Content Include="Views\PlanSalud\Delete.cshtml" />
+    <Content Include="Views\GenerarServiciosPlan\Index_OLD.cshtml" />
+    <Content Include="Views\GenerarServiciosPlan\GenerateServices.cshtml" />
+    <Content Include="Views\PlanSalud\Create.cshtml" />
+    <Content Include="Views\Bitacora\Index.cshtml" />
+    <Content Include="Views\Bitacora\Details.cshtml" />
+    <Content Include="Views\Bitacora\Create.cshtml" />
+    <Content Include="Views\Bitacora\Edit.cshtml" />
+    <Content Include="Views\Bitacora\Delete.cshtml" />
+    <Content Include="Views\EstrategiaComercial\Index.cshtml" />
+    <Content Include="Views\EstrategiaComercial\Details.cshtml" />
+    <Content Include="Views\EstrategiaComercial\Create.cshtml" />
+    <Content Include="Views\EstrategiaComercial\Edit.cshtml" />
+    <Content Include="Views\EstrategiaComercial\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Mantenimiento\Scripts\" />
+    <Folder Include="Areas\Mantenimiento\Views\Shared\" />
+    <Folder Include="Filters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <!--
+  <ItemGroup>
+    <Analyzer Include="bin\UPC.TP2.UTIL.dll" />
+  </ItemGroup>
+  -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4109</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:20511/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

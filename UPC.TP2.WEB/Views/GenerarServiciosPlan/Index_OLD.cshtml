@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-8">
+            <div class="header">
+                <h4 class="title">Generar Servicios de Planes de Salud</h4>
+            </div>
+            <div class="content">
+                <from>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Seleccionar fecha: Desde</label>
+                                <input id="fecha_inicio" name="fecha_inicio" type="text" class="form-control datepicker" placeholder="Fecha inicio" value="01/01/2017">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Hasta</label>
+                                <input id="fecha_fin" name="fecha_fin" type="text" class="form-control datepicker" placeholder="Fecha fin" value="30/01/2017">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @Html.ActionLink("Generar", "Resultado", "PlanServicio")
+                                <input name="submit_informe_tipo" value="Generar Informe" type="submit" class="btn btn-info btn-fill pull-left" />
+                            </div>
+                        </div>
+                    </div>
+                </from>
+
+                <div class="clearfix"></div>
+               
+            </div>
+    </div>
+
+</div>

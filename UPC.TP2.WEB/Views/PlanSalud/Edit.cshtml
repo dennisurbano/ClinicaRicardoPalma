@@ -1,0 +1,115 @@
+﻿@model UPC.TP2.WEB.Models.T_PLAN_DE_SALUD
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $('#mi-popup').dialog({
+            autoOpen: false,
+            width: 400,
+            resizable: false,
+            modal: true
+        });
+
+        $('.modal').click(function () {
+            $('#mi-popup').load(this.href, function () {
+                $(this).dialog('open');
+            });
+            return false;
+        });
+    });
+</script>
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>T_PLAN_DE_SALUD</legend>
+        <div class="mi-popup">
+
+            <div class="editor-label" class="area_btngrilla">
+                @Html.LabelFor(model => model.nombre_plan)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.nombre_plan)
+                @Html.ValidationMessageFor(model => model.nombre_plan)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.descripcion)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.descripcion)
+                @Html.ValidationMessageFor(model => model.descripcion)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_inicio)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_inicio)
+                @Html.ValidationMessageFor(model => model.fecha_inicio)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.fecha_fin)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.fecha_fin)
+                @Html.ValidationMessageFor(model => model.fecha_fin)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.objetivo)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.objetivo)
+                @Html.ValidationMessageFor(model => model.objetivo)
+            </div>
+
+            @{ UPC.TP2.WEB.Models.T_ESTRATEGIA_COMERCIAL planEstrategia = null;}
+            <div class="editor-label">
+                @Html.LabelFor(model => planEstrategia.id_estrategia_comercial, "T_ESTRATEGIA_COMERCIAL")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("id_estrategia_comercial", String.Empty)
+                @Html.ValidationMessageFor(model => planEstrategia.nombre)
+            </div>
+
+            @{ UPC.TP2.WEB.Models.T_BASE_LEGAL planLegal = null;}
+            <div class="editor-label">
+                @Html.LabelFor(model => planLegal.id_base_legal, "T_BASE_LEGAL")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("id_estrategia_comercial", String.Empty)
+                @Html.ValidationMessageFor(model => planLegal.nombre_normativa,"T_BASE_LEGAL")
+            </div>
+
+            @{ UPC.TP2.WEB.Models.T_BASE_FINANCIERA planFinanciero = null;}
+            <div class="editor-label">
+                @Html.LabelFor(model => planFinanciero.descripcion, "T_ESTRATEGIA_COMERCIAL")
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("id_estrategia_comercial", String.Empty)
+                @Html.ValidationMessageFor(model => planEstrategia.nombre)
+            </div>
+
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

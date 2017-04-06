@@ -1,0 +1,102 @@
+﻿@model UPC.TP2.WEB.Models.T_PLAN_DE_SALUD
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear Plan de Salud</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, 
+                                      new { enctype = "multipart/form-data" ,autocomplete = "off" })){
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>T_PLAN_DE_SALUD</legend>
+        <div>
+            @Html.LabelFor(model => Model.id_plan_salud)
+        </div>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_plan_salud)
+            @Html.ValidationMessageFor(model => model.id_plan_salud)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nombre_plan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nombre_plan)
+            @Html.ValidationMessageFor(model => model.nombre_plan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.descripcion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.descripcion)
+            @Html.ValidationMessageFor(model => model.descripcion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha_inicio)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fecha_inicio)
+            @Html.ValidationMessageFor(model => model.fecha_inicio)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.fecha_fin)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fecha_fin)
+            @Html.ValidationMessageFor(model => model.fecha_fin)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.objetivo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.objetivo)
+            @Html.ValidationMessageFor(model => model.objetivo)
+        </div>
+
+        @{UPC.TP2.WEB.Models.T_ESTRATEGIA_COMERCIAL saludDetalle = null;}
+        <div class="editor-label">
+            @Html.LabelFor(model => saludDetalle.id_estrategia_comercial, "T_ESTRATEGIA_COMERCIAL")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("id_estrategia_comercial", String.Empty)
+            @Html.ValidationMessageFor(model => saludDetalle.nombre)
+        </div>
+
+        @{UPC.TP2.WEB.Models.T_BASE_LEGAL saludLegal = null;}
+        <div class="editor-label">
+            @Html.LabelFor(model => saludLegal.id_base_legal, "T_BASE_LEGAL")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("id_base_legal", String.Empty)
+            @Html.ValidationMessageFor(model => saludLegal.nombre_normativa)
+        </div>
+
+        @{UPC.TP2.WEB.Models.T_BASE_FINANCIERA saludFinanciero = null;}
+        <div class="editor-label">
+            @Html.LabelFor(model => saludFinanciero.id_base_financiera, "T_BASE_LEGAL")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("id_base_legal", String.Empty)
+            @Html.ValidationMessageFor(model => saludFinanciero.descripcion)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
