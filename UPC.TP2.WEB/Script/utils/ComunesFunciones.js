@@ -123,6 +123,8 @@ $("#bitacora_button_create_submit").on("click", function (e) {
 
 // BEGIN ## ESTRATEGIAS COMERCIALES ##
 
+//-- ESTRATEGIA
+
 $("#estrategia_comercial_action_select_plan").on("change", function (e) {
     if ($(this).val() != "default") {
         $("#form_estrategia_comercial_index").attr("action", "/EstrategiaComercial/Index");
@@ -143,6 +145,27 @@ $("#estrategia_comercial_create_button").on("click", function (e) {
         e.stopPropagation();
     }
 });
+
+$("#estrategia_comercial_button_create_submit").on("click", function (e) {
+
+    var to_submit = true;
+
+    $("#estrategia_comercial_create_form_div").find("input, select").each(function () {
+        if ($(this).val() == "") {
+            alert("Debe llenar todos los campos");
+            to_submit = false;
+            e.preventDefault();
+            return false; //break loop
+        }
+    });
+
+    if (to_submit) {
+        $("#form_estrategia_comercial_index").attr("action", "/EstrategiaComercial/Create");
+        $("#form_estrategia_comercial_index").submit();
+    }
+});
+
+//-- ESTRATEGIA DETALLE
 
 $("#estrategia_comercial_detalle_button_create_save").on("click", function (e) {
 
