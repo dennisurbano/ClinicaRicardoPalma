@@ -151,7 +151,8 @@ namespace UPC.TP2.WEB.PlanSalud.Controllers
                 T_CONFIGURACION_ASIGNAR = config_asignar,
                 T_CONFIGURACION_RETIRAR = config_retirar,
                 JSON_LIST_RETIRO_SERVICIO = JArray.FromObject(obj_ret_serv, Util.jsonNoLoop()),
-                JSON_LIST_ASIGNA_PLAN = JArray.FromObject(obj_asi_plan, Util.jsonNoLoop())
+                JSON_LIST_ASIGNA_PLAN = JArray.FromObject(obj_asi_plan, Util.jsonNoLoop()),
+                PLANES_SERVICIOS = db.T_PLAN_SERVICIO.ToList()
             };
 
             //-- END: Full logic

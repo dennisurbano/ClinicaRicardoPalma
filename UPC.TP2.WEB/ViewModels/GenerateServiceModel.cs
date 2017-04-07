@@ -17,5 +17,6 @@ namespace UPC.TP2.WEB.ViewModels
         public T_CONFIGURACION T_CONFIGURACION_ASIGNAR { get; set; }
         public JArray JSON_LIST_RETIRO_SERVICIO { get; set; }
         public JArray JSON_LIST_ASIGNA_PLAN { get; set; }
+        public IEnumerable<T_PLAN_SERVICIO> PLANES_SERVICIOS { get; set; }
     }
 }
