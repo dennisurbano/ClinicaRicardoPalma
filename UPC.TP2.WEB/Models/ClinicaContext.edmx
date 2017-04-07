@@ -494,10 +494,10 @@
     </Key>
     <Property Name="id_plan_salud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre_plan" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="descripcion" Type="varchar" Nullable="true" MaxLength="10" />
+    <Property Name="descripcion" Type="varchar(max)" Nullable="true" />
     <Property Name="fecha_inicio" Type="datetime" Nullable="true" />
     <Property Name="fecha_fin" Type="datetime" Nullable="true" />
-    <Property Name="objetivo" Type="varchar" Nullable="true" MaxLength="20" />
+    <Property Name="objetivo" Type="varchar(max)" Nullable="true" />
     <Property Name="id_investigacion_comercial" Type="int" Nullable="true" />
     <Property Name="estado" Type="char" Nullable="true" MaxLength="1" />
   </EntityType>
@@ -1874,11 +1874,11 @@
             <PropertyRef Name="id_plan_salud" />
           </Key>
           <Property Name="id_plan_salud" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre_plan" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="descripcion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_plan" Type="String" Nullable="false" />
+          <Property Name="descripcion" Type="String" Unicode="false" />
           <Property Name="fecha_inicio" Type="DateTime" Precision="3" />
           <Property Name="fecha_fin" Type="DateTime" Precision="3" />
-          <Property Name="objetivo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="objetivo" Type="String" Unicode="false" />
           <Property Name="id_investigacion_comercial" Type="Int32" />
           <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="T_BITACORA_INCIDENCIA" Relationship="BDCLINICAModel.FK_T_BITACORA_INCIDENCIA_PLAN_DE_SALUD" FromRole="T_PLAN_DE_SALUD" ToRole="T_BITACORA_INCIDENCIA" />
