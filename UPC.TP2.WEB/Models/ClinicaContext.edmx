@@ -283,9 +283,10 @@
     <Property Name="tipo_incidencia" Type="varchar" Nullable="true" MaxLength="10" />
     <Property Name="fecha_registro" Type="datetime" Nullable="true" />
     <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="area" Type="nchar" Nullable="true" MaxLength="200" />
+    <Property Name="estado" Type="nchar" Nullable="true" MaxLength="20" />
     <Property Name="id_plan_salud" Type="int" Nullable="true" />
     <Property Name="idempleado" Type="int" Nullable="true" />
-    <Property Name="estado" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="T_COMPROBANTE">
     <Key>
@@ -1605,12 +1606,13 @@
           <Property Name="tipo_incidencia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="fecha_registro" Type="DateTime" Precision="3" />
           <Property Name="descripcion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="area" Type="String" Nullable="true" FixedLength="true" MaxLength="200" />
+          <Property Name="estado" Type="String" Nullable="true" FixedLength="true" MaxLength="20" />
           <Property Name="id_plan_salud" Type="Int32" />
           <Property Name="idempleado" Type="Int32" />
           <NavigationProperty Name="T_EMPLEADO" Relationship="BDCLINICAModel.FK__T_BITACOR__idemp__4D94879B" FromRole="T_BITACORA_INCIDENCIA" ToRole="T_EMPLEADO" />
           <NavigationProperty Name="T_PLAN_DE_SALUD" Relationship="BDCLINICAModel.FK_T_BITACORA_INCIDENCIA_PLAN_DE_SALUD" FromRole="T_BITACORA_INCIDENCIA" ToRole="T_PLAN_DE_SALUD" />
           <NavigationProperty Name="T_SEGUIMIENTO" Relationship="BDCLINICAModel.FK_T_SEGUIMIENTO_BITACORA_INCIDENCIA" FromRole="T_BITACORA_INCIDENCIA" ToRole="T_SEGUIMIENTO" />
-          <Property Name="estado" Type="String" Nullable="true" />
         </EntityType>
         <EntityType Name="T_COMPROBANTE">
           <Key>
@@ -2742,9 +2744,10 @@
           <ScalarProperty Name="tipo_incidencia" ColumnName="tipo_incidencia" />
           <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
           <ScalarProperty Name="id_plan_salud" ColumnName="id_plan_salud" />
           <ScalarProperty Name="idempleado" ColumnName="idempleado" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

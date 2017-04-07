@@ -23,9 +23,10 @@ namespace UPC.TP2.WEB.Models
         public string tipo_incidencia { get; set; }
         public Nullable<System.DateTime> fecha_registro { get; set; }
         public string descripcion { get; set; }
+        public string area { get; set; }
+        public string estado { get; set; }
         public Nullable<int> id_plan_salud { get; set; }
         public Nullable<int> idempleado { get; set; }
-        public string estado { get; set; }
     
         public virtual T_EMPLEADO T_EMPLEADO { get; set; }
         public virtual T_PLAN_DE_SALUD T_PLAN_DE_SALUD { get; set; }
