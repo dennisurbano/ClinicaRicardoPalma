@@ -56,9 +56,9 @@
                         var keys = item["id_plan_salud"] + "_" + item["id_especialidad"] + "_" + item["id_servicio"];
                         <tr style="background-color: @item["color"]">
                             <td><input type="checkbox" name="checkbox_retirar_@keys"/></td>
-                            <td>@item["nombre_plan_salud"]</td>
-                            <td>@item["nombre_especialidad"]</td>
-                            <td>@item["nombre_servicio"]</td>
+                            <td>[@item["id_plan_salud"]]@item["nombre_plan_salud"]</td>
+                            <td>[@item["id_especialidad"]]@item["nombre_especialidad"]</td>
+                            <td>[@item["id_servicio"]]@item["nombre_servicio"]</td>
                             <td>@item["cantidad"]</td>
                         </tr>
                     }

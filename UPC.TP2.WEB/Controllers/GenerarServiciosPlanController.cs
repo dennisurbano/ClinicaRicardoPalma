@@ -84,16 +84,23 @@ namespace UPC.TP2.WEB.PlanSalud.Controllers
             T_CONFIGURACION config_retirar = db.T_CONFIGURACION.Where(x => x.indicador == "retirar_servicio").FirstOrDefault();
 
             //## TABLA DE RETIRO
-            object obj_ret_serv = from pla_ser in db.T_PLAN_SERVICIO.Where(x => x.estado == "1").ToList()
+            object obj_ret_serv = from pro in ret_serv.Where(x => x.estado == "1")
+                                  join per in db.T_PERSONA on pro.codPersona equals per.codPersona
+                                  join per_pla in db.T_PERSONA_PLANSALUD on per.codPersona equals per_pla.codPersona //into gj_per_pla
+                                  //from per_pla in gj_per_pla.DefaultIfEmpty(new T_PERSONA_PLANSALUD())
+                                  join pla_ser in db.T_PLAN_SERVICIO.Where(x => x.estado == "1").ToList() on per_pla.id_plan_salud equals pla_ser.id_plan_salud
                                   join pla in db.T_PLAN_DE_SALUD on pla_ser.id_plan_salud equals pla.id_plan_salud
-                                  join per_pla in db.T_PERSONA_PLANSALUD on pla.id_plan_salud equals per_pla.id_plan_salud into gj_per_pla
-                                  from per_pla in gj_per_pla.DefaultIfEmpty(new T_PERSONA_PLANSALUD())
+   
+                                  /*
                                   join per in db.T_PERSONA on per_pla.codPersona equals per.codPersona
-                                  join pro in db.T_PROGRAMACION_MEDICA.Where(x=> x.estado == "1" && x.fecha >= FechaInicio && x.fecha <= FechaFin) on //Use direct table in replace of "ret_ser"
+                                  join pro in db.T_PROGRAMACION_MEDICA.Where(x=> x.estado == "1" && x.fecha >= FechaInicio && x.fecha <= FechaFin) on 
                                     new { pla_ser.idEspecialidad, pla_ser.id_servicio } equals
                                     new { pro.idEspecialidad, pro.id_servicio }  into gj_pro
+                                  
                                   from pro in gj_pro.DefaultIfEmpty()
-                                  where pro == null || ( pro != null && pro.fecha >= per_pla.fecha_inicio && pro.fecha <= per_pla.fecha_fin)
+                                  */
+                                  //where pro == null || ( pro != null && pro.fecha >= per_pla.fecha_inicio && pro.fecha <= per_pla.fecha_fin)
+                                  where pro != null && pro.fecha >= per_pla.fecha_inicio && pro.fecha <= per_pla.fecha_fin
                                   group 
                                     new { pla_ser, pla, per_pla } 
                                     by new { pla_ser.id_plan_salud, pla_ser.idEspecialidad, pla_ser.id_servicio } into gbx
