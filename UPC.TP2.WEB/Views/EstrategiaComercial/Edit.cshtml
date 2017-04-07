@@ -146,7 +146,7 @@
         </div>
 
         <p>
-            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn" })
+            @Html.ActionLink("Cancelar", "Index", new { estrategia_comercial_action_select_plan = Model.ESTRATEGIA_COMERCIAL.T_PLAN_DE_SALUD.id_plan_salud }, new { @class = "btn" })
             @if (esco_modific && plan_vigente)
             {
                 <input class="btn" type="submit" value="Grabar" />

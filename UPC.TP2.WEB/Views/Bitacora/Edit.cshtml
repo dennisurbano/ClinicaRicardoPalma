@@ -111,7 +111,7 @@
         <br />
         <br />
         <p>
-            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn"})
+            @Html.ActionLink("Cancelar", "ChangePlanSalud", new { bitacora_action_select_plan = Model.BITACORA.T_PLAN_DE_SALUD.id_plan_salud }, new { @class = "btn"})
             @if (bita_modific && plan_vigente)
             {
                 <input class="btn" type="submit" value="Grabar" />
