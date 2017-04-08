@@ -213,6 +213,7 @@
     <Compile Include="Controllers\BitacoraController.cs" />
     <Compile Include="Controllers\EstrategiaComercialController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InformePlanSaludController.cs" />
     <Compile Include="Controllers\PlanSaludController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -228,6 +229,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ClinicaContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\InformePlanSaludViewModel.cs" />
     <Compile Include="ViewModels\PlanSaludViewModel.cs" />
     <Content Include="App_Data\03_04_2017_%282%29_data.sql" />
     <Content Include="App_Data\03_04_2017_%282%29_schema.sql" />
@@ -2248,6 +2250,7 @@
     <Content Include="Views\EstrategiaComercial\Create.cshtml" />
     <Content Include="Views\EstrategiaComercial\Edit.cshtml" />
     <Content Include="Views\EstrategiaComercial\Delete.cshtml" />
+    <Content Include="Views\InformePlanSalud\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Mantenimiento\Scripts\" />

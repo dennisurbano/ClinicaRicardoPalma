@@ -47,7 +47,6 @@
         <AssociationConnector Association="BDCLINICAModel.FK__T_BITACOR__idemp__4D94879B" />
         <AssociationConnector Association="BDCLINICAModel.FK_T_BITACORA_INCIDENCIA_PLAN_DE_SALUD" />
         <AssociationConnector Association="BDCLINICAModel.FK_T_SEGUIMIENTO_BITACORA_INCIDENCIA" />
-        <AssociationConnector Association="BDCLINICAModel.FK__T_COMPROB__id_pa__49C3F6B7" />
         <AssociationConnector Association="BDCLINICAModel.FK__T_CONFIGU__id_in__4AB81AF0" />
         <AssociationConnector Association="BDCLINICAModel.FK__T_EMPLEAD__codPe__1273C1CD" />
         <AssociationConnector Association="BDCLINICAModel.FK__T_SOLICIT__idEmp__300424B4" />
@@ -94,6 +93,7 @@
         <EntityTypeShape EntityType="BDCLINICAModel.T_ESTRATEGIA_COMERCIAL_DETALLE" Width="1.5" PointX="1.5" PointY="7.125" />
         <AssociationConnector Association="BDCLINICAModel.T_ESTRATEGIA_COMERCIALT_PLAN_DE_SALUD" />
         <AssociationConnector Association="BDCLINICAModel.T_ESTRATEGIA_COMERCIAL_DETALLET_ESTRATEGIA_COMERCIAL" />
+        <AssociationConnector Association="BDCLINICAModel.T_COMPROBANTET_PERSONA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

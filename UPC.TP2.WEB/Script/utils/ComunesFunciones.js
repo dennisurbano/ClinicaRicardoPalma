@@ -19,14 +19,52 @@
 // BEGIN ## DATEPICKER ##
 
 $("#estrategia_comercial_detalle_fecha_inicio").datepicker({ format: "dd/mm/yyyy" });
-
 $("#estrategia_comercial_detalle_fecha_fin").datepicker({ format: "dd/mm/yyyy" });
 
 $("#plan_salud_fecha_inicio").datepicker({ format: "dd/mm/yyyy" });
-
 $("#plan_salud_fecha_fin").datepicker({ format: "dd/mm/yyyy" });
 
+$("#informe_plan_salud_fecha_inicio").datepicker({ format: "dd/mm/yyyy" });
+$("#informe_plan_salud_fecha_fin").datepicker({ format: "dd/mm/yyyy" });
+
 // END ## DATEPIKER ##
+
+// BEGIN ## DATATABLE ##
+
+var data_table_lang_es = {
+    "decimal": "",
+    "emptyTable": "No hay usuarios para mostrar",
+    "info": "Viendo _START_ a _END_ de _TOTAL_ entradas",
+    "infoEmpty": "Viendo 0 to 0 of 0 entradas",
+    "infoFiltered": "(Filtrado de _MAX_ entradas totales)",
+    "infoPostFix": "",
+    "thousands": ",",
+    "lengthMenu": "Nro. p&aacute;ginas _MENU_",
+    "loadingRecords": "Cargando...",
+    "processing": "Procesando...",
+    "search": "Buscar: ",
+    "zeroRecords": "No se encontraron registros coincidentes",
+    "paginate": {
+        "first": "Primero",
+        "last": "&Uacute;ltimo",
+        "next": "Siguiente",
+        "previous": "Anterior"
+    },
+    "aria": {
+        "sortAscending": ": activar para ordenar la columna ascendentemente",
+        "sortDescending": ": activar para ordenar la columna descendentemente"
+    }
+};
+
+$('#table_informe_plan_salud').DataTable({
+    "ordering": false,
+    "info": false,
+    "autoWidth": true,
+    "lengthMenu": [[10, 20, -1], [10, 20, "Todo"]],
+    "language": data_table_lang_es
+});
+
+// END ## DATATABLE ##
 
 // BEGIN ## SERVICIOS SALUD ##
 

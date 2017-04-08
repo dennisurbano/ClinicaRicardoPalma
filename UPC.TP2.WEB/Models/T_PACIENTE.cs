@@ -16,7 +16,6 @@ namespace UPC.TP2.WEB.Models
     {
         public T_PACIENTE()
         {
-            this.T_COMPROBANTE = new HashSet<T_COMPROBANTE>();
             this.T_RESERVA_SERVICIO_SALUD = new HashSet<T_RESERVA_SERVICIO_SALUD>();
             this.T_PLAN_PACIENTE = new HashSet<T_PLAN_PACIENTE>();
         }
@@ -28,7 +27,6 @@ namespace UPC.TP2.WEB.Models
         public string estado { get; set; }
         public Nullable<int> codPersona { get; set; }
     
-        public virtual ICollection<T_COMPROBANTE> T_COMPROBANTE { get; set; }
         public virtual T_PERSONA T_PERSONA { get; set; }
         public virtual ICollection<T_RESERVA_SERVICIO_SALUD> T_RESERVA_SERVICIO_SALUD { get; set; }
         public virtual ICollection<T_PLAN_PACIENTE> T_PLAN_PACIENTE { get; set; }

@@ -1,0 +1,69 @@
+﻿@using UPC.TP2.WEB.Utils
+@model UPC.TP2.WEB.ViewModels.InformePlanSaludViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<hr />
+<span>@ViewBag.Message</span>
+<hr />
+
+<form action="/InformePlanSalud/IndexProcess">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="controls">
+                <div class="input-append date" id="dpI" data-date="" data-date-format="dd/mm/yyyy">Fecha inicio
+                    <input class="span2" type="text" value="@(Util.IsEmpty(ViewData["fecha_inicio"]) ? Util.getToday() : ViewData["fecha_inicio"])" id="informe_plan_salud_fecha_inicio" name="informe_plan_salud_fecha_inicio" style="width: 50%">
+                    <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="span2">
+            <div class="controls">
+                <div class="input-append date" id="dpF" data-date="" data-date-format="dd/mm/yyyy">
+                    Fecha fin
+                    <input class="span2" type="text" value="@(Util.IsEmpty(ViewData["fecha_fin"]) ? Util.getToday() : ViewData["fecha_fin"])" id="informe_plan_salud_fecha_fin" name="informe_plan_salud_fecha_fin" style="width: 50%">
+                    <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+            </div>
+        </div>
+        <div class="span2">
+            <div class="controls">
+                <label class="checkbox inline">
+                    <input type="checkbox" id="informe_plan_salud_estado_activo" name="informe_planes_salud_estado_activos" @(ViewData["planes_salud_activos"].ToString() == "on" ? "checked=\"checked\"" : String.Empty)> Activo
+                </label>
+                <label class="checkbox inline">
+                    <input type="checkbox" id="informe_plan_salud_estado_inactivo" name="informe_planes_salud_estado_inactivos" @(ViewData["planes_salud_inactivos"].ToString() == "on" ? "checked=\"checked\"" : String.Empty)> Inactivo
+                </label>
+            </div>
+        </div>
+        <div class="span1">
+            <button type="submit" class="btn">Generar</button>
+        </div>
+    </div>
+</form>
+<hr />
+<div class="row-fluid">
+
+    <table id="table_informe_plan_salud" class="display nowrap dataTable dtr-inline collapsed " style="width: 100%">
+        <thead>
+            <tr>
+                <th>PLAN DE SALUD</th>
+                <th>PERIODO</th>
+                <th>INGRESO NETO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+

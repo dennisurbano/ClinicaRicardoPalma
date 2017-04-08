@@ -72,10 +72,6 @@
       <End Role="T_BITACORA_INCIDENCIA" EntitySet="T_BITACORA_INCIDENCIA" />
       <End Role="T_SEGUIMIENTO" EntitySet="T_SEGUIMIENTO" />
     </AssociationSet>
-    <AssociationSet Name="FK__T_COMPROB__id_pa__49C3F6B7" Association="BDCLINICAModel.Store.FK__T_COMPROB__id_pa__49C3F6B7">
-      <End Role="T_PACIENTE" EntitySet="T_PACIENTE" />
-      <End Role="T_COMPROBANTE" EntitySet="T_COMPROBANTE" />
-    </AssociationSet>
     <AssociationSet Name="FK__T_CONFIGU__id_in__4AB81AF0" Association="BDCLINICAModel.Store.FK__T_CONFIGU__id_in__4AB81AF0">
       <End Role="T_INVESTIGACION_COMERCIAL" EntitySet="T_INVESTIGACION_COMERCIAL" />
       <End Role="T_CONFIGURACION" EntitySet="T_CONFIGURACION" />
@@ -244,6 +240,10 @@
       <End Role="T_ESTRATEGIA_COMERCIAL_DETALLE" EntitySet="T_ESTRATEGIA_COMERCIAL_DETALLE" />
       <End Role="T_ESTRATEGIA_COMERCIAL" EntitySet="T_ESTRATEGIA_COMERCIAL" />
     </AssociationSet>
+    <AssociationSet Name="T_COMPROBANTET_PERSONA" Association="BDCLINICAModel.Store.T_COMPROBANTET_PERSONA">
+      <End Role="T_COMPROBANTE" EntitySet="T_COMPROBANTE" />
+      <End Role="T_PERSONA" EntitySet="T_PERSONA" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="T_BASE_FINANCIERA">
     <Key>
@@ -302,7 +302,7 @@
     <Property Name="impuesto" Type="int" Nullable="true" />
     <Property Name="area_venta" Type="nvarchar(max)" Nullable="false" />
     <Property Name="total" Type="decimal" Nullable="false" Precision="18" Scale="0" />
-    <Property Name="id_paciente" Type="int" Nullable="true" />
+    <Property Name="codPersona" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="T_CONFIGURACION">
     <Key>
@@ -756,18 +756,6 @@
       </Principal>
       <Dependent Role="T_SEGUIMIENTO">
         <PropertyRef Name="id_bitacora" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__T_COMPROB__id_pa__49C3F6B7">
-    <End Role="T_PACIENTE" Type="BDCLINICAModel.Store.T_PACIENTE" Multiplicity="0..1" />
-    <End Role="T_COMPROBANTE" Type="BDCLINICAModel.Store.T_COMPROBANTE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="T_PACIENTE">
-        <PropertyRef Name="id_paciente" />
-      </Principal>
-      <Dependent Role="T_COMPROBANTE">
-        <PropertyRef Name="id_paciente" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1279,6 +1267,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="T_COMPROBANTET_PERSONA">
+    <End Role="T_COMPROBANTE" Type="BDCLINICAModel.Store.T_COMPROBANTE" Multiplicity="*" />
+    <End Role="T_PERSONA" Type="BDCLINICAModel.Store.T_PERSONA" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="T_PERSONA">
+        <PropertyRef Name="codPersona" />
+      </Principal>
+      <Dependent Role="T_COMPROBANTE">
+        <PropertyRef Name="codPersona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -1376,10 +1376,6 @@
           <AssociationSet Name="FK_T_SEGUIMIENTO_BITACORA_INCIDENCIA" Association="BDCLINICAModel.FK_T_SEGUIMIENTO_BITACORA_INCIDENCIA">
             <End Role="T_BITACORA_INCIDENCIA" EntitySet="T_BITACORA_INCIDENCIA" />
             <End Role="T_SEGUIMIENTO" EntitySet="T_SEGUIMIENTO" />
-          </AssociationSet>
-          <AssociationSet Name="FK__T_COMPROB__id_pa__49C3F6B7" Association="BDCLINICAModel.FK__T_COMPROB__id_pa__49C3F6B7">
-            <End Role="T_PACIENTE" EntitySet="T_PACIENTE" />
-            <End Role="T_COMPROBANTE" EntitySet="T_COMPROBANTE" />
           </AssociationSet>
           <AssociationSet Name="FK__T_CONFIGU__id_in__4AB81AF0" Association="BDCLINICAModel.FK__T_CONFIGU__id_in__4AB81AF0">
             <End Role="T_INVESTIGACION_COMERCIAL" EntitySet="T_INVESTIGACION_COMERCIAL" />
@@ -1552,6 +1548,10 @@
             <End Role="T_ESTRATEGIA_COMERCIAL_DETALLE" EntitySet="T_ESTRATEGIA_COMERCIAL_DETALLE" />
             <End Role="T_ESTRATEGIA_COMERCIAL" EntitySet="T_ESTRATEGIA_COMERCIAL" />
           </AssociationSet>
+          <AssociationSet Name="T_COMPROBANTET_PERSONA" Association="BDCLINICAModel.T_COMPROBANTET_PERSONA">
+            <End Role="T_COMPROBANTE" EntitySet="T_COMPROBANTE" />
+            <End Role="T_PERSONA" EntitySet="T_PERSONA" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1628,8 +1628,8 @@
           <Property Name="impuesto" Type="Int32" />
           <Property Name="area_venta" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="total" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="id_paciente" Type="Int32" />
-          <NavigationProperty Name="T_PACIENTE" Relationship="BDCLINICAModel.FK__T_COMPROB__id_pa__49C3F6B7" FromRole="T_COMPROBANTE" ToRole="T_PACIENTE" />
+          <NavigationProperty Name="T_PERSONA" Relationship="BDCLINICAModel.T_COMPROBANTET_PERSONA" FromRole="T_COMPROBANTE" ToRole="T_PERSONA" />
+          <Property Name="codPersona" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="T_CONFIGURACION">
           <Key>
@@ -1830,7 +1830,6 @@
           <Property Name="segmentacion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="estado" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="codPersona" Type="Int32" />
-          <NavigationProperty Name="T_COMPROBANTE" Relationship="BDCLINICAModel.FK__T_COMPROB__id_pa__49C3F6B7" FromRole="T_PACIENTE" ToRole="T_COMPROBANTE" />
           <NavigationProperty Name="T_PERSONA" Relationship="BDCLINICAModel.FK__T_PACIENT__codPe__59FA5E80" FromRole="T_PACIENTE" ToRole="T_PERSONA" />
           <NavigationProperty Name="T_RESERVA_SERVICIO_SALUD" Relationship="BDCLINICAModel.FK__T_RESERVA__id_pa__5DCAEF64" FromRole="T_PACIENTE" ToRole="T_RESERVA_SERVICIO_SALUD" />
           <NavigationProperty Name="T_PLAN_PACIENTE" Relationship="BDCLINICAModel.FK_T_PLAN_PACIENTE_T_PACIENTE" FromRole="T_PACIENTE" ToRole="T_PLAN_PACIENTE" />
@@ -1846,6 +1845,7 @@
           <NavigationProperty Name="T_PACIENTE" Relationship="BDCLINICAModel.FK__T_PACIENT__codPe__59FA5E80" FromRole="T_PERSONA" ToRole="T_PACIENTE" />
           <NavigationProperty Name="T_PERSONA_PLANSALUD" Relationship="BDCLINICAModel.T_PERSONAT_PERSONA_PLANSALUD" FromRole="T_PERSONA" ToRole="T_PERSONA_PLANSALUD" />
           <NavigationProperty Name="T_PROGRAMACION_MEDICA" Relationship="BDCLINICAModel.T_PROGRAMACION_MEDICAT_PERSONA" FromRole="T_PERSONA" ToRole="T_PROGRAMACION_MEDICA" />
+          <NavigationProperty Name="T_COMPROBANTE" Relationship="BDCLINICAModel.T_COMPROBANTET_PERSONA" FromRole="T_PERSONA" ToRole="T_COMPROBANTE" />
         </EntityType>
         <EntityType Name="T_PLAN_BASE_FINANCIERA">
           <Key>
@@ -2132,18 +2132,6 @@
             </Principal>
             <Dependent Role="T_SEGUIMIENTO">
               <PropertyRef Name="id_bitacora" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__T_COMPROB__id_pa__49C3F6B7">
-          <End Type="BDCLINICAModel.T_PACIENTE" Role="T_PACIENTE" Multiplicity="0..1" />
-          <End Type="BDCLINICAModel.T_COMPROBANTE" Role="T_COMPROBANTE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_PACIENTE">
-              <PropertyRef Name="id_paciente" />
-            </Principal>
-            <Dependent Role="T_COMPROBANTE">
-              <PropertyRef Name="id_paciente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2698,6 +2686,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="T_COMPROBANTET_PERSONA">
+          <End Type="BDCLINICAModel.T_COMPROBANTE" Role="T_COMPROBANTE" Multiplicity="*" />
+          <End Type="BDCLINICAModel.T_PERSONA" Role="T_PERSONA" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="T_PERSONA">
+              <PropertyRef Name="codPersona" />
+            </Principal>
+            <Dependent Role="T_COMPROBANTE">
+              <PropertyRef Name="codPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2764,7 +2764,7 @@
           <ScalarProperty Name="impuesto" ColumnName="impuesto" />
           <ScalarProperty Name="area_venta" ColumnName="area_venta" />
           <ScalarProperty Name="total" ColumnName="total" />
-          <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+          <ScalarProperty Name="codPersona" ColumnName="codPersona" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

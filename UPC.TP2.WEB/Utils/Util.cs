@@ -108,5 +108,12 @@ namespace UPC.TP2.WEB.Utils
             }
             return "La fecha inicial es menor que la final";
         }
+
+        public static bool IsEmpty(object obj)
+        {
+            if (obj == null) return true;
+            if (obj.ToString() == String.Empty) return true;
+            return false;
+        }
     }
 }

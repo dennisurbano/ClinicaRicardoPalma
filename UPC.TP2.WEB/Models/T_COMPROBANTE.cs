@@ -24,8 +24,8 @@ namespace UPC.TP2.WEB.Models
         public Nullable<int> impuesto { get; set; }
         public string area_venta { get; set; }
         public decimal total { get; set; }
-        public Nullable<int> id_paciente { get; set; }
+        public int codPersona { get; set; }
     
-        public virtual T_PACIENTE T_PACIENTE { get; set; }
+        public virtual T_PERSONA T_PERSONA { get; set; }
     }
 }

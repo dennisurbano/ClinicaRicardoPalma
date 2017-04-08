@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/07/2017 10:20:49
+-- Date Created: 04/07/2017 15:23:46
 -- Generated from EDMX file: E:\PROJECTS_VS\VS2017\ClinicaRicardoPalma\UPC.TP2.WEB\Models\ClinicaContext.edmx
 -- --------------------------------------------------
 
@@ -346,7 +346,7 @@ CREATE TABLE [dbo].[T_COMPROBANTE] (
     [impuesto] int  NULL,
     [area_venta] nvarchar(max)  NOT NULL,
     [total] decimal(18,0)  NOT NULL,
-    [id_paciente] int  NULL
+    [codPersona] int  NOT NULL
 );
 GO
 
@@ -1061,21 +1061,6 @@ ON [dbo].[T_SEGUIMIENTO]
     ([id_bitacora]);
 GO
 
--- Creating foreign key on [id_paciente] in table 'T_COMPROBANTE'
-ALTER TABLE [dbo].[T_COMPROBANTE]
-ADD CONSTRAINT [FK__T_COMPROB__id_pa__49C3F6B7]
-    FOREIGN KEY ([id_paciente])
-    REFERENCES [dbo].[T_PACIENTE]
-        ([id_paciente])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK__T_COMPROB__id_pa__49C3F6B7'
-CREATE INDEX [IX_FK__T_COMPROB__id_pa__49C3F6B7]
-ON [dbo].[T_COMPROBANTE]
-    ([id_paciente]);
-GO
-
 -- Creating foreign key on [id_investigacion_comercial] in table 'T_CONFIGURACION'
 ALTER TABLE [dbo].[T_CONFIGURACION]
 ADD CONSTRAINT [FK__T_CONFIGU__id_in__4AB81AF0]
@@ -1698,6 +1683,21 @@ GO
 CREATE INDEX [IX_FK_T_ESTRATEGIA_COMERCIAL_DETALLET_ESTRATEGIA_COMERCIAL]
 ON [dbo].[T_ESTRATEGIA_COMERCIAL_DETALLE]
     ([id_estrategia_comercial]);
+GO
+
+-- Creating foreign key on [codPersona] in table 'T_COMPROBANTE'
+ALTER TABLE [dbo].[T_COMPROBANTE]
+ADD CONSTRAINT [FK_T_COMPROBANTET_PERSONA]
+    FOREIGN KEY ([codPersona])
+    REFERENCES [dbo].[T_PERSONA]
+        ([codPersona])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_T_COMPROBANTET_PERSONA'
+CREATE INDEX [IX_FK_T_COMPROBANTET_PERSONA]
+ON [dbo].[T_COMPROBANTE]
+    ([codPersona]);
 GO
 
 -- --------------------------------------------------

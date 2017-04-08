@@ -84,35 +84,78 @@ namespace UPC.TP2.WEB.PlanSalud.Controllers
             T_CONFIGURACION config_retirar = db.T_CONFIGURACION.Where(x => x.indicador == "retirar_servicio").FirstOrDefault();
 
             //## TABLA DE RETIRO
-            object obj_ret_serv = from pro in ret_serv.Where(x => x.estado == "1")
-                                  join per in db.T_PERSONA on pro.codPersona equals per.codPersona
-                                  join per_pla in db.T_PERSONA_PLANSALUD on per.codPersona equals per_pla.codPersona //into gj_per_pla
-                                  //from per_pla in gj_per_pla.DefaultIfEmpty(new T_PERSONA_PLANSALUD())
-                                  join pla_ser in db.T_PLAN_SERVICIO.Where(x => x.estado == "1").ToList() on per_pla.id_plan_salud equals pla_ser.id_plan_salud
-                                  join pla in db.T_PLAN_DE_SALUD on pla_ser.id_plan_salud equals pla.id_plan_salud
-   
-                                  /*
-                                  join per in db.T_PERSONA on per_pla.codPersona equals per.codPersona
-                                  join pro in db.T_PROGRAMACION_MEDICA.Where(x=> x.estado == "1" && x.fecha >= FechaInicio && x.fecha <= FechaFin) on 
-                                    new { pla_ser.idEspecialidad, pla_ser.id_servicio } equals
-                                    new { pro.idEspecialidad, pro.id_servicio }  into gj_pro
-                                  
-                                  from pro in gj_pro.DefaultIfEmpty()
-                                  */
-                                  //where pro == null || ( pro != null && pro.fecha >= per_pla.fecha_inicio && pro.fecha <= per_pla.fecha_fin)
-                                  where pro != null && pro.fecha >= per_pla.fecha_inicio && pro.fecha <= per_pla.fecha_fin
+            object obj_ret_serv_00 = from pro in ret_serv.Where(x => x.estado == "1")
+                                     join per_pla in db.T_PERSONA_PLANSALUD on pro.codPersona equals per_pla.codPersona
+                                     join pla_ser in db.T_PLAN_SERVICIO.Where(x => x.estado == "1").ToList() on per_pla.id_plan_salud equals pla_ser.id_plan_salud
+
+                                     into jg
+                                     select jg;
+
+            object obj_ret_serv_01 = from pro in
+                                      (
+                                       from _pro in ret_serv.Where(x => x.estado == "1")
+                                       join _per_pla in db.T_PERSONA_PLANSALUD on _pro.codPersona equals _per_pla.codPersona
+                                       where _pro.fecha >= _per_pla.fecha_inicio && _pro.fecha <= _per_pla.fecha_fin
+                                       select new
+                                       {
+                                           _pro.codPersona,
+                                           _pro.id_programacion,
+                                           _pro.idEspecialidad,
+                                           _pro.id_servicio,
+                                           _pro.fecha,
+                                           _per_pla.id_plan_salud
+                                       }
+                                      ) select pro;
+
+            object obj_ret_serv = from pro in
+                                      (
+                                       from _pro in ret_serv.Where(x => x.estado == "1")
+                                       join _per_pla in db.T_PERSONA_PLANSALUD on _pro.codPersona equals _per_pla.codPersona
+                                       where _pro.fecha >= _per_pla.fecha_inicio && _pro.fecha <= _per_pla.fecha_fin
+                                       select new {
+                                           _pro.codPersona,
+                                           _pro.id_programacion,
+                                           _pro.idEspecialidad,
+                                           _pro.id_servicio,
+                                           _pro.fecha,
+                                           _per_pla.id_plan_salud,
+                                           _per_pla.T_PLAN_DE_SALUD.nombre_plan
+                                       }
+                                      )
+                                   
+                                  join pla_ser in 
+
+                                  (
+                                  from _pla_ser in db.T_PLAN_SERVICIO.Where(x => x.estado == "1").ToList() 
+                                  join _esp_ser in db.T_ESPECIALIDAD_SERVICIO on new { _pla_ser.idEspecialidad, _pla_ser.id_servicio } equals new { _esp_ser.idEspecialidad, _esp_ser.id_servicio }
+                                  select new {
+                                      _pla_ser.id_plan_salud,
+                                      _esp_ser.idEspecialidad,
+                                      _esp_ser.id_servicio,
+                                      _esp_ser.T_ESPECIALIDAD_MEDICA.nomEspecialidad,
+                                      _esp_ser.T_SERVICIO_SALUD.nombre_servicio
+                                    }
+                                  ) 
+
+                                  on pro.id_plan_salud equals pla_ser.id_plan_salud
+
+                                  orderby pro.id_plan_salud, pro.idEspecialidad, pro.id_servicio 
                                   group 
-                                    new { pla_ser, pla, per_pla } 
-                                    by new { pla_ser.id_plan_salud, pla_ser.idEspecialidad, pla_ser.id_servicio } into gbx
+
+                                    new { pro, pla_ser }
+
+                                    by new { pro.idEspecialidad, pro.id_servicio , pro.id_plan_salud, pro.id_programacion } into gbx
+                                  
                                   select new
                                   {
+                                      id_pro = gbx.Key.id_programacion,
                                       id_plan_salud = gbx.Key.id_plan_salud,
                                       id_especialidad = gbx.Key.idEspecialidad,
                                       id_servicio = gbx.Key.id_servicio,
-                                      nombre_plan_salud = gbx.ToList().FirstOrDefault().pla_ser.T_PLAN_DE_SALUD.nombre_plan,
-                                      nombre_especialidad = gbx.ToList().FirstOrDefault().pla_ser.T_ESPECIALIDAD_SERVICIO.T_ESPECIALIDAD_MEDICA.nomEspecialidad,
-                                      nombre_servicio = gbx.ToList().FirstOrDefault().pla_ser.T_ESPECIALIDAD_SERVICIO.T_SERVICIO_SALUD.nombre_servicio,
-                                      cantidad = gbx.Count(c => c != null),
+                                      nombre_plan_salud = gbx.ToList().First().pro.nombre_plan,
+                                      nombre_especialidad = gbx.ToList().First().pla_ser.nomEspecialidad,
+                                      nombre_servicio = gbx.ToList().First().pla_ser.nombre_servicio,
+                                      cantidad = gbx.Count(),
                                       color = (gbx.Count(c => c != null) <= Int32.Parse(config_retirar.valor_maximo) && gbx.Count(c => c != null) >= Int32.Parse(config_retirar.valor_minimo)) ? "orange" : ""
                                   };
 

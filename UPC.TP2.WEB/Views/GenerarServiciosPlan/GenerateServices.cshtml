@@ -50,17 +50,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @{  }
+                    @{ int i = 0; }
                     @foreach (JObject item in Model.JSON_LIST_RETIRO_SERVICIO)
                     {
                         var keys = item["id_plan_salud"] + "_" + item["id_especialidad"] + "_" + item["id_servicio"];
                         <tr style="background-color: @item["color"]">
-                            <td><input type="checkbox" name="checkbox_retirar_@keys" @(item["color"].ToString() != String.Empty ? "checked=\"checked\"": String.Empty)/></td>
-                            <td>[@item["id_plan_salud"]]@item["nombre_plan_salud"]</td>
+                            <td>[@i]<input type="checkbox" name="checkbox_retirar_@keys" @(item["color"].ToString() != String.Empty ? "checked=\"checked\"" : String.Empty)/></td>
+                            <td>[@item["id_pro"]][@item["id_plan_salud"]]@item["nombre_plan_salud"]</td>
                             <td>[@item["id_especialidad"]]@item["nombre_especialidad"]</td>
                             <td>[@item["id_servicio"]]@item["nombre_servicio"]</td>
                             <td>@item["cantidad"]</td>
                         </tr>
+                        i++;
                     }
                 </tbody>
                 <tfoot>
