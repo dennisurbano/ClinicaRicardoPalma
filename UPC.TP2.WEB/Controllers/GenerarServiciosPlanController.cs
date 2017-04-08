@@ -84,29 +84,64 @@ namespace UPC.TP2.WEB.PlanSalud.Controllers
             T_CONFIGURACION config_retirar = db.T_CONFIGURACION.Where(x => x.indicador == "retirar_servicio").FirstOrDefault();
 
             //## TABLA DE RETIRO
-            object obj_ret_serv_00 = from pro in ret_serv.Where(x => x.estado == "1")
-                                     join per_pla in db.T_PERSONA_PLANSALUD on pro.codPersona equals per_pla.codPersona
-                                     join pla_ser in db.T_PLAN_SERVICIO.Where(x => x.estado == "1").ToList() on per_pla.id_plan_salud equals pla_ser.id_plan_salud
 
-                                     into jg
-                                     select jg;
-
-            object obj_ret_serv_01 = from pro in
-                                      (
-                                       from _pro in ret_serv.Where(x => x.estado == "1")
+            object obj_ret_serv_00 =   from _pro in ret_serv.Where(x => x.estado == "1")
                                        join _per_pla in db.T_PERSONA_PLANSALUD on _pro.codPersona equals _per_pla.codPersona
                                        where _pro.fecha >= _per_pla.fecha_inicio && _pro.fecha <= _per_pla.fecha_fin
+                                       orderby _per_pla.id_plan_salud, _pro.idEspecialidad, _pro.id_servicio
                                        select new
                                        {
                                            _pro.codPersona,
                                            _pro.id_programacion,
+                                           _per_pla.id_plan_salud,
                                            _pro.idEspecialidad,
                                            _pro.id_servicio,
-                                           _pro.fecha,
-                                           _per_pla.id_plan_salud
-                                       }
-                                      ) select pro;
+                                           _pro.fecha
+                                       };
 
+            JArray jpro = JArray.FromObject(obj_ret_serv_00, Util.jsonNoLoop()); 
+
+
+
+            object obj_ret_serv_01 =  from _pla_ser in db.T_PLAN_SERVICIO.Where(x => x.estado == "1").ToList()
+                                      join _esp_ser in db.T_ESPECIALIDAD_SERVICIO on new { _pla_ser.idEspecialidad, _pla_ser.id_servicio } equals new { _esp_ser.idEspecialidad, _esp_ser.id_servicio }
+                                      orderby _pla_ser.id_plan_salud, _pla_ser.idEspecialidad, _pla_ser.id_servicio
+                                      select new
+                                      {
+                                          _pla_ser.id_plan_salud,
+                                          _esp_ser.idEspecialidad,
+                                          _esp_ser.id_servicio,
+                                          _esp_ser.T_ESPECIALIDAD_MEDICA.nomEspecialidad,
+                                          _esp_ser.T_SERVICIO_SALUD.nombre_servicio
+                                      };
+
+
+            JArray jplaser = JArray.FromObject(obj_ret_serv_01, Util.jsonNoLoop());
+
+            JArray lista_retiro = new JArray();
+
+            foreach (JObject plaser in jplaser)
+            {
+                int cant = 0;
+                foreach (JObject pro in jpro)
+                {
+                    if(pro["id_plan_salud"] == plaser["id_plan_salud"] && pro["idEspecialidad"] == plaser["idEspecialidad"] && pro["id_servicio"] == plaser["id_servicio"])
+                    {
+                        cant++;
+                    }
+                }
+
+                plaser.Add("id_especialidad", plaser["idEspecialidad"]);
+                plaser.Add("nombre_plan_salud", "");
+                plaser.Add("nombre_especialidad", "");
+                //plaser.Add("nombre_servicio", "");
+                plaser.Add("color", "");
+                plaser.Add("cantidad", cant);
+                lista_retiro.Add(plaser);
+            }
+
+
+            /*
             object obj_ret_serv = from pro in
                                       (
                                        from _pro in ret_serv.Where(x => x.estado == "1")
@@ -118,8 +153,7 @@ namespace UPC.TP2.WEB.PlanSalud.Controllers
                                            _pro.idEspecialidad,
                                            _pro.id_servicio,
                                            _pro.fecha,
-                                           _per_pla.id_plan_salud,
-                                           _per_pla.T_PLAN_DE_SALUD.nombre_plan
+                                           _per_pla.id_plan_salud
                                        }
                                       )
                                    
@@ -137,28 +171,29 @@ namespace UPC.TP2.WEB.PlanSalud.Controllers
                                     }
                                   ) 
 
-                                  on pro.id_plan_salud equals pla_ser.id_plan_salud
+                                  on new { pro.id_plan_salud, pro.idEspecialidad, pro.id_servicio } equals new { pla_ser.id_plan_salud, pla_ser.idEspecialidad, pla_ser.id_servicio }
 
                                   orderby pro.id_plan_salud, pro.idEspecialidad, pro.id_servicio 
                                   group 
 
-                                    new { pro, pla_ser }
+                                    pro
 
-                                    by new { pro.idEspecialidad, pro.id_servicio , pro.id_plan_salud, pro.id_programacion } into gbx
+                                    by new { pro.id_servicio, pro.idEspecialidad, pro.id_plan_salud } into gbx
                                   
                                   select new
                                   {
-                                      id_pro = gbx.Key.id_programacion,
+                                      //id_pro = gbx.Key.id_programacion,
                                       id_plan_salud = gbx.Key.id_plan_salud,
                                       id_especialidad = gbx.Key.idEspecialidad,
                                       id_servicio = gbx.Key.id_servicio,
-                                      nombre_plan_salud = gbx.ToList().First().pro.nombre_plan,
-                                      nombre_especialidad = gbx.ToList().First().pla_ser.nomEspecialidad,
-                                      nombre_servicio = gbx.ToList().First().pla_ser.nombre_servicio,
-                                      cantidad = gbx.Count(),
+                                      nombre_plan_salud = "",//db.T_PLAN_DE_SALUD.Find(gbx.Key.id_plan_salud).nombre_plan,
+                                      nombre_especialidad = "",
+                                      nombre_servicio = "",
+                                      cantidad = gbx.Count(x => x != null),
                                       color = (gbx.Count(c => c != null) <= Int32.Parse(config_retirar.valor_maximo) && gbx.Count(c => c != null) >= Int32.Parse(config_retirar.valor_minimo)) ? "orange" : ""
                                   };
 
+    */
 
             //## TABLA DE ASIGNACION
             object obj_asi_plan = from pro in asi_plan
@@ -193,7 +228,7 @@ namespace UPC.TP2.WEB.PlanSalud.Controllers
                 LIST_PLAN_DE_SALUD = pla_salu,
                 T_CONFIGURACION_ASIGNAR = config_asignar,
                 T_CONFIGURACION_RETIRAR = config_retirar,
-                JSON_LIST_RETIRO_SERVICIO = JArray.FromObject(obj_ret_serv, Util.jsonNoLoop()),
+                JSON_LIST_RETIRO_SERVICIO = lista_retiro, //JArray.FromObject(obj_ret_serv, Util.jsonNoLoop()),
                 JSON_LIST_ASIGNA_PLAN = JArray.FromObject(obj_asi_plan, Util.jsonNoLoop()),
                 PLANES_SERVICIOS = db.T_PLAN_SERVICIO.ToList()
             };
