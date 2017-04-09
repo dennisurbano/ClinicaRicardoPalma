@@ -19,12 +19,12 @@
     DateTime? plan_fecha_inicio = Model.BITACORA.T_PLAN_DE_SALUD.fecha_inicio;
     DateTime? plan_fecha_fin = Model.BITACORA.T_PLAN_DE_SALUD.fecha_fin;
 
-    if(plan_esatdo != null && plan_esatdo == "1" && plan_fecha_inicio <= DateTime.Now && plan_fecha_fin >= DateTime.Now)
+    if(Util.IsEmpty(plan_esatdo) && plan_esatdo == "1" && plan_fecha_inicio <= DateTime.Now && plan_fecha_fin >= DateTime.Now)
     {
         plan_vigente = true;
     }
 
-    if (bita_estado != null && bita_estado.ToLower() != "cerrado" && bita_estado.ToLower() != "rechazado")
+    if (Util.IsEmpty(bita_estado) && Util.StringStandar(bita_estado) != "cerrado" && Util.StringStandar(bita_estado) != "rechazado")
     {
         bita_modific = true;
     }
@@ -32,16 +32,8 @@
 
 <form action="/Bitacora/EditSave" method="post" id="bitacora_edit_form">
     <div class="form-horizontal" id="bitacora_edit_form_div">
-        <!--
-        <div class="control-group">
-            <label class="control-label">Item</label>
-            <div class="controls">-->
-                <input type="hidden" name="bitacora_edit_id" value="@Model.BITACORA.id_bitacora"/>
-        <!--
-                <input type="text"  disabled="disabled" value="">                
-            </div>
-        </div>
-        -->
+
+        <input type="hidden" name="bitacora_edit_id" value="@Model.BITACORA.id_bitacora"/>
 
         <div class="control-group">
             <label class="control-label">Fecha</label>
@@ -119,12 +111,7 @@
             else
             {
                 <input class="btn" type="submit" value="Grabar" disabled="disabled"/>
-            }
-            
+            }            
         </p>
-
     </div>
 </form>
-
-
-

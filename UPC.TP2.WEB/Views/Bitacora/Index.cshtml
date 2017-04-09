@@ -39,10 +39,10 @@
         <thead>
             <tr>
                 <th>
-
+                    FECHA DE REGISTRO
                 </th>
                 <th>
-                    FECHA DE REGISTRO
+                    &Aacute;REA
                 </th>
                 <th>
                     TIPO
@@ -56,6 +56,9 @@
                 <th>
                     ESTADO
                 </th>
+                <th>
+
+                </th>
             </tr>
         </thead>
 
@@ -63,10 +66,10 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink("Ver detalle", "Edit", new { id = item.id_bitacora })
+                    @(Util.DateTimeToShort(item.fecha_registro))
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.fecha_registro)
+                    @item.area
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.tipo_incidencia)
@@ -79,6 +82,9 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    @Html.ActionLink("Ver detalle", "Edit", new { id = item.id_bitacora })
                 </td>
             </tr>
         }
@@ -97,7 +103,7 @@
             <div class="form-horizontal" id="bitacora_create_form_div">
 
                 <div class="control-group">
-                    <label class="control-label" for="inputEmail">Tipo de incidencia</label>
+                    <label class="control-label" >Tipo de incidencia</label>
                     <div class="controls">
                         <select id="bitacora_select_tipo" name="bitacora_tipo">
                             @foreach (var i in Util.BitacoraTipos())
@@ -108,13 +114,19 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="inputPassword">Incidencia</label>
+                    <label class="control-label" >Incidencia</label>
                     <div class="controls">
                         <input type="text" id="bitacoraIncidencia" placeholder="Ingrese texto" name="bitacora_incidencia">
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="inputPassword">Seguimiento</label>
+                    <label class="control-label">&Aacute;rea</label>
+                    <div class="controls">
+                        <input type="text" id="bitacoraArea" placeholder="Ingrese texto" name="bitacora_area">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" >Seguimiento</label>
                     <div class="controls">
                         <input type="text" id="bitacoraSeguimiento" placeholder="Ingrese texto" name="bitacora_seguimiento">
                     </div>

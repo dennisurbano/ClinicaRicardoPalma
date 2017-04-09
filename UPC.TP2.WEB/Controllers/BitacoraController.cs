@@ -75,6 +75,7 @@ namespace UPC.TP2.WEB.Controllers
 
             string bit_tipo = Request["bitacora_tipo"];
             string bit_incidencia = Request["bitacora_incidencia"];
+            string bit_area = Request["bitacora_area"];
             string bit_seguimiento = Request["bitacora_seguimiento"];
 
             T_BITACORA_INCIDENCIA bit = new T_BITACORA_INCIDENCIA()
@@ -82,6 +83,7 @@ namespace UPC.TP2.WEB.Controllers
                 fecha_registro = DateTime.Now,
                 descripcion = bit_incidencia,
                 tipo_incidencia = bit_tipo,
+                area = bit_area,
                 id_plan_salud  = bit_plan,
                 estado = "ABIERTO"
             };

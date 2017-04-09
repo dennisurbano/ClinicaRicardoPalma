@@ -125,5 +125,10 @@ namespace UPC.TP2.WEB.Utils
             if (obj.ToString() == String.Empty) return true;
             return false;
         }
+
+        public static string StringStandar(string str)
+        {
+            return str.ToLower().Trim();
+        }
     }
 }
