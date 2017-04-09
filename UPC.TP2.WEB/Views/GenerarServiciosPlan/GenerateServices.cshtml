@@ -39,7 +39,7 @@
             <div class="page-header" style="margin: 0px 0;">
                 <h1><small>Retirar servicio</small></h1>
             </div>
-            <table id="table_retirar" class="display nowrap dataTable dtr-inline collapsed">
+            <table id="table_retirar" class="display dataTable dtr-inline collapsed" style="word-break: normal">
                 <thead>
                     <tr>
                         <th>Seleccionar</th>
@@ -50,18 +50,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @{ int i = 0; }
+                    @{  }
                     @foreach (JObject item in Model.JSON_LIST_RETIRO_SERVICIO)
                     {
                         var keys = item["id_plan_salud"] + "_" + item["id_especialidad"] + "_" + item["id_servicio"];
                         <tr style="background-color: @item["color"]">
-                            <td>[@i]<input type="checkbox" name="checkbox_retirar_@keys" @(item["color"].ToString() != String.Empty ? "checked=\"checked\"" : String.Empty)/></td>
-                            <td>[@item["id_pro"]][@item["id_plan_salud"]]@item["nombre_plan_salud"]</td>
-                            <td>[@item["id_especialidad"]]@item["nombre_especialidad"]</td>
-                            <td>[@item["id_servicio"]]@item["nombre_servicio"]</td>
+                            <td><input type="checkbox" name="checkbox_retirar_@keys" @(item["color"].ToString() != String.Empty ? "checked=\"checked\"" : String.Empty)/></td>
+                            <td>@item["nombre_plan_salud"]</td>
+                            <td>@item["nombre_especialidad"]</td>
+                            <td>@item["nombre_servicio"]</td>
                             <td>@item["cantidad"]</td>
                         </tr>
-                        i++;
                     }
                 </tbody>
                 <tfoot>
@@ -75,7 +74,7 @@
             <div class="page-header" style="margin: 0px 0;">
                 <h1><small>Asignar servicio</small></h1>
             </div>
-            <table id="table_asignar" class="display nowrap dataTable dtr-inline collapsed">
+            <table id="table_asignar" class="display dataTable dtr-inline collapsed">
                 <thead>
                     <tr>
                         <th>Selecione</th>
@@ -134,9 +133,9 @@
                     @foreach (var item in Model.PLANES_SERVICIOS)
                     {
                         <tr>
-                            <td>[@(item.id_plan_salud)]@(item.T_PLAN_DE_SALUD.nombre_plan)</td>
-                            <td>[@(item.idEspecialidad)]@(item.T_ESPECIALIDAD_SERVICIO.T_ESPECIALIDAD_MEDICA.nomEspecialidad)</td>
-                            <td>[@(item.id_servicio)]@(item.T_ESPECIALIDAD_SERVICIO.T_SERVICIO_SALUD.nombre_servicio)</td>
+                            <td>@(item.T_PLAN_DE_SALUD.nombre_plan)</td>
+                            <td>@(item.T_ESPECIALIDAD_SERVICIO.T_ESPECIALIDAD_MEDICA.nomEspecialidad)</td>
+                            <td>@(item.T_ESPECIALIDAD_SERVICIO.T_SERVICIO_SALUD.nombre_servicio)</td>
                             <td>@(item.fecha_inicio)</td>
                             <td>@(item.fecha_fin)</td>
                             <td>@(item.estado)</td>
