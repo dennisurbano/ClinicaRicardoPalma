@@ -31,6 +31,16 @@ namespace UPC.TP2.WEB.Utils
             return estado;
         }
 
+        public static Dictionary<int, string> EstrategiaComercialMedio()
+        {
+            Dictionary<int, string> medio = new Dictionary<int, string>();
+            medio.Add(1, "REDES SOCIALES");
+            medio.Add(2, "TELEVISIÓN");
+            medio.Add(3, "RADIO");
+            medio.Add(4, "IMPRESO");
+            return medio;
+        }
+
         public static Dictionary<int, string> PlanSaludEstado()
         {
             Dictionary<int, string> estado = new Dictionary<int, string>();

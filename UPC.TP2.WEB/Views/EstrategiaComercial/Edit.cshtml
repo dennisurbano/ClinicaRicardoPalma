@@ -173,7 +173,14 @@
                 <div class="control-group">
                     <label class="control-label">Medio</label>
                     <div class="controls">
-                        <input type="text" id="estrategia_comercial_detalle_medio" placeholder="Ingrese texto" name="estrategia_comercial_detalle_medio">
+                        <!--<input type="text" id="estrategia_comercial_detalle_medio" placeholder="Ingrese texto" name="estrategia_comercial_detalle_medio">-->
+                        <select name="estrategia_comercial_detalle_medio" id="estrategia_comercial_detalle_medio">
+                            <option value="">--Seleccione--</option>
+                            @foreach (var item in Util.EstrategiaComercialMedio())
+                            {
+                                <option value="@(item.Value)">@(item.Value)</option>
+                            }
+                        </select>
                     </div>
                 </div>
                 <div class="control-group">

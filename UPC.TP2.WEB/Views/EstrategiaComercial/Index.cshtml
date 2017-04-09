@@ -39,9 +39,6 @@
         <thead>
             <tr>
                 <th>
-
-                </th>
-                <th>
                     ESTRATEGIA
                 </th>
                 <th>
@@ -62,15 +59,15 @@
                 <th>
                     DESVIACI&Oacute;N
                 </th>
+                <th>
+
+                </th>
             </tr>
         </thead>
 
         @foreach (var item in Model.ESTRATEGIAS_COMERCIALES)
         {
             <tr>
-                <td>
-                    @Html.ActionLink("Ver detalle", "Edit", new { id = item.id_estrategia_comercial })
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.nombre)
                 </td>
@@ -90,7 +87,10 @@
                     @Html.DisplayFor(modelItem => item.real)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.desviacion)
+                    @Html.DisplayFor(modelItem => item.desviacion) % 
+                </td>
+                <td>
+                    @Html.ActionLink("Ver detalle", "Edit", new { id = item.id_estrategia_comercial })
                 </td>
             </tr>
         }

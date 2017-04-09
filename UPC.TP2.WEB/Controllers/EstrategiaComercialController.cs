@@ -41,7 +41,7 @@ namespace UPC.TP2.WEB.Controllers
                                             fecha_fin = est_com.T_ESTRATEGIA_COMERCIAL_DETALLE.Max(x => x.fecha_fin),
                                             presupuesto = est_com.presupuesto,
                                             real = est_com.T_ESTRATEGIA_COMERCIAL_DETALLE.Sum(x => x.monto),
-                                            desviacion = (est_com.presupuesto - est_com.T_ESTRATEGIA_COMERCIAL_DETALLE.Sum(x => x.monto)) / est_com.presupuesto,
+                                            desviacion = ((est_com.presupuesto - est_com.T_ESTRATEGIA_COMERCIAL_DETALLE.Sum(x => x.monto)) / est_com.presupuesto) * 100,
                                             id_plan_salud = est_com.id_plan_salud
                                           };
 
