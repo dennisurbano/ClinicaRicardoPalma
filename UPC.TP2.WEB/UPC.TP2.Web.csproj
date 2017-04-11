@@ -244,6 +244,8 @@
     <Content Include="App_Data\06_04_2017_schema.sql" />
     <Content Include="App_Data\07_04_2017_data.sql" />
     <Content Include="App_Data\07_04_2017_schema.sql" />
+    <Content Include="App_Data\10_04_2017_data.sql" />
+    <Content Include="App_Data\10_04_2017_schema.sql" />
     <Content Include="Models\ClinicaContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
