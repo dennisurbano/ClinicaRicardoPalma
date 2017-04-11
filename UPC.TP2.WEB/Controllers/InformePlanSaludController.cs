@@ -35,6 +35,13 @@ namespace UPC.TP2.WEB.Controllers
                 DateTime ff = DateTime.Parse(Request["informe_plan_salud_fecha_fin"]);
                 string planes_salud_activos = Request["informe_planes_salud_estado_activos"] ?? String.Empty;
                 string planes_salud_inactivos = Request["informe_planes_salud_estado_inactivos"] ?? String.Empty;
+                string estado_i = "0";
+                string estado_a = "1";
+                if (planes_salud_activos == "on" && planes_salud_inactivos == String.Empty)
+                    estado_i = "1";
+                if (planes_salud_activos == String.Empty && planes_salud_inactivos == "on")
+                    estado_a = "0";
+
                 //Binding data
                 TempData["inf_pla_sal.fecha_inicio"] = Util.DateTimeToShort(fi);
                 TempData["inf_pla_sal.fecha_fin"] = Util.DateTimeToShort(ff);
@@ -48,24 +55,82 @@ namespace UPC.TP2.WEB.Controllers
 
                 //Process
 
-                //-- Informe persona plan
-                object json_informe = from per_pla in db.T_PERSONA_PLANSALUD.ToList()
-                                      join pla in db.T_PLAN_DE_SALUD on per_pla.id_plan_salud equals pla.id_plan_salud
-                                      group new { per_pla, pla }
-                                      by new { per_pla.id_plan_salud } into gb
+                //-- Personas con planes de salud -- > FILTRO
+                var t_per_pla = (from per_pla in db.T_PERSONA_PLANSALUD.Where(x => x.fecha_inicio >= fi && x.fecha_fin <= ff).ToList()
+                                join pla in db.T_PLAN_DE_SALUD on per_pla.id_plan_salud equals pla.id_plan_salud
+                                where pla.estado == estado_i || pla.estado == estado_a
+                                select new
+                                {
+                                    id_persona_plan = per_pla.id_persona_plansalud,
+                                    fecha_inicio = per_pla.fecha_inicio,
+                                    fecha_fin = per_pla.fecha_fin,
+                                    codPersona = per_pla.codPersona,
+                                    id_plan_salud = per_pla.id_plan_salud
+                                }).ToList();
+
+                //-- Comprobantes de personas con plan
+                var com_perpla = (from per_pla in t_per_pla
+                                  join com in db.T_COMPROBANTE on per_pla.codPersona equals com.codPersona
+                                      orderby per_pla.id_plan_salud, per_pla.codPersona
                                       select new
                                       {
+                                        id_comprobante = com.id_comprobante,
+                                        fecha_pago = com.fecha_pago,
+                                        codPersona = per_pla.codPersona,
+                                        id_plan_salud = per_pla.id_plan_salud,
+                                        total = com.total
+                                      }).ToList();
 
-                                      };
+
+                //[INFORME] Informe ingreso plan salud
+                var informe_plan_salud = (from inf in com_perpla
+                                         group inf by new { inf.id_plan_salud } into gb
+                                         select new
+                                         {
+                                             id_plan_salud = gb.Key.id_plan_salud,
+                                             nombre_plan_salud = db.T_PLAN_DE_SALUD.Find(gb.Key.id_plan_salud).nombre_plan,
+                                             ingreso_neto = gb.Sum(x => x.total),
+                                             periodo_inicio = Util.DateTimeYear(gb.Min(x => x.fecha_pago)),
+                                             periodo_fin = Util.DateTimeYear(gb.Max(x => x.fecha_pago))
+                                         }).ToList();
+
+                //[INFORME] Cantidad de personas por plan de salud
+                var informe_cantidad_personas = (from per_pla in t_per_pla
+                                                 group per_pla by new { per_pla.id_plan_salud } into gb
+                                                select new
+                                                {
+                                                    id_plan_salud = gb.Key.id_plan_salud,
+                                                    nombre_plan_salud = db.T_PLAN_DE_SALUD.Find(gb.Key.id_plan_salud).nombre_plan,
+                                                    estado = (db.T_PLAN_DE_SALUD.Find(gb.Key.id_plan_salud).estado == "0" ? "Inactivo" : "Activo"),
+                                                    cantidad_personas = gb.Count(),
+                                                    periodo_inicio = Util.DateTimeYear(gb.Min(x => x.fecha_inicio)),
+                                                    periodo_fin = Util.DateTimeYear(gb.Max(x => x.fecha_fin))
+                                                }).ToList();
+
+                //[INFORME] Cantidad de citas por plan de salud
+                var informe_cantidad_citas = (from per_pla in t_per_pla
+                                              join pro in db.T_PROGRAMACION_MEDICA on per_pla.codPersona equals pro.codPersona
+                                             group pro by new { per_pla.id_plan_salud } into gb
+                                             select new
+                                             {
+                                                 id_plan_salud = gb.Key.id_plan_salud,
+                                                 nombre_plan_salud = db.T_PLAN_DE_SALUD.Find(gb.Key.id_plan_salud).nombre_plan,
+                                                 cantidad_citas = gb.Count(),
+                                                 periodo_inicio = Util.DateTimeYear(gb.Min(x => x.fecha)),
+                                                 periodo_fin = Util.DateTimeYear(gb.Max(x => x.fecha))
+                                             }).ToList();
+
+
+
 
                 InformePlanSaludViewModel ivm = new InformePlanSaludViewModel(){
-                    JSON_INFORME_INGRESO_PLAN_SALUD = JArray.FromObject(json_informe, Util.jsonNoLoop()),
-                    JSON_INFORME_PERSONA_PLAN_SALUD_PERIODO = null,
-                    JSON_INFORME_CITAS_PLAN_SALUD = null
+                    JSON_INFORME_INGRESO_PLAN_SALUD = JArray.FromObject(informe_plan_salud, Util.jsonNoLoop()),
+                    JSON_INFORME_PERSONA_PLAN_SALUD_PERIODO = JArray.FromObject(informe_cantidad_personas, Util.jsonNoLoop()),
+                    JSON_INFORME_CITAS_PLAN_SALUD = JArray.FromObject(informe_cantidad_citas, Util.jsonNoLoop())
                 };
 
                 //Return view
-                return View("Index");
+                return View("Index", ivm);
 
             }
             catch (Exception e)

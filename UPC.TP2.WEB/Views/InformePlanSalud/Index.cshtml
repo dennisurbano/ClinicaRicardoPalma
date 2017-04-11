@@ -12,7 +12,8 @@
     <div class="row-fluid">
         <div class="span2">
             <div class="controls">
-                <div class="input-append date" id="dpI" data-date="" data-date-format="dd/mm/yyyy">Fecha inicio
+                <div class="input-append date" id="dpI" data-date="" data-date-format="dd/mm/yyyy">
+                    Fecha inicio
                     <input class="span2" type="text" value="@(Util.IsEmpty(ViewData["fecha_inicio"]) ? Util.getToday() : ViewData["fecha_inicio"])" id="informe_plan_salud_fecha_inicio" name="informe_plan_salud_fecha_inicio" style="width: 50%">
                     <span class="add-on"><i class="icon-th"></i></span>
                 </div>
@@ -43,27 +44,98 @@
     </div>
 </form>
 <hr />
-<div class="row-fluid">
 
-    <table id="table_informe_plan_salud" class="display nowrap dataTable dtr-inline collapsed " style="width: 100%">
-        <thead>
-            <tr>
-                <th>PLAN DE SALUD</th>
-                <th>PERIODO</th>
-                <th>INGRESO NETO</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
+@if(Model != null)
+{
+
+
+
+<div class="row-fluid">
+    @if (Model.JSON_INFORME_INGRESO_PLAN_SALUD != null)
+    {
+        <!-- INFORME #1 -->
+        <table id="table_informe_plan_salud" class="display nowrap dataTable dtr-inline collapsed " style="width: 100%">
+            <thead>
+                <tr>
+                    <th>PLAN DE SALUD</th>
+                    <th>PERIODO</th>
+                    <th>INGRESO NETO</th>
+                    <th>INGRESO SIMULADO</th>
+                    <th>-</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.JSON_INFORME_INGRESO_PLAN_SALUD)
+                {
+                    <tr>
+                        <td>@(item["nombre_plan_salud"])</td>
+                        <td>@(item["periodo_inicio"]) - @(item["periodo_fin"])</td>
+                        <td>@(item["ingreso_neto"])</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <hr />
+    }
+
+    @if (Model.JSON_INFORME_PERSONA_PLAN_SALUD_PERIODO != null)
+    {
+        <!-- INFORME #2 -->
+        <table id="table_informe_persona_plan_salud_periodo" class="display nowrap dataTable dtr-inline collapsed " style="width: 100%">
+            <thead>
+                <tr>
+                    <th>ESTADO</th>
+                    <th>PLAN DE SALUD</th>
+                    <th>PERIODO</th>
+                    <th>CANT. PERSONAS</th>
+                    <th>CANT. PEROSNAS SIMULADO</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.JSON_INFORME_PERSONA_PLAN_SALUD_PERIODO)
+                {
+                    <tr>
+                        <td>@(item["estado"])</td>
+                        <td>@(item["nombre_plan_salud"])</td>
+                        <td>@(item["periodo_inicio"]) - @(item["periodo_fin"])</td>
+                        <td>@(item["cantidad_personas"])</td>
+                        <td>-</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <hr />
+    }
+    @if (Model.JSON_INFORME_CITAS_PLAN_SALUD != null)
+    {
+        <!-- INFORME #3 -->
+        <table id="table_informe_citas_plan_salud" class="display nowrap dataTable dtr-inline collapsed " style="width: 100%">
+            <thead>
+                <tr>
+                    <th>PLAN DE SALUD</th>
+                    <th>PERIODO</th>
+                    <th>CITAS</th>
+                    <th>CITAS SIMULADO</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.JSON_INFORME_CITAS_PLAN_SALUD)
+                {
+                    <tr>
+                        <td>@(item["nombre_plan_salud"])</td>
+                        <td>@(item["periodo_inicio"]) - @(item["periodo_fin"])</td>
+                        <td>@(item["cantidad_citas"])</td>
+                        <td>-</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 
 </div>
 
-
+}
 
 

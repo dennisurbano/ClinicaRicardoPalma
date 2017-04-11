@@ -33,7 +33,7 @@ $("#informe_plan_salud_fecha_fin").datepicker({ format: "dd/mm/yyyy" });
 
 var data_table_lang_es = {
     "decimal": "",
-    "emptyTable": "No hay usuarios para mostrar",
+    "emptyTable": "No hay registros para mostrar",
     "info": "Viendo _START_ a _END_ de _TOTAL_ entradas",
     "infoEmpty": "Viendo 0 to 0 of 0 entradas",
     "infoFiltered": "(Filtrado de _MAX_ entradas totales)",
@@ -57,6 +57,22 @@ var data_table_lang_es = {
 };
 
 $('#table_informe_plan_salud').DataTable({
+    "ordering": false,
+    "info": false,
+    "autoWidth": true,
+    "lengthMenu": [[10, 20, -1], [10, 20, "Todo"]],
+    "language": data_table_lang_es
+});
+
+$('#table_informe_persona_plan_salud_periodo').DataTable({
+    "ordering": false,
+    "info": false,
+    "autoWidth": true,
+    "lengthMenu": [[10, 20, -1], [10, 20, "Todo"]],
+    "language": data_table_lang_es
+});
+
+$('#table_informe_citas_plan_salud').DataTable({
     "ordering": false,
     "info": false,
     "autoWidth": true,

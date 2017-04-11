@@ -76,6 +76,13 @@ namespace UPC.TP2.WEB.Utils
             return dt != null ? _dt.ToString("dd/MM/yyyy") : String.Empty;
         }
 
+        public static string DateTimeYear(DateTime? dt)
+        {
+            if (dt == null) return String.Empty;
+            DateTime _dt = dt ?? DateTime.Now; //Only for parse
+            return dt != null ? _dt.ToString("yyyy") : String.Empty;
+        }
+
         /**
          * 0: false[start date is later] | 1: true[start date is eairler] | -1: null or empty | -2: fail format 
          */

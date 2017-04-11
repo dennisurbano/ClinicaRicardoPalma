@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/07/2017 15:23:46
--- Generated from EDMX file: E:\PROJECTS_VS\VS2017\ClinicaRicardoPalma\UPC.TP2.WEB\Models\ClinicaContext.edmx
+-- Date Created: 04/10/2017 19:04:56
+-- Generated from EDMX file: D:\VSTUDIO_WS\ClinicaRicardoPalma\UPC.TP2.WEB\Models\ClinicaContext.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -37,9 +37,6 @@ IF OBJECT_ID(N'[dbo].[FK_T_BITACORA_INCIDENCIA_PLAN_DE_SALUD]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_T_SEGUIMIENTO_BITACORA_INCIDENCIA]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[T_SEGUIMIENTO] DROP CONSTRAINT [FK_T_SEGUIMIENTO_BITACORA_INCIDENCIA];
-GO
-IF OBJECT_ID(N'[dbo].[FK__T_COMPROB__id_pa__49C3F6B7]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[T_COMPROBANTE] DROP CONSTRAINT [FK__T_COMPROB__id_pa__49C3F6B7];
 GO
 IF OBJECT_ID(N'[dbo].[FK__T_CONFIGU__id_in__4AB81AF0]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[T_CONFIGURACION] DROP CONSTRAINT [FK__T_CONFIGU__id_in__4AB81AF0];
@@ -166,6 +163,9 @@ IF OBJECT_ID(N'[dbo].[FK_T_ESTRATEGIA_COMERCIALT_PLAN_DE_SALUD]', 'F') IS NOT NU
 GO
 IF OBJECT_ID(N'[dbo].[FK_T_ESTRATEGIA_COMERCIAL_DETALLET_ESTRATEGIA_COMERCIAL]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[T_ESTRATEGIA_COMERCIAL_DETALLE] DROP CONSTRAINT [FK_T_ESTRATEGIA_COMERCIAL_DETALLET_ESTRATEGIA_COMERCIAL];
+GO
+IF OBJECT_ID(N'[dbo].[FK_T_COMPROBANTET_PERSONA]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[T_COMPROBANTE] DROP CONSTRAINT [FK_T_COMPROBANTET_PERSONA];
 GO
 
 -- --------------------------------------------------
