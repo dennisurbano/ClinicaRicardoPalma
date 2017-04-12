@@ -19,12 +19,12 @@
     DateTime? plan_fecha_inicio = Model.BITACORA.T_PLAN_DE_SALUD.fecha_inicio;
     DateTime? plan_fecha_fin = Model.BITACORA.T_PLAN_DE_SALUD.fecha_fin;
 
-    if(Util.IsEmpty(plan_esatdo) && plan_esatdo == "1" && plan_fecha_inicio <= DateTime.Now && plan_fecha_fin >= DateTime.Now)
+    if(!Util.IsEmpty(plan_esatdo) && plan_esatdo == "1" && plan_fecha_inicio <= DateTime.Now && plan_fecha_fin >= DateTime.Now)
     {
         plan_vigente = true;
     }
 
-    if (Util.IsEmpty(bita_estado) && Util.StringStandar(bita_estado) != "cerrado" && Util.StringStandar(bita_estado) != "rechazado")
+    if (!Util.IsEmpty(bita_estado) && Util.StringStandar(bita_estado) != "cerrado" && Util.StringStandar(bita_estado) != "rechazado")
     {
         bita_modific = true;
     }
